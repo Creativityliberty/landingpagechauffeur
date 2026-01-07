@@ -19,6 +19,7 @@ import {
     Footer,
     SupportButton,
     SupportMenu,
+    RepoChatbot
 } from '@/ui';
 import { CONFIG } from '@/config';
 
@@ -58,6 +59,7 @@ export function LandingPage() {
             <Footer isDarkMode={isDarkMode} />
 
             <SupportButton onClick={() => setIsSupportOpen(true)} />
+            <RepoChatbot isDarkMode={isDarkMode} />
             <AnimatePresence>
                 {isSupportOpen && (
                     <SupportMenu

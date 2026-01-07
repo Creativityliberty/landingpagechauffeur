@@ -17,3 +17,4 @@ export { Footer } from './sections/Footer';
 
 // Support
 export { SupportButton, SupportMenu } from './support/SupportMenu';
+export { RepoChatbot } from './support/RepoChatbot';
