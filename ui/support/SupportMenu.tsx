@@ -4,13 +4,14 @@
  * Support Button and Menu for VTC
  */
 
-import { X, Bell, MessageCircle, Send, Mail, Phone } from 'lucide-react';
+import { X, Bell, MessageCircle, Send, Mail, Phone, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { CONFIG } from '@/config';
 
 interface SupportMenuProps {
     isOpen: boolean;
     onClose: () => void;
+    onOpenChat: () => void;
     isDarkMode: boolean;
 }
 
@@ -29,12 +30,13 @@ export function SupportButton({ onClick }: { onClick: () => void }) {
     );
 }
 
-export function SupportMenu({ isOpen, onClose }: SupportMenuProps) {
+export function SupportMenu({ isOpen, onClose, onOpenChat }: SupportMenuProps) {
     if (!isOpen) return null;
 
     const content = CONFIG.content.support;
 
     const options = [
+        { name: 'Mikmik Agent IA', icon: <Bot className="w-7 h-7 text-[#D4AF37]" />, action: onOpenChat, highlight: true },
         { name: 'Appeler', icon: <Phone className="w-7 h-7 text-[#D4AF37]" />, link: `tel:${CONFIG.contact.phone.replace(/\s/g, '')}` },
         { name: 'WhatsApp', icon: <MessageCircle className="w-7 h-7 text-[#25D366]" />, link: `https://wa.me/${CONFIG.contact.whatsapp}` },
         { name: 'Telegram', icon: <Send className="w-7 h-7 text-[#0088CC]" />, link: `https://t.me/${CONFIG.contact.whatsapp}` },
@@ -73,20 +75,38 @@ export function SupportMenu({ isOpen, onClose }: SupportMenuProps) {
 
                     <div className="space-y-4 flex flex-col">
                         {options.map((option) => (
-                            <a
-                                key={option.name}
-                                href={option.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="w-full bg-white hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center gap-5 p-5 rounded-[2rem] shadow-sm border border-black/5 text-left group"
-                            >
-                                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md shrink-0">
-                                    {option.icon}
-                                </div>
-                                <span className="text-2xl font-black text-black">
-                                    {option.name}
-                                </span>
-                            </a>
+                            option.action ? (
+                                <button
+                                    key={option.name}
+                                    onClick={option.action}
+                                    className={`w-full bg-white hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center gap-5 p-5 rounded-[2rem] shadow-sm border text-left group ${option.highlight ? 'border-[#D4AF37]/30 bg-[#D4AF37]/5' : 'border-black/5'}`}
+                                >
+                                    <div className={`w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md shrink-0 ${option.highlight ? 'text-[#D4AF37]' : ''}`}>
+                                        {option.icon}
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-2xl font-black text-black leading-none">
+                                            {option.name}
+                                        </span>
+                                        {option.highlight && <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest mt-1">Expert Architecture</span>}
+                                    </div>
+                                </button>
+                            ) : (
+                                <a
+                                    key={option.name}
+                                    href={option.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="w-full bg-white hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center gap-5 p-5 rounded-[2rem] shadow-sm border border-black/5 text-left group"
+                                >
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md shrink-0">
+                                        {option.icon}
+                                    </div>
+                                    <span className="text-2xl font-black text-black">
+                                        {option.name}
+                                    </span>
+                                </a>
+                            )
                         ))}
                     </div>
 

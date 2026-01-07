@@ -26,6 +26,7 @@ import { CONFIG } from '@/config';
 export function LandingPage() {
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [isSupportOpen, setIsSupportOpen] = useState(false);
+    const [isChatOpen, setIsChatOpen] = useState(false);
 
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -59,12 +60,20 @@ export function LandingPage() {
             <Footer isDarkMode={isDarkMode} />
 
             <SupportButton onClick={() => setIsSupportOpen(true)} />
-            <RepoChatbot isDarkMode={isDarkMode} />
+            <RepoChatbot
+                isDarkMode={isDarkMode}
+                isOpen={isChatOpen}
+                onClose={() => setIsChatOpen(false)}
+            />
             <AnimatePresence>
                 {isSupportOpen && (
                     <SupportMenu
                         isOpen={isSupportOpen}
                         onClose={() => setIsSupportOpen(false)}
+                        onOpenChat={() => {
+                            setIsSupportOpen(false);
+                            setIsChatOpen(true);
+                        }}
                         isDarkMode={isDarkMode}
                     />
                 )}
