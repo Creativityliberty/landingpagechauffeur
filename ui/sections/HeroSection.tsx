@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import { Award, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CONFIG } from '@/config';
+import { ShinyButton, BackgroundBeams } from '@/ui';
+import { cn } from '@/lib';
 
 interface HeroSectionProps {
     isDarkMode: boolean;
@@ -49,7 +51,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
                 className="absolute inset-0 hero-grid pointer-events-none -z-10 transition-opacity duration-500"
                 style={{ color: theme.text, opacity: theme.gridOpacity }}
             />
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[100%] h-[500px] md:h-[800px] bg-[#D4AF37]/10 rounded-full blur-[150px] md:blur-[200px] -z-10" />
+            <BackgroundBeams className="-z-10" />
 
             <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative">
                 <motion.div
@@ -87,16 +89,18 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
                     transition={{ delay: 0.3 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
                 >
-                    <a
-                        href="#reserver"
-                        className="w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 bg-[#D4AF37] text-black rounded-2xl font-black text-sm md:text-xl shadow-2xl shadow-[#D4AF37]/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-4 group"
+                    <ShinyButton
+                        onClick={() => document.getElementById('reserver')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="w-full sm:w-auto bg-[#D4AF37] text-black shadow-2xl shadow-[#D4AF37]/40"
                     >
-                        {CONFIG.content.hero.ctaPrimary}
-                        <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
-                    </a>
+                        <div className="flex items-center gap-4">
+                            {CONFIG.content.hero.ctaPrimary}
+                            <ArrowRight size={22} />
+                        </div>
+                    </ShinyButton>
                     <a
                         href="#services"
-                        className="w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border border-white/10 rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center"
+                        className="w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border border-white/10 rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center"
                         style={{ color: theme.text }}
                     >
                         {CONFIG.content.hero.ctaSecondary}

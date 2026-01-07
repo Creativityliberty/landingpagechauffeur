@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CONFIG } from '@/config';
 import { container } from '@/lib/container';
 import { Trip, TripType } from '@/core';
+import { ShinyButton } from '@/ui';
 
 interface BookingSectionProps {
     isDarkMode: boolean;
@@ -159,13 +160,14 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                             </div>
                         </div>
 
-                        <button
+                        <ShinyButton
                             onClick={calculateEstimate}
-                            className="w-full py-6 md:py-8 rounded-3xl font-black text-lg md:text-2xl hover:bg-[#D4AF37] hover:text-black transition-all shadow-xl flex items-center justify-center gap-4 group active:scale-[0.98]"
-                            style={{ backgroundColor: isDarkMode ? '#FFF' : '#0B0B0F', color: isDarkMode ? '#000' : '#FFF' }}
+                            className="w-full bg-black text-white dark:bg-white dark:text-black shadow-xl"
                         >
-                            CALCULER LE TARIF <ArrowRight size={26} className="group-hover:translate-x-3 transition-transform duration-500" />
-                        </button>
+                            <div className="flex items-center justify-center gap-4">
+                                CALCULER LE TARIF <ArrowRight size={26} />
+                            </div>
+                        </ShinyButton>
                     </motion.div>
 
                     {/* Estimate Display */}

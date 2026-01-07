@@ -18,3 +18,8 @@ export { Footer } from './sections/Footer';
 // Support
 export { SupportButton, SupportMenu } from './support/SupportMenu';
 export { RepoChatbot } from './support/RepoChatbot';
+
+// Components
+export * from './components/ShinyButton';
+export * from './components/BentoGrid';
+export * from './components/BackgroundBeams';

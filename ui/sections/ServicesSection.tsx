@@ -7,6 +7,8 @@
 import { Car, Plane, Ship, Map, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { CONFIG } from '@/config';
+import { BentoGrid, BentoGridItem } from '@/ui';
+import { cn } from '@/lib';
 
 interface ServicesSectionProps {
     isDarkMode: boolean;
@@ -59,43 +61,38 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <BentoGrid className="max-w-7xl mx-auto">
                     {CONFIG.services.map((service, i) => {
                         const IconComponent = iconMap[service.icon];
                         return (
-                            <motion.div
+                            <BentoGridItem
                                 key={service.id}
-                                {...fadeInUp}
-                                transition={{ delay: i * CONFIG.theme.animations.stagger }}
-                                className="group relative h-[500px] md:h-[600px] rounded-[3.5rem] overflow-hidden border shadow-2xl"
-                                style={{ backgroundColor: theme.surface, borderColor: theme.border }}
-                            >
-                                <div className="absolute inset-0 z-0">
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-80"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                                </div>
-
-                                <div className="relative z-10 h-full p-12 flex flex-col justify-end items-start text-left">
-                                    <motion.div
-                                        whileHover={{ scale: 1.1, rotate: 5 }}
-                                        className="w-14 h-14 rounded-[1.2rem] bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 mb-8 group-hover:bg-[#D4AF37] group-hover:text-black transition-all shadow-xl text-white"
-                                    >
-                                        {IconComponent && <IconComponent size={28} />}
-                                    </motion.div>
-                                    <h3 className="text-3xl md:text-4xl font-black text-white mb-5 tracking-tighter leading-none">{service.title}</h3>
-                                    <p className="text-base md:text-lg font-medium leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity text-white">
-                                        {service.desc}
-                                    </p>
-                                </div>
-                                <div className="absolute inset-0 border-[3px] border-transparent group-hover:border-[#D4AF37]/20 rounded-[3.5rem] transition-all duration-700 pointer-events-none" />
-                            </motion.div>
+                                title={service.title}
+                                description={service.desc}
+                                header={
+                                    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-2xl overflow-hidden relative group/image">
+                                        <img
+                                            src={service.image}
+                                            alt={service.title}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-110 grayscale group-hover/image:grayscale-0"
+                                        />
+                                        <div className="absolute inset-0 bg-black/20 group-hover/image:bg-transparent transition-colors" />
+                                    </div>
+                                }
+                                icon={
+                                    <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mb-2">
+                                        {IconComponent && <IconComponent size={20} />}
+                                    </div>
+                                }
+                                className={cn(
+                                    i === 0 || i === 3 ? "md:col-span-2" : "",
+                                    "border shadow-2xl transition-all duration-300",
+                                    isDarkMode ? "bg-black/40 hover:bg-black/60 border-white/5" : "bg-white hover:bg-slate-50 border-black/[0.05]"
+                                )}
+                            />
                         );
                     })}
-                </div>
+                </BentoGrid>
             </div>
         </section>
     );
