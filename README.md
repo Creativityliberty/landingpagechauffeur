@@ -90,12 +90,21 @@ If you remove Next.js tomorrow:
 - `bun build` - Build for production
 - `bun start` - Start production server
 
-## Deployment
+## Deployment on Vercel (Bun Runtime)
 
-Deploy anywhere that supports Bun or Node.js:
-- [Vercel](https://bun.com/docs/guides/deployment/vercel)
-- [Railway](https://railway.app)
-- [Fly.io](https://fly.io)
+This project is optimized for the **Vercel Bun Runtime (Beta)**.
+
+1. **Configure Runtime**: Ensure `vercel.json` exists with `"bunVersion": "1.x"`.
+2. **Setup Scripts**: Scripts in `package.json` should use `bun --bun next`.
+3. **Deploy via CLI**:
+   ```bash
+   bun i -g vercel
+   vercel login
+   vercel deploy
+   ```
+4. **Environment Variables**: Configure your variables (like `GEMINI_API_KEY`) in the Vercel Dashboard.
+
+[Learn more in the Bun Deployment Docs](https://bun.com/docs/guides/deployment/vercel)
 
 ## License
 
