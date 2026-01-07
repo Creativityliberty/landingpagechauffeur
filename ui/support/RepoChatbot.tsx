@@ -70,10 +70,13 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 50, scale: 0.9 }}
                     className="fixed bottom-24 left-4 right-4 md:left-8 md:right-auto md:w-[380px] max-h-[70vh] md:max-h-[600px] z-[110] rounded-[2rem] flex flex-col overflow-hidden border glass-dark shadow-3xl"
-                    style={{ borderColor: 'rgba(212, 175, 55, 0.2)' }}
+                    style={{
+                        borderColor: isDarkMode ? 'rgba(212, 175, 55, 0.2)' : 'rgba(212, 175, 55, 0.1)',
+                        backgroundColor: isDarkMode ? undefined : 'rgba(255, 255, 255, 0.95)'
+                    }}
                 >
                     {/* Header */}
-                    <div className="p-4 md:p-5 border-b border-white/10 flex items-center justify-between bg-black/40">
+                    <div className={`p-4 md:p-5 border-b flex items-center justify-between ${isDarkMode ? 'bg-black/40 border-white/10' : 'bg-white border-black/5'}`}>
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37]">
                                 <Bot size={18} />
@@ -85,7 +88,7 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                         </div>
                         <button
                             onClick={onClose}
-                            className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white/50 hover:text-white"
+                            className={`p-1.5 rounded-full transition-colors ${isDarkMode ? 'hover:bg-white/10 text-white/50 hover:text-white' : 'hover:bg-black/5 text-black/40 hover:text-black'}`}
                         >
                             <X size={18} />
                         </button>
@@ -95,14 +98,19 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                     <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 md:space-y-6 scrollbar-hide">
                         {messages.map((m, i) => (
                             <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                <div className={`max-w-[85%] p-3 md:p-4 rounded-2xl text-[11px] md:text-xs leading-relaxed ${m.role === 'user' ? 'bg-[#D4AF37] text-black font-medium' : 'bg-white/5 text-white/80 border border-white/10'}`}>
+                                <div className={`max-w-[85%] p-3 md:p-4 rounded-2xl text-[11px] md:text-xs leading-relaxed ${m.role === 'user'
+                                        ? 'bg-[#D4AF37] text-black font-medium'
+                                        : isDarkMode
+                                            ? 'bg-white/5 text-white/80 border border-white/10'
+                                            : 'bg-white text-gray-800 border border-black/5 shadow-sm'
+                                    }`}>
                                     {m.content}
                                 </div>
                             </div>
                         ))}
                         {isLoading && (
                             <div className="flex justify-start">
-                                <div className="bg-white/5 p-3 md:p-4 rounded-2xl border border-white/10">
+                                <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-black/5'} p-3 md:p-4 rounded-2xl border`}>
                                     <Loader2 size={14} className="animate-spin text-[#D4AF37]" />
                                 </div>
                             </div>
@@ -110,7 +118,7 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                     </div>
 
                     {/* Input */}
-                    <div className="p-4 md:p-5 border-t border-white/10 bg-black/40">
+                    <div className={`p-4 md:p-5 border-t ${isDarkMode ? 'bg-black/40 border-white/10' : 'bg-white border-black/5'}`}>
                         <div className="relative">
                             <input
                                 type="text"
@@ -118,7 +126,10 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                                 placeholder="Posez une question..."
-                                className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-4 pr-10 text-[11px] md:text-xs focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
+                                className={`w-full border rounded-xl py-2.5 pl-4 pr-10 text-[11px] md:text-xs focus:outline-none focus:border-[#D4AF37]/50 transition-colors ${isDarkMode
+                                        ? 'bg-white/5 border-white/10'
+                                        : 'bg-gray-50 border-black/10'
+                                    }`}
                                 style={{ color: theme.text }}
                             />
                             <button
