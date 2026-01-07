@@ -71,7 +71,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                         {...fadeInUp}
                         transition={{ delay: 0.1 }}
                         className={`${CONFIG.theme.typography.h2} font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]`}
-                        style={{ color: isDarkMode ? '#F5F5F7' : theme.text }}
+                        style={{ color: theme.text }}
                     >
                         Réserver Votre Chauffeur
                     </motion.h2>
@@ -79,7 +79,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                         {...fadeInUp}
                         transition={{ delay: 0.2 }}
                         className="text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-70"
-                        style={{ color: isDarkMode ? '#B7B7C2' : theme.muted }}
+                        style={{ color: theme.muted }}
                     >
                         Remplissez le formulaire ci-dessous pour obtenir une estimation immédiate de votre trajet.
                     </motion.p>
@@ -161,8 +161,8 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
 
                         <button
                             onClick={calculateEstimate}
-                            className="w-full py-6 md:py-8 rounded-3xl font-black text-lg md:text-2xl hover:bg-[#D4AF37] hover:text-black transition-all flex items-center justify-center gap-4 group active:scale-[0.98]"
-                            style={{ backgroundColor: isDarkMode ? '#FFF' : '#0F172A', color: isDarkMode ? '#000' : '#FFF' }}
+                            className="w-full py-6 md:py-8 rounded-3xl font-black text-lg md:text-2xl hover:bg-[#D4AF37] hover:text-black transition-all shadow-xl flex items-center justify-center gap-4 group active:scale-[0.98]"
+                            style={{ backgroundColor: isDarkMode ? '#FFF' : '#0B0B0F', color: isDarkMode ? '#000' : '#FFF' }}
                         >
                             CALCULER LE TARIF <ArrowRight size={26} className="group-hover:translate-x-3 transition-transform duration-500" />
                         </button>
@@ -211,6 +211,6 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

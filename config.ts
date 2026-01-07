@@ -32,11 +32,11 @@ export const CONFIG = {
             light: {
                 bg: "#FFFFFF",
                 surface: "#F8FAFC",
-                surface2: "#0F172A",
-                border: "rgba(15, 23, 42, 0.1)",
+                surface2: "#F1F5F9",
+                border: "rgba(15, 23, 42, 0.08)",
                 text: "#0F172A",
                 muted: "#475569",
-                gridOpacity: 0.08,
+                gridOpacity: 0.05,
             }
         },
         colors: {

@@ -45,7 +45,7 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                         {...fadeInUp}
                         transition={{ delay: 0.1, duration: 0.6 }}
                         className={`${CONFIG.theme.typography.h2} font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]`}
-                        style={{ color: isDarkMode ? '#F5F5F7' : theme.text }}
+                        style={{ color: theme.text }}
                     >
                         L&apos;Excellence en Mouvement
                     </motion.h2>
@@ -53,7 +53,7 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                         {...fadeInUp}
                         transition={{ delay: 0.2, duration: 0.6 }}
                         className="text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-70"
-                        style={{ color: isDarkMode ? '#B7B7C2' : theme.muted }}
+                        style={{ color: theme.muted }}
                     >
                         Nos prestations sont conçues pour répondre à toutes vos exigences de mobilité avec un standing irréprochable.
                     </motion.p>
