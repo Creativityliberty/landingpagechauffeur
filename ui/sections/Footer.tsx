@@ -60,7 +60,7 @@ export function Footer({ isDarkMode }: FooterProps) {
                     className="w-full pt-16 border-t flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 text-[10px] font-black uppercase tracking-[0.4em]"
                     style={{ borderColor: theme.border, color: theme.muted }}
                 >
-                    <p>© 2025 CHAUFFEUR PRIVÉ NORMANDIE — LUXURY MOBILITY.</p>
+                    <p>© 2026 CHAUFFEUR PRIVÉ NORMANDIE — LUXURY MOBILITY.</p>
                     <div className="flex gap-10">
                         <a href="#" className="hover:text-white">Mentions</a>
                         <a href="#" className="hover:text-white">CGV</a>
