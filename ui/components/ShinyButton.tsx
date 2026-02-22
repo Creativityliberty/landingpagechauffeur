@@ -29,20 +29,24 @@ interface ShinyButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const ShinyButton = ({
   children,
   className,
   onClick,
+  disabled,
 }: ShinyButtonProps) => {
   return (
     <motion.button
       {...animationProps}
       onClick={onClick}
+      disabled={disabled}
       className={cn(
         "relative rounded-xl px-8 py-4 font-black backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl dark:bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.1)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]",
         className,
+        disabled && "opacity-50 cursor-not-allowed"
       )}
     >
       <span className="relative block h-full w-full text-sm uppercase tracking-widest z-20">
