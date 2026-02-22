@@ -271,49 +271,8 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     />
                   </div>
 
-                  <div className="col-span-1 sm:col-span-2 grid grid-cols-3 gap-4 border-t pt-8 mt-4" style={{ borderColor: theme.border }}>
-                    {/* Distances Display (Read-only or manual override) */}
-                    <div className="space-y-3">
-                      <label className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block" style={{ color: theme.muted }}>
-                        Approche (km)
-                      </label>
-                      <input
-                        type="number"
-                        value={formData.distancePickup}
-                        className="w-full border-2 rounded-xl px-4 py-3 outline-none font-bold text-sm focus:border-[#D4AF37]"
-                        style={{ backgroundColor: theme.bg, borderColor: theme.border, color: theme.text }}
-                        onChange={(e) => setFormData({ ...formData, distancePickup: Number(e.target.value) })}
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block text-[#D4AF37]">
-                        Course (km)
-                      </label>
-                      <input
-                        type="number"
-                        value={formData.distanceTrip}
-                        className="w-full border-2 rounded-xl px-4 py-3 outline-none font-bold text-sm focus:border-[#D4AF37]"
-                        style={{ backgroundColor: theme.bg, borderColor: "#D4AF37", color: theme.text }}
-                        onChange={(e) => setFormData({ ...formData, distanceTrip: Number(e.target.value) })}
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block" style={{ color: theme.muted }}>
-                        Retour (km)
-                      </label>
-                      <input
-                        type="number"
-                        value={formData.distanceDropoff}
-                        className="w-full border-2 rounded-xl px-4 py-3 outline-none font-bold text-sm focus:border-[#D4AF37]"
-                        style={{ backgroundColor: theme.bg, borderColor: theme.border, color: theme.text }}
-                        onChange={(e) => setFormData({ ...formData, distanceDropoff: Number(e.target.value) })}
-                      />
-                    </div>
-                    <div className="col-span-3 text-center">
-                      <p className="text-[10px] opacity-60 mt-2" style={{ color: theme.muted }}>
-                        {isCalculating ? "Calcul des distances en cours..." : "💡 Distances calculées automatiquement via Google Maps."}
-                      </p>
-                    </div>
+                  <div className="col-span-1 sm:col-span-2 border-t pt-8 mt-4 hidden" style={{ borderColor: theme.border }}>
+                    {/* Distances Hidden - Logic remains for calculation */}
                   </div>
 
                 </div>
@@ -384,12 +343,22 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                       <CreditCard size={22} /> RÉSERVER & PAYER (CB)
                     </button>
                     <button
-                      onClick={() =>
+                      onClick={() => {
+                        const message = encodeURIComponent(
+                          `*NOUVELLE RÉSERVATION*\n\n` +
+                          `📍 *Départ:* ${formData.pickup}\n` +
+                          `🏁 *Arrivée:* ${formData.dropoff}\n` +
+                          `📅 *Date:* ${formData.date}\n` +
+                          `🕒 *Heure:* ${formData.time}\n\n` +
+                          `📏 *Distance:* ${Math.round(formData.distancePickup + formData.distanceTrip + formData.distanceDropoff)} km\n` +
+                          `💰 *Tarif estimé:* ${estimate.total.toFixed(2)}€\n\n` +
+                          `Je souhaite confirmer cette réservation.`
+                        );
                         window.open(
-                          `https://wa.me/${CONFIG.contact.whatsapp}`,
+                          `https://wa.me/${CONFIG.contact.whatsapp}?text=${message}`,
                           "_blank",
-                        )
-                      }
+                        );
+                      }}
                       className={`w-full py-6 border-2 rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 transition-all ${isDarkMode
                         ? "border-white/20 text-white hover:bg-white/5 hover:border-white/30"
                         : "border-black/20 text-black hover:bg-black/5 hover:border-black/30"
