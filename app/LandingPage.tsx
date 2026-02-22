@@ -40,6 +40,23 @@ export function LandingPage() {
   useEffect(() => {
     if (!isDarkMode) document.body.classList.add("light-mode");
     else document.body.classList.remove("light-mode");
+
+    // Auto-scroll based on pathname for "Clean URLs" SEO
+    const path = window.location.pathname.replace("/", "");
+    if (path && path !== "") {
+      const sectionMap: Record<string, string> = {
+        services: "services",
+        reserver: "reserver",
+        entreprises: "entreprises",
+        contact: "contact",
+      };
+      const sectionId = sectionMap[path];
+      if (sectionId) {
+        setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }, 500);
+      }
+    }
   }, [isDarkMode]);
 
   return (

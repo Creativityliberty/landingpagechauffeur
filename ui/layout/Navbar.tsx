@@ -49,7 +49,7 @@ export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
                     {CONFIG.content.navbar.map((link) => (
                         <a
                             key={link}
-                            href={`#${link.toLowerCase().replace(/é/g, 'e')}`}
+                            href={`/${link.toLowerCase().replace(/é/g, 'e') === 'accueil' ? '' : link.toLowerCase().replace(/é/g, 'e')}`}
                             className="text-[10px] font-bold transition-all uppercase tracking-[0.2em] relative group"
                             style={{ color: theme.muted }}
                         >
@@ -97,7 +97,7 @@ export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
                         {CONFIG.content.navbar.map((link) => (
                             <a
                                 key={link}
-                                href={`#${link.toLowerCase().replace(/é/g, 'e')}`}
+                                href={`/${link.toLowerCase().replace(/é/g, 'e') === 'accueil' ? '' : link.toLowerCase().replace(/é/g, 'e')}`}
                                 onClick={() => setIsOpen(false)}
                                 className="text-3xl font-black hover:text-[#D4AF37] tracking-tighter transition-colors"
                                 style={{ color: theme.text }}
