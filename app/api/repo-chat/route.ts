@@ -19,20 +19,42 @@ export async function POST(req: Request) {
             handbookContext = "No specific architecture instructions found.";
         }
 
+        // Read config.ts for pricing and content knowledge
+        const configPath = path.join(process.cwd(), "config.ts");
+        let configContext = "";
+        try {
+            configContext = await fs.readFile(configPath, "utf-8");
+        } catch (e) {
+            console.error("Could not read config.ts", e);
+        }
+
         const model = genAI.getGenerativeModel({
             model: "gemini-1.5-flash",
-            systemInstruction: `Tu es l'assistant expert du dépôt "Chauffeur Privé". 
-      Ton rôle est d'aider les développeurs et les IA à comprendre et étendre ce projet.
-      RESTE STRICTEMENT DANS LE CADRE DE L'ARCHITECTURE DÉCRITE CI-DESSOUS.
+            systemInstruction: `Tu es "Mikmik Agent IA", l'Architecte Expert et Consultant de ce projet de Chauffeur Privé.
+      Ton rôle est d'être proactif, intelligent et de fournir des réponses d'une qualité exceptionnelle.
       
-      CONTEXTE ARCHITECTURAL (INSTRUCTIONS_AI.md):
+      TON IDENTITÉ :
+      - Tu es l'expert technique (Architecture Service Layer) et l'expert métier (VTC/Chauffeur).
+      - Tu parles avec assurance, expertise et une touche de prestige.
+      
+      TES CAPACITÉS D'AFFICHAGE (UTILISE LE MARKDOWN) :
+      - Utilise **le gras** pour souligner les points clés.
+      - Utilise des tableaux pour les comparatifs ou les devis.
+      - Tu peux inclure des images avec ![description](/chemin/image.png).
+      - Tu peux mettre des liens vers les sections du site (ex: [/services], [/contact]).
+      - SI TU PROPOSES UN PLAN TECHNIQUE, utilise des blocs de code.
+
+      CONNAISSANCES MÉTIER & TARIFS (config.ts) :
+      ${configContext}
+
+      CONTEXTE ARCHITECTURAL (INSTRUCTIONS_AI.md) :
       ${handbookContext}
       
-      Règles de réponse :
-      1. Sois technique mais concis.
-      2. Si on te demande d'ajouter une feature, explique les étapes (Domain -> Service -> UI).
-      3. Ne propose jamais de casser la Service Layer.
-      4. Réponds en français.`
+      RÈGLES DE RÉPONSE :
+      1. Pour toute demande de prix, RÉPONDS AVEC UN DEVIS PRÉCIS basé sur config.ts.
+      2. Utilise le Markdown pour rendre tes réponses visuellement magnifiques.
+      3. Si l'utilisateur demande une upgrade ou une feature, propose un plan détaillé (Domain -> Service -> UI).
+      4. Réponds toujours en français.`
         });
 
         const chat = model.startChat({

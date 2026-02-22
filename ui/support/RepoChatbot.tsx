@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Bot, User, Loader2 } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { CONFIG } from '@/config';
 
 interface Message {
@@ -99,12 +101,54 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                         {messages.map((m, i) => (
                             <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                 <div className={`max-w-[85%] p-3 md:p-4 rounded-2xl text-[11px] md:text-xs leading-relaxed ${m.role === 'user'
-                                        ? 'bg-[#D4AF37] text-black font-medium'
-                                        : isDarkMode
-                                            ? 'bg-white/5 text-white/80 border border-white/10'
-                                            : 'bg-white text-gray-800 border border-black/5 shadow-sm'
+                                    ? 'bg-[#D4AF37] text-black font-medium'
+                                    : isDarkMode
+                                        ? 'bg-white/5 text-white/80 border border-white/10'
+                                        : 'bg-white text-gray-800 border border-black/5 shadow-sm'
                                     }`}>
-                                    {m.content}
+                                    {m.role === 'assistant' ? (
+                                        <div className={`space-y-4 prose prose-xs max-w-none prose-p:leading-relaxed prose-a:text-[#D4AF37] ${isDarkMode ? 'prose-invert prose-strong:text-white' : 'prose-strong:text-black'}`}>
+                                            <ReactMarkdown
+                                                remarkPlugins={[remarkGfm]}
+                                                components={{
+                                                    code({ node, inline, className, children, ...props }: any) {
+                                                        const match = /language-json/.exec(className || '');
+                                                        if (!inline && match) {
+                                                            try {
+                                                                const data = JSON.parse(String(children).replace(/\n/g, ''));
+                                                                if (data.type === 'quote') {
+                                                                    return (
+                                                                        <div className="not-prose my-4 p-4 rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/5 space-y-2 shadow-inner">
+                                                                            <div className="flex justify-between items-center text-[#D4AF37] font-black uppercase text-[10px] tracking-widest">
+                                                                                <span>Devis Estimatif</span>
+                                                                                <span>{data.price}€</span>
+                                                                            </div>
+                                                                            <p className="text-[11px] opacity-80">{data.details}</p>
+                                                                            <button
+                                                                                onClick={() => document.getElementById('reserver')?.scrollIntoView({ behavior: 'smooth' })}
+                                                                                className="w-full py-2 bg-[#D4AF37] text-black rounded-lg font-black uppercase text-[9px] hover:bg-[#E1C45A] transition-colors"
+                                                                            >
+                                                                                Réserver ce trajet
+                                                                            </button>
+                                                                        </div>
+                                                                    );
+                                                                }
+                                                            } catch (e) { /* Fallback to standard code block */ }
+                                                        }
+                                                        return (
+                                                            <code className={className} {...props}>
+                                                                {children}
+                                                            </code>
+                                                        );
+                                                    }
+                                                }}
+                                            >
+                                                {m.content}
+                                            </ReactMarkdown>
+                                        </div>
+                                    ) : (
+                                        m.content
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -127,8 +171,8 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                                 placeholder="Posez une question..."
                                 className={`w-full border rounded-xl py-2.5 pl-4 pr-10 text-[11px] md:text-xs focus:outline-none focus:border-[#D4AF37]/50 transition-colors ${isDarkMode
-                                        ? 'bg-white/5 border-white/10'
-                                        : 'bg-gray-50 border-black/10'
+                                    ? 'bg-white/5 border-white/10'
+                                    : 'bg-gray-50 border-black/10'
                                     }`}
                                 style={{ color: theme.text }}
                             />
