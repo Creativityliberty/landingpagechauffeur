@@ -54,11 +54,10 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
       id="accueil"
       className="relative min-h-screen flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden"
     >
-      {/* Background Image avec Overlay */}
       <div className="absolute inset-0 -z-20">
         <img
-          src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?auto=format&fit=crop&q=80&w=2000"
-          alt="Luxury Car"
+          src="/images/hero_bg.png"
+          alt="Luxury Chauffeur Service Le Havre"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
@@ -122,11 +121,10 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
           </ShinyButton>
           <a
             href="#services"
-            className={`w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center ${
-              isDarkMode
+            className={`w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center ${isDarkMode
                 ? "border-white/10 text-white"
                 : "border-black/10 text-black"
-            }`}
+              }`}
           >
             {CONFIG.content.hero.ctaSecondary}
           </a>
