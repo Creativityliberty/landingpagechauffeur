@@ -54,27 +54,29 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
       id="accueil"
       className="relative min-h-screen flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden"
     >
-      <div className="absolute inset-0 -z-20">
+      {/* Background Layer - Higher Z to be sure it's visible */}
+      <div className="absolute inset-0 z-0">
         <img
           src="/hero_bg.png"
-          alt="Chauffeur Privé Normandie Le Havre Luxury"
+          alt="Chauffeur Privé Normandie Le Havre Rouen Luxury"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
       </div>
 
       {/* Stylized Grid Overlay */}
       <div
-        className="absolute inset-0 hero-grid pointer-events-none -z-10 transition-opacity duration-500"
+        className="absolute inset-0 hero-grid pointer-events-none z-[1] transition-opacity duration-500"
         style={{ color: theme.text, opacity: theme.gridOpacity * 0.3 }}
       />
-      <BackgroundBeams className="-z-10" />
+      <BackgroundBeams className="z-[2]" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 text-[#D4AF37] text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] mb-10 md:mb-14 shadow-lg shadow-[#D4AF37]/10"
+          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#D4AF37]/20 bg-black/40 text-[#D4AF37] text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] mb-10 md:mb-14 shadow-lg shadow-[#D4AF37]/10 backdrop-blur-md"
         >
           <Award size={14} className="animate-pulse" />
           {CONFIG.content.hero.badge}
@@ -84,7 +86,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className={`${CONFIG.theme.typography.hero} font-black tracking-tighter leading-[0.85] mb-10 md:mb-16 max-w-5xl`}
-          style={{ color: theme.text }}
+          style={{ color: "white" }}
         >
           {CONFIG.content.hero.titleMain} <br />
           <RotatingText />
@@ -94,8 +96,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className={`${CONFIG.theme.typography.body} font-medium max-w-2xl mb-12 md:mb-20 leading-relaxed opacity-80`}
-          style={{ color: theme.muted }}
+          className={`${CONFIG.theme.typography.body} font-medium max-w-3xl mb-12 md:mb-20 leading-relaxed text-white/90 drop-shadow-lg`}
         >
           {CONFIG.content.hero.description}
         </motion.p>
@@ -112,19 +113,16 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
                 .getElementById("reserver")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="w-full sm:w-auto bg-[#D4AF37] text-black shadow-2xl shadow-[#D4AF37]/40"
+            className="w-full sm:w-auto bg-[#D4AF37] text-black shadow-2xl shadow-[#D4AF37]/40 py-8 px-12"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-xl">
               {CONFIG.content.hero.ctaPrimary}
-              <ArrowRight size={22} />
+              <ArrowRight size={24} />
             </div>
           </ShinyButton>
           <a
             href="#services"
-            className={`w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center ${isDarkMode
-              ? "border-white/10 text-white"
-              : "border-black/10 text-black"
-              }`}
+            className="w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border border-white/20 rounded-2xl font-black text-sm md:text-xl text-white hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center backdrop-blur-sm"
           >
             {CONFIG.content.hero.ctaSecondary}
           </a>
