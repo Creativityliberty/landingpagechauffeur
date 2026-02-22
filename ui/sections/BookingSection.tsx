@@ -346,24 +346,24 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                   style={{ backgroundColor: theme.surface }}
                 >
                   <div
-                    className="text-6xl md:text-8xl font-black mb-6 tracking-tighter"
+                    className="text-5xl md:text-8xl font-black mb-4 tracking-tighter"
                     style={{ color: theme.text }}
                   >
                     {estimate.total.toFixed(2)}
-                    <span className="text-2xl md:text-3xl ml-2 text-[#D4AF37]">
+                    <span className="text-xl md:text-3xl ml-2 text-[#D4AF37]">
                       €
                     </span>
                   </div>
                   <p
-                    className="text-base md:text-lg font-medium opacity-80 mb-8 leading-relaxed italic"
+                    className="text-sm md:text-lg font-medium opacity-80 mb-6 leading-relaxed italic"
                     style={{ color: theme.muted }}
                   >
-                    &quot;Tarif estimé sur-mesure&quot;
+                    &quot;Tarif estimé sur-mesure pour votre trajet&quot;
                   </p>
 
-                  {/* Détails du calcul */}
+                  {/* Détails du calcul - Masqués pour la confidentialité */}
                   <div
-                    className="mb-12 md:mb-16 space-y-3 p-6 rounded-2xl border"
+                    className="mb-8 md:mb-12 p-6 rounded-2xl border flex items-center justify-between"
                     style={{
                       borderColor: theme.border,
                       backgroundColor: isDarkMode
@@ -371,36 +371,12 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                         : "rgba(0,0,0,0.02)",
                     }}
                   >
-                    <div className="flex justify-between items-center text-sm md:text-base font-bold">
-                      <span style={{ color: theme.muted }}>Forfait prise en charge</span>
-                      <span style={{ color: theme.text }}>{estimate.base.toFixed(2)} €</span>
-                    </div>
-                    {estimate.approach > 0 && (
-                      <div className="flex justify-between items-center text-sm md:text-base font-bold">
-                        <span style={{ color: theme.muted }}>Approche ({formData.distancePickup} km)</span>
-                        <span style={{ color: theme.text }}>{estimate.approach.toFixed(2)} €</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between items-center text-sm md:text-base font-bold">
-                      <span style={{ color: theme.muted }}>Course ({formData.distanceTrip} km)</span>
-                      <span style={{ color: "#D4AF37" }}>{estimate.trip.toFixed(2)} €</span>
-                    </div>
-                    {estimate.return > 0 && (
-                      <div className="flex justify-between items-center text-sm md:text-base font-bold">
-                        <span style={{ color: theme.muted }}>Retour ({formData.distanceDropoff} km)</span>
-                        <span style={{ color: theme.text }}>{estimate.return.toFixed(2)} €</span>
-                      </div>
-                    )}
-
-                    <div
-                      className="pt-3 mt-3 border-t flex justify-between items-center text-base md:text-lg font-black"
-                      style={{ borderColor: theme.border }}
-                    >
-                      <span style={{ color: theme.text }}>TOTAL</span>
-                      <span className="text-[#D4AF37] text-xl md:text-2xl">
-                        {estimate.total.toFixed(2)}€
-                      </span>
-                    </div>
+                    <span className="text-sm md:text-base font-bold opacity-60" style={{ color: theme.muted }}>
+                      Distance totale estimée
+                    </span>
+                    <span className="text-sm md:text-base font-black" style={{ color: theme.text }}>
+                      {Math.round(formData.distancePickup + formData.distanceTrip + formData.distanceDropoff)} km
+                    </span>
                   </div>
 
                   <div className="space-y-5">
