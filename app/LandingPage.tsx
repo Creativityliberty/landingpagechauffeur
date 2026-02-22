@@ -10,6 +10,7 @@ import {
   BookingSection,
   ContactSection,
   EnterpriseSection,
+  FAQSection,
   Footer,
   HeroSection,
   MarqueeSection,
@@ -64,6 +65,7 @@ export function LandingPage() {
 
       <BookingSection isDarkMode={isDarkMode} />
       <EnterpriseSection isDarkMode={isDarkMode} />
+      <FAQSection isDarkMode={isDarkMode} />
       <ContactSection isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
 

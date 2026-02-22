@@ -9,6 +9,7 @@ export { Navbar } from "./layout/Navbar";
 export { BookingSection } from "./sections/BookingSection";
 export { ContactSection } from "./sections/ContactSection";
 export { EnterpriseSection } from "./sections/EnterpriseSection";
+export { FAQSection } from "./sections/FAQSection";
 export { Footer } from "./sections/Footer";
 export { HeroSection } from "./sections/HeroSection";
 export { MarqueeSection } from "./sections/MarqueeSection";

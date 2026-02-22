@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Chauffeur Privé - Normandie & Paris",
+  title: "VTC Normandie & Paris | Chauffeur Privé Le Havre, Rouen, Transferts Aéroports",
   description:
-    "Service de chauffeur privé haut de gamme en Normandie et vers Paris. Transferts aéroports CDG, Orly, Beauvais. Disponible 24h/24, 7j/7.",
+    "Réservez votre chauffeur VTC premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris. Transferts aéroports CDG, Orly, Beauvais. Disponible 24h/24, 7j/7. Devis immédiat.",
   keywords: [
-    "chauffeur privé",
-    "VTC",
-    "Normandie",
-    "Paris",
-    "aéroport",
-    "transfert",
-    "luxe",
+    "chauffeur privé Normandie",
+    "VTC Le Havre",
+    "VTC Rouen",
+    "chauffeur privé Paris",
+    "transfert aéroport CDG",
+    "VTC haut de gamme",
+    "réservation chauffeur 24/7",
   ],
 };
 
@@ -28,6 +28,32 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TaxiService",
+              "name": "Chauffeur Privé Normandie Paris",
+              "description": "Service de VTC et chauffeur privé premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris.",
+              "url": "https://landingpagechauffeur.vercel.app",
+              "telephone": "+33600000000",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Le Havre",
+                "addressRegion": "Normandie",
+                "addressCountry": "FR"
+              },
+              "serviceArea": ["Normandie", "Paris", "Le Havre", "Rouen", "Deauville"],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": "10.00",
+                "description": "Prix de base à partir de"
+              }
+            })
+          }}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>
