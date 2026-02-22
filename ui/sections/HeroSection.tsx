@@ -56,11 +56,11 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
     >
       <div className="absolute inset-0 -z-20">
         <img
-          src="/images/hero_bg.png"
-          alt="Luxury Chauffeur Service Le Havre"
+          src="/hero_bg.png"
+          alt="Chauffeur Privé Normandie Le Havre Luxury"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
       </div>
 
       {/* Stylized Grid Overlay */}
@@ -122,8 +122,8 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
           <a
             href="#services"
             className={`w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border rounded-2xl font-black text-sm md:text-xl hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center ${isDarkMode
-                ? "border-white/10 text-white"
-                : "border-black/10 text-black"
+              ? "border-white/10 text-white"
+              : "border-black/10 text-black"
               }`}
           >
             {CONFIG.content.hero.ctaSecondary}
