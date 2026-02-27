@@ -85,7 +85,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`${CONFIG.theme.typography.hero} font-black tracking-tight leading-[0.9] mb-10 md:mb-16 max-w-5xl px-4`}
+          className={`${CONFIG.theme.typography.hero} font-black leading-[0.9] mb-10 md:mb-16 max-w-5xl px-4`}
           style={{ color: "white" }}
         >
           {CONFIG.content.hero.titleMain} <br className="hidden md:block" />

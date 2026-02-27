@@ -46,10 +46,10 @@ export const CONFIG = {
       danger: "#EF4444",
     },
     typography: {
-      hero: "text-5xl sm:text-7xl md:text-8xl lg:text-[110px]",
-      h2: "text-4xl md:text-6xl lg:text-[80px]",
-      h3: "text-2xl md:text-4xl",
-      body: "text-lg md:text-2xl",
+      hero: "text-4xl sm:text-6xl md:text-7xl lg:text-[90px]",
+      h2: "text-3xl md:text-5xl lg:text-[70px]",
+      h3: "text-xl md:text-3xl",
+      body: "text-base md:text-lg",
     },
     spacing: {
       section: "py-24 md:py-40",
