@@ -72,13 +72,14 @@ export const CONFIG = {
     navbar: ["Accueil", "Services", "Réserver", "Entreprises", "Contact"],
     hero: {
       badge: "Service de Prestige • Normandie & Paris",
-      titleMain: "VOTRE CHAUFFEUR AU",
+      titleMain: "VOTRE CHAUFFEUR",
       rotatingWords: [
-        "HAVRE",
-        "ROUEN",
-        "DEAUVILLE",
-        "CAEN",
-        "PARIS",
+        "AU HAVRE",
+        "À ROUEN",
+        "À DEAUVILLE",
+        "À CAEN",
+        "À PARIS",
+        "EN NORMANDIE",
       ],
       description:
         "Besoin d'un VTC de luxe ? Votre chauffeur privé d'exception disponible 24h/24 au Havre, Rouen, Deauville et partout en Normandie. Transferts gares et aéroports en toute sérénité.",
