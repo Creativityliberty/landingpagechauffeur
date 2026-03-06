@@ -331,10 +331,10 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     }}
                   >
                     <span className="text-sm md:text-base font-bold opacity-60" style={{ color: theme.muted }}>
-                      Distance totale estimée
+                      Distance du trajet estimée
                     </span>
                     <span className="text-sm md:text-base font-black" style={{ color: theme.text }}>
-                      {Math.round(formData.distancePickup + formData.distanceTrip + formData.distanceDropoff)} km
+                      {Math.round(formData.distanceTrip)} km
                     </span>
                   </div>
 
@@ -350,7 +350,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                           `🏁 *Arrivée:* ${formData.dropoff}\n` +
                           `📅 *Date:* ${formData.date}\n` +
                           `🕒 *Heure:* ${formData.time}\n\n` +
-                          `📏 *Distance:* ${Math.round(formData.distancePickup + formData.distanceTrip + formData.distanceDropoff)} km\n` +
+                          `📏 *Distance trajet:* ${Math.round(formData.distanceTrip)} km\n` +
                           `💰 *Tarif estimé:* ${estimate.total.toFixed(2)}€\n\n` +
                           `Je souhaite confirmer cette réservation.`
                         );
