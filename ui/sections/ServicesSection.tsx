@@ -81,7 +81,8 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                   <div className="flex flex-1 w-full h-full min-h-[8rem] md:min-h-[10rem] rounded-2xl md:rounded-3xl overflow-hidden relative group/image">
                     <img
                       src={service.image}
-                      alt={service.title}
+                      alt={`${service.title} - Chauffeur Privé Normandie VTC`}
+
                       className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110 grayscale group-hover/image:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover/image:from-black/20 transition-all duration-500" />

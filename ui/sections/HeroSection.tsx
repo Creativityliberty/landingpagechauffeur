@@ -37,9 +37,10 @@ function RotatingText() {
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#E1C45A] italic block py-2 pr-6"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#E1C45A] italic block py-2 pr-10"
         >
           {CONFIG.content.hero.rotatingWords[index]}
+
         </motion.span>
       </AnimatePresence>
     </div>

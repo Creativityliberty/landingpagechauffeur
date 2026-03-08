@@ -62,9 +62,9 @@ export function Footer({ isDarkMode }: FooterProps) {
                 >
                     <p>© 2026 CHAUFFEUR PRIVÉ NORMANDIE — LUXURY MOBILITY.</p>
                     <div className="flex gap-10">
-                        <a href="#" className="hover:text-white">Mentions</a>
-                        <a href="#" className="hover:text-white">CGV</a>
-                        <a href="#" className="hover:text-white">Privacy</a>
+                        <a href="/mentions-legales" className="hover:text-white transition-colors">Mentions</a>
+                        <a href="/cgv" className="hover:text-white transition-colors">CGV</a>
+                        <a href="/confidentialite" className="hover:text-white transition-colors">Privacy</a>
                     </div>
                 </div>
             </div>

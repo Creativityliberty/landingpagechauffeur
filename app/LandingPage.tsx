@@ -17,6 +17,7 @@ import {
   Navbar,
   RepoChatbot,
   ServicesSection,
+  TestimonialsSection,
   SupportButton,
   SupportMenu,
 } from "@/ui";
@@ -82,6 +83,7 @@ export function LandingPage() {
 
       <BookingSection isDarkMode={isDarkMode} />
       <EnterpriseSection isDarkMode={isDarkMode} />
+      <TestimonialsSection isDarkMode={isDarkMode} />
       <FAQSection isDarkMode={isDarkMode} />
       <ContactSection isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />

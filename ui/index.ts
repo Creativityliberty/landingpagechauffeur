@@ -15,6 +15,7 @@ export { HeroSection } from "./sections/HeroSection";
 export { MarqueeSection } from "./sections/MarqueeSection";
 export { PricingSection } from "./sections/PricingSection";
 export { ServicesSection } from "./sections/ServicesSection";
+export { TestimonialsSection } from "./sections/TestimonialsSection";
 
 // Support
 export { RepoChatbot } from "./support/RepoChatbot";

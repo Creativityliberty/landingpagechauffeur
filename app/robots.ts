@@ -8,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
             disallow: '/private/',
         },
         sitemap: 'https://chauffeur-prive-normandie.fr/sitemap.xml',
+
     };
 }
