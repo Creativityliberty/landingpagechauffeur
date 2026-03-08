@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Services VTC pour les Professionnels | Chauffeur Privé Normandie",
         description: "Solutions de mobilité haut de gamme pour les entreprises, hôtels et agences événementielles en Normandie.",
-        url: `${CONFIG.baseUrl}/entreprises`,
+        url: `https://chauffeur-prive-normandie.fr/entreprises`,
         images: ['/hero_bg.png'],
     }
 };

@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
 
     const title = `${post.title} | Blog Chauffeur Privé Normandie`;
+    const baseUrl = 'https://chauffeur-prive-normandie.fr';
 
     return {
         title,
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             type: 'article',
             publishedTime: post.date,
             authors: [post.author],
-            url: `${CONFIG.baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/blog/${post.slug}`,
             images: [
                 {
                     url: post.imageUrl || '/hero_bg.png',
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             images: [post.imageUrl || '/hero_bg.png'],
         },
         alternates: {
-            canonical: `${CONFIG.baseUrl}/blog/${post.slug}`
+            canonical: `${baseUrl}/blog/${post.slug}`
         }
     };
 }
@@ -69,6 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     const isDarkMode = true;
+    const baseUrl = 'https://chauffeur-prive-normandie.fr';
 
     // Schema.org pour Article de Blog (SEO E-E-A-T)
     const jsonLd = {
@@ -76,7 +78,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.description,
-        image: `${CONFIG.baseUrl}${post.imageUrl || '/hero_bg.png'}`,
+        image: `${baseUrl}${post.imageUrl || '/hero_bg.png'}`,
         datePublished: post.date,
         dateModified: post.date,
         author: {
@@ -88,12 +90,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             name: 'Chauffeur Privé Normandie',
             logo: {
                 '@type': 'ImageObject',
-                url: `${CONFIG.baseUrl}/hero_bg.png`, // Placeholder logo
+                url: `${baseUrl}/hero_bg.png`, // Placeholder logo
             },
         },
         mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `${CONFIG.baseUrl}/blog/${post.slug}`,
+            '@id': `${baseUrl}/blog/${post.slug}`,
         },
     };
 
