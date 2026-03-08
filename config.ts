@@ -69,7 +69,7 @@ export const CONFIG = {
       name: "CHAUFFEUR PRIVÉ",
       tagline: "Normandie • Paris",
     },
-    navbar: ["Accueil", "Services", "Réserver", "Entreprises", "Contact"],
+    navbar: ["Accueil", "Services", "Réserver", "Entreprises", "Blog", "Contact"],
     hero: {
       badge: "Service de Prestige • Normandie & Paris",
       titleMain: "VOTRE CHAUFFEUR",
