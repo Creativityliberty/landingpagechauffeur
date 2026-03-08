@@ -56,6 +56,23 @@ export function Footer({ isDarkMode }: FooterProps) {
                     ))}
                 </div>
 
+                {/* SEO Links for internal mesh */}
+                <div className="w-full max-w-5xl mt-6 px-4">
+                    <p className="text-[9px] uppercase tracking-widest font-black opacity-30 mb-6 text-center" style={{ color: theme.muted }}>Nos Destinations Phares</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        {CONFIG.seoPages.map(page => (
+                            <a
+                                key={page.slug}
+                                href={`/destinations/${page.slug}`}
+                                className="text-[11px] font-semibold transition-colors opacity-60 hover:opacity-100 hover:text-[#D4AF37]"
+                                style={{ color: theme.muted }}
+                            >
+                                Chauffeur Privé {page.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
                 <div
                     className="w-full pt-16 border-t flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 text-[10px] font-black uppercase tracking-[0.4em]"
                     style={{ borderColor: theme.border, color: theme.muted }}

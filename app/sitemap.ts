@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import { CONFIG } from '@/config';
 
 export default function Sitemap() {
-    const baseUrl = 'https://chauffeur-prive-normandie.fr'; // À adapter selon le domaine réel
+    const baseUrl = 'https://chauffeur-prive-normandie.fr'; // URL codée en dur
 
-    return [
+    const routes = [
         {
             url: baseUrl,
             lastModified: new Date(),
@@ -35,4 +36,13 @@ export default function Sitemap() {
             priority: 0.7,
         },
     ];
+
+    const seoRoutes = CONFIG.seoPages.map((page: any) => ({
+        url: `${baseUrl}/destinations/${page.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+    }));
+
+    return [...routes, ...seoRoutes];
 }

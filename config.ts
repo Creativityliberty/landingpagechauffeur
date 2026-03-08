@@ -227,6 +227,19 @@ export const CONFIG = {
       text: "RIB communiqué après validation. Gestion complète de vos bons de commande.",
     },
   ],
+
+  // 12. SEO Local - Pages Piliers (Villes, Aéroports, Gares)
+  // Liste des destinations stratégiques pour générer les pages dynamiques SEO (ex: /destinations/vtc-le-havre)
+  seoPages: [
+    { slug: "vtc-le-havre", name: "Le Havre", type: "city", description: "Votre chauffeur privé expert au Havre. Déplacements en Normandie avec luxe et ponctualité.", shortDescription: "Trajets privés depuis et vers la Cité Océane." },
+    { slug: "vtc-rouen", name: "Rouen", type: "city", description: "VTC Haut de Gamme à Rouen. Gagnez en sérénité pour vos trajets privés ou professionnels.", shortDescription: "Rejoignez Rouen avec confort et discrétion." },
+    { slug: "vtc-deauville", name: "Deauville", type: "city", description: "Service VIP à Deauville. Chauffeur privé pour vos événements, casinos et séjours.", shortDescription: "Le luxe à bord pour vos séjours sur la côte." },
+    { slug: "vtc-honfleur", name: "Honfleur", type: "city", description: "Transfert VTC depuis et vers Honfleur avec un confort exceptionnel et discrétion garantie.", shortDescription: "Votre excursion normande l'esprit léger." },
+    { slug: "vtc-etretat", name: "Étretat", type: "city", description: "Chauffeur privé vers les falaises d'Étretat. Un voyage touristique d'excellence.", shortDescription: "Découvrez les falaises sans stress de stationnement." },
+    { slug: "transfert-aeroport-cdg", name: "Aéroport Paris Charles de Gaulle (CDG)", type: "airport", description: "Transfert privé direct entre la Normandie et Roissy CDG.", shortDescription: "Liaisons directes pour vos vols." },
+    { slug: "transfert-aeroport-orly", name: "Aéroport Paris Orly (ORY)", type: "airport", description: "Trajet premium et serein vers ou depuis l'Aéroport d'Orly. Chauffeur VTC.", shortDescription: "Départs et retours sans navette encombrante." },
+    { slug: "transfert-aeroport-beauvais", name: "Aéroport Paris-Beauvais (BVA)", type: "airport", description: "Votre navette privée VIP pour l'Aéroport de Beauvais.", shortDescription: "Navette VTC exclusive et directe." }
+  ],
 };
 
 // LEGACY: Pour compatibilité avec l'ancien code
