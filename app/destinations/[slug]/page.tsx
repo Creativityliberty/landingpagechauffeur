@@ -1,5 +1,6 @@
 import { CONFIG } from "@/config";
 import { BackgroundBeams, Navbar, Footer, BookingSection, ServicesSection, FeaturesSection, VehiclesSection, FAQSection } from "@/ui";
+import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -71,10 +72,13 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             {/* Custom Hero for the destination */}
             <section className="relative min-h-[70vh] flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src="/hero_bg.png"
                         alt={`Chauffeur Privé ${destination.name}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />

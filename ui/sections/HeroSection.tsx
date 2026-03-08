@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 /**
  * Hero Section - VTC avec rotating text
  */
@@ -57,10 +57,13 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
     >
       {/* Background Layer - Higher Z to be sure it's visible */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/hero_bg.png"
           alt="Chauffeur Privé Normandie Le Havre Rouen Luxury"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
