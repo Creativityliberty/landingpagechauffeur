@@ -37,7 +37,7 @@ function RotatingText() {
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#E1C45A] italic block py-2 pr-10"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#E1C45A] italic block py-2 pr-10 whitespace-nowrap"
         >
           {CONFIG.content.hero.rotatingWords[index]}
 
@@ -89,8 +89,8 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
           className={`${CONFIG.theme.typography.hero} font-black leading-[0.9] mb-10 md:mb-16 max-w-5xl px-4`}
           style={{ color: "white" }}
         >
-          {CONFIG.content.hero.titleMain} <br className="hidden md:block" />
-          <span className="md:ml-4 inline-block">
+          {CONFIG.content.hero.titleMain} <br />
+          <span className="md:ml-4 inline-block mt-2 md:mt-0">
             <RotatingText />
           </span>
         </motion.h1>
