@@ -82,6 +82,10 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
         origins: [CENTER_BASE, pickup, dropoff],
         destinations: [pickup, dropoff, CENTER_BASE],
         travelMode: google.maps.TravelMode.DRIVING,
+        drivingOptions: {
+          departureTime: new Date(Date.now() + 1000), // trafic maintenant
+          trafficModel: google.maps.TrafficModel.BEST_GUESS,
+        },
       });
 
       if (response.rows.length >= 3) {
@@ -317,10 +321,9 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     className="text-sm md:text-lg font-medium opacity-80 mb-6 leading-relaxed italic"
                     style={{ color: theme.muted }}
                   >
-                    &quot;Tarif estimé sur-mesure pour votre trajet&quot;
+                    &quot;Tarif fixe et garanti, incluant le trafic en temps réel&quot;
                   </p>
 
-                  {/* Détails du calcul - Masqués pour la confidentialité */}
                   <div
                     className="mb-8 md:mb-12 p-6 rounded-2xl border flex items-center justify-between"
                     style={{
@@ -331,7 +334,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     }}
                   >
                     <span className="text-sm md:text-base font-bold opacity-60" style={{ color: theme.muted }}>
-                      Distance du trajet estimée
+                      Distance prise en charge
                     </span>
                     <span className="text-sm md:text-base font-black" style={{ color: theme.text }}>
                       {formData.distanceTrip.toFixed(1)} km
@@ -351,7 +354,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                           `📅 *Date:* ${formData.date}\n` +
                           `🕒 *Heure:* ${formData.time}\n\n` +
                           `📏 *Distance trajet:* ${formData.distanceTrip.toFixed(1)} km\n` +
-                          `💰 *Tarif estimé:* ${estimate.total.toFixed(2)}€\n\n` +
+                          `💰 *Tarif Fixe Garanti:* ${estimate.total.toFixed(2)}€\n\n` +
                           `Je souhaite confirmer cette réservation.`
                         );
                         window.open(
