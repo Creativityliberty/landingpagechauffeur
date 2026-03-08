@@ -1,3 +1,5 @@
+"use client";
+
 import { CONFIG } from "@/config";
 import { Navbar, Footer } from "@/ui";
 
