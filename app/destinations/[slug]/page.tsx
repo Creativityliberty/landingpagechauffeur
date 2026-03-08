@@ -1,5 +1,5 @@
 import { CONFIG } from "@/config";
-import { BackgroundBeams, Navbar, Footer, BookingSection, ServicesSection, FeaturesSection, VehiclesSection, FAQSection } from "@/ui";
+import { BackgroundBeams, Navbar, Footer, BookingSection, ServicesSection, FAQSection, TestimonialsSection } from "@/ui";
 import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -114,8 +114,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             {/* Reuse core sections */}
             <BookingSection isDarkMode={isDarkMode} />
             <ServicesSection isDarkMode={isDarkMode} />
-            <VehiclesSection isDarkMode={isDarkMode} />
-            <FeaturesSection isDarkMode={isDarkMode} />
+            <TestimonialsSection isDarkMode={isDarkMode} />
             <FAQSection isDarkMode={isDarkMode} />
 
             <Footer isDarkMode={isDarkMode} />
