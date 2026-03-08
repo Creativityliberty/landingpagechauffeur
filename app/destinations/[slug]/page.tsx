@@ -67,7 +67,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
 
     return (
         <div className={`min-h-screen ${isDarkMode ? "dark" : ""}`}>
-            <Navbar isDarkMode={isDarkMode} toggleTheme={() => { }} />
+            <Navbar isDarkMode={isDarkMode} />
 
             {/* Custom Hero for the destination */}
             <section className="relative min-h-[70vh] flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden">

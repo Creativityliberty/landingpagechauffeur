@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            <Navbar isDarkMode={isDarkMode} toggleTheme={() => { }} />
+            <Navbar isDarkMode={isDarkMode} />
 
             {/* Hero Article */}
             <section className="relative min-h-[50vh] flex items-end pt-32 pb-16 px-4 md:px-6 overflow-hidden">

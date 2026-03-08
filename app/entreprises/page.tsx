@@ -55,7 +55,7 @@ export default function EntreprisesPage() {
 
     return (
         <div className="min-h-screen dark bg-black text-white">
-            <Navbar isDarkMode={isDarkMode} toggleTheme={() => { }} />
+            <Navbar isDarkMode={isDarkMode} />
 
             {/* B2B Hero Section */}
             <section className="relative min-h-[75vh] flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden">

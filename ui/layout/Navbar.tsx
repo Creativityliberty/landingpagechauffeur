@@ -11,7 +11,7 @@ import { CONFIG } from '@/config';
 
 interface NavbarProps {
     isDarkMode: boolean;
-    toggleTheme: () => void;
+    toggleTheme?: () => void;
 }
 
 export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
@@ -60,13 +60,15 @@ export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <button
-                        onClick={toggleTheme}
-                        className="p-2.5 rounded-xl border border-white/10 hover:border-[#D4AF37]/40 transition-all mr-2 flex items-center justify-center shadow-lg"
-                        style={{ color: theme.text, backgroundColor: theme.surface }}
-                    >
-                        {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                    </button>
+                    {toggleTheme && (
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2.5 rounded-xl border border-white/10 hover:border-[#D4AF37]/40 transition-all mr-2 flex items-center justify-center shadow-lg"
+                            style={{ color: theme.text, backgroundColor: theme.surface }}
+                        >
+                            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                        </button>
+                    )}
                     <a
                         href={`https://wa.me/${CONFIG.contact.whatsapp}`}
                         target="_blank"

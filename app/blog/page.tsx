@@ -16,7 +16,7 @@ export default function BlogList() {
 
     return (
         <div className="min-h-screen dark bg-black">
-            <Navbar isDarkMode={isDarkMode} toggleTheme={() => { }} />
+            <Navbar isDarkMode={isDarkMode} />
 
             {/* Hero Section */}
             <section className="relative min-h-[50vh] flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden">

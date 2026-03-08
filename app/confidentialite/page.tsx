@@ -6,7 +6,7 @@ import { Navbar, Footer } from "@/ui";
 export default function Confidentialite() {
     return (
         <div className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7]">
-            <Navbar isDarkMode={true} toggleTheme={() => { }} />
+            <Navbar isDarkMode={true} />
             <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
                 <h1 className="text-4xl md:text-5xl font-black mb-12 text-[#D4AF37]">Politique de Confidentialité</h1>
 
