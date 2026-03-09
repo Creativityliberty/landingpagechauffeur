@@ -93,7 +93,7 @@ export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
                         initial={{ opacity: 0, scale: 0.95, y: -20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                        className="absolute top-24 left-4 right-4 glass-dark rounded-3xl p-10 flex flex-col gap-6 lg:hidden border border-white/10 shadow-3xl"
+                        className="absolute top-24 left-4 right-4 glass-dark rounded-3xl p-6 md:p-8 flex flex-col items-center text-center gap-5 lg:hidden border border-white/10 shadow-3xl overflow-hidden"
                         style={{ backgroundColor: theme.surface }}
                     >
                         {CONFIG.content.navbar.map((link) => (
@@ -101,19 +101,19 @@ export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
                                 key={link}
                                 href={`/${link.toLowerCase().replace(/é/g, 'e') === 'accueil' ? '' : link.toLowerCase().replace(/é/g, 'e')}`}
                                 onClick={() => setIsOpen(false)}
-                                className="text-3xl font-black hover:text-[#D4AF37] tracking-tighter transition-colors"
+                                className="text-xl md:text-2xl font-black hover:text-[#D4AF37] tracking-tight transition-colors w-full py-2"
                                 style={{ color: theme.text }}
                             >
                                 {link}
                             </a>
                         ))}
-                        <div className="h-[1px] w-full my-2" style={{ backgroundColor: theme.border }} />
+                        <div className="h-[1px] w-2/3 my-2" style={{ backgroundColor: theme.border }} />
                         <a
                             href={`tel:${CONFIG.contact.phone.replace(/\s/g, '')}`}
-                            className="flex items-center gap-3 font-bold text-lg"
+                            className="flex items-center justify-center gap-3 font-bold text-base md:text-lg w-full py-2"
                             style={{ color: theme.text }}
                         >
-                            <Phone size={20} className="text-[#D4AF37]" /> {CONFIG.contact.phone}
+                            <Phone size={18} className="text-[#D4AF37]" /> {CONFIG.contact.phone}
                         </a>
                     </motion.div>
                 )}
