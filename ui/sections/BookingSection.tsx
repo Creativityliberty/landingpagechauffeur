@@ -135,6 +135,22 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
     setEstimate(result);
   };
 
+  const handleWhatsAppBooking = (isCash: boolean) => {
+    if (!estimate) return;
+    const paymentMethod = isCash ? "À bord (Espèces/CB)" : "Lien de paiement à distance";
+    const message = encodeURIComponent(
+      `*🚗 NOUVELLE RÉSERVATION*\n\n` +
+      `📍 *Départ:* ${formData.pickup}\n` +
+      `🏁 *Arrivée:* ${formData.dropoff}\n` +
+      `📅 *Date:* ${formData.date || "À définir"}\n` +
+      `🕒 *Heure:* ${formData.time || "À définir"}\n\n` +
+      `💳 *Paiement souhaité:* ${paymentMethod}\n` +
+      `💰 *Tarif Fixe Garanti:* ${estimate.total.toFixed(2)}€\n\n` +
+      `Bonjour, je souhaite confirmer cette réservation.`
+    );
+    window.open(`https://wa.me/${CONFIG.contact.whatsapp}?text=${message}`, "_blank");
+  };
+
   return (
     <section
       id="reserver"
@@ -327,33 +343,20 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                   {/* Plus d'affichage de distance ici */}
 
                   <div className="space-y-5">
-                    <button className="w-full py-6 bg-[#D4AF37] text-black rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 shadow-2xl shadow-[#D4AF37]/30 hover:bg-[#E1C45A] transition-all">
+                    <button
+                      onClick={() => handleWhatsAppBooking(false)}
+                      className="w-full py-6 bg-[#D4AF37] text-black rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 shadow-2xl shadow-[#D4AF37]/30 hover:bg-[#E1C45A] transition-all">
                       <CreditCard size={22} /> RÉSERVER & PAYER (CB)
                     </button>
                     <button
-                      onClick={() => {
-                        const message = encodeURIComponent(
-                          `*NOUVELLE RÉSERVATION*\n\n` +
-                          `📍 *Départ:* ${formData.pickup}\n` +
-                          `🏁 *Arrivée:* ${formData.dropoff}\n` +
-                          `📅 *Date:* ${formData.date}\n` +
-                          `🕒 *Heure:* ${formData.time}\n\n` +
-
-                          `💰 *Tarif Fixe Garanti:* ${estimate.total.toFixed(2)}€\n\n` +
-                          `Je souhaite confirmer cette réservation.`
-                        );
-                        window.open(
-                          `https://wa.me/${CONFIG.contact.whatsapp}?text=${message}`,
-                          "_blank",
-                        );
-                      }}
+                      onClick={() => handleWhatsAppBooking(true)}
                       className={`w-full py-6 border-2 rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 transition-all ${isDarkMode
                         ? "border-white/20 text-white hover:bg-white/5 hover:border-white/30"
                         : "border-black/20 text-black hover:bg-black/5 hover:border-black/30"
                         }`}
                     >
                       <MessageCircle size={22} className="text-[#25D366]" />{" "}
-                      PAYER EN ESPÈCES
+                      PAYER À BORD
                     </button>
                   </div>
                 </motion.div>
