@@ -324,22 +324,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                     &quot;Tarif fixe et garanti, incluant le trafic en temps réel&quot;
                   </p>
 
-                  <div
-                    className="mb-8 md:mb-12 p-6 rounded-2xl border flex items-center justify-between"
-                    style={{
-                      borderColor: theme.border,
-                      backgroundColor: isDarkMode
-                        ? "rgba(255,255,255,0.02)"
-                        : "rgba(0,0,0,0.02)",
-                    }}
-                  >
-                    <span className="text-sm md:text-base font-bold opacity-60" style={{ color: theme.muted }}>
-                      Distance prise en charge
-                    </span>
-                    <span className="text-sm md:text-base font-black" style={{ color: theme.text }}>
-                      {formData.distanceTrip.toFixed(1)} km
-                    </span>
-                  </div>
+                  {/* Plus d'affichage de distance ici */}
 
                   <div className="space-y-5">
                     <button className="w-full py-6 bg-[#D4AF37] text-black rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 shadow-2xl shadow-[#D4AF37]/30 hover:bg-[#E1C45A] transition-all">
@@ -353,7 +338,7 @@ export function BookingSection({ isDarkMode }: BookingSectionProps) {
                           `🏁 *Arrivée:* ${formData.dropoff}\n` +
                           `📅 *Date:* ${formData.date}\n` +
                           `🕒 *Heure:* ${formData.time}\n\n` +
-                          `📏 *Distance trajet:* ${formData.distanceTrip.toFixed(1)} km\n` +
+
                           `💰 *Tarif Fixe Garanti:* ${estimate.total.toFixed(2)}€\n\n` +
                           `Je souhaite confirmer cette réservation.`
                         );

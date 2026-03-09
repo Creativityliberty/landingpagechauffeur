@@ -6,8 +6,8 @@
 export const CONFIG = {
   // --- Contact ---
   contact: {
-    whatsapp: "33600000000",
-    phone: "+33 6 00 00 00 00",
+    whatsapp: "33661619697",
+    phone: "06 61 61 96 97",
     email: "contact@chauffeur-prive.fr",
     socials: {
       facebook: "https://facebook.com",
