@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: DestinationPageProps): Promis
 
     const title = `CARINE VTC - ${destination.name} | Réservez votre trajet`;
     const description = destination.description;
-    const baseUrl = 'https://chauffeur-prive-normandie.fr';
+    const baseUrl = 'https://www.carinevtc.com';
 
     return {
         title,

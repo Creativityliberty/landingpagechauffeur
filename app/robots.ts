@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://chauffeur-prive-normandie.fr/sitemap.xml',
+        sitemap: 'https://www.carinevtc.com/sitemap.xml',
 
     };
 }

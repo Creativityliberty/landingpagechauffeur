@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
 
     const title = `${post.title} | Blog CARINE VTC`;
-    const baseUrl = 'https://chauffeur-prive-normandie.fr';
+    const baseUrl = 'https://www.carinevtc.com';
 
     return {
         title,
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     const isDarkMode = true;
-    const baseUrl = 'https://chauffeur-prive-normandie.fr';
+    const baseUrl = 'https://www.carinevtc.com';
 
     // Schema.org pour Article de Blog (SEO E-E-A-T)
     const jsonLd = {

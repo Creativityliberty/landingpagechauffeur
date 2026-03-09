@@ -3,7 +3,7 @@ import { CONFIG } from '@/config';
 import { getAllPosts } from '@/lib/blog';
 
 export default function Sitemap() {
-    const baseUrl = 'https://chauffeur-prive-normandie.fr';
+    const baseUrl = 'https://www.carinevtc.com';
 
     const routes = [
         {

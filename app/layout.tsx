@@ -3,7 +3,7 @@ import "./globals.css";
 import { CONFIG } from "@/config";
 
 
-const baseUrl = "https://chauffeur-prive-normandie.fr";
+const baseUrl = "https://www.carinevtc.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Services VTC pour les Professionnels | CARINE VTC",
         description: "Solutions de mobilité haut de gamme pour les entreprises, hôtels et agences événementielles en Normandie.",
-        url: `https://chauffeur-prive-normandie.fr/entreprises`,
+        url: `https://www.carinevtc.com/entreprises`,
         images: ['/hero_bg.png'],
     }
 };
