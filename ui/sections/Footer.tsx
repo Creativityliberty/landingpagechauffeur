@@ -29,7 +29,7 @@ export function Footer({ isDarkMode }: FooterProps) {
             <div className={`${CONFIG.theme.spacing.container} flex flex-col items-center text-center gap-16 md:gap-24`}>
                 <div className="max-w-2xl">
                     <span className="font-black text-4xl md:text-6xl tracking-tighter mb-8 block" style={{ color: theme.text }}>
-                        CHAUFFEUR <span className="text-[#D4AF37]">PRIVÉ</span>
+                        CARINE <span className="text-[#D4AF37]">VTC</span>
                     </span>
                     <p className="text-lg md:text-xl font-medium leading-relaxed opacity-50 mb-10" style={{ color: theme.muted }}>
                         {CONFIG.content.footer.description}
@@ -77,7 +77,12 @@ export function Footer({ isDarkMode }: FooterProps) {
                     className="w-full pt-16 border-t flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 text-[10px] font-black uppercase tracking-[0.4em]"
                     style={{ borderColor: theme.border, color: theme.muted }}
                 >
-                    <p>© 2026 CARINE VTC — LUXURY MOBILITY.</p>
+                    <div className="flex flex-col items-center md:items-start gap-3">
+                        <p>© 2026 CARINE VTC — LUXURY MOBILITY.</p>
+                        <p className="text-[8px] tracking-[0.2em] text-[#D4AF37] lowercase normal-case opacity-80 uppercase">
+                            Fait avec excellence • Propulsé par <a href="https://numtemaagency.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-4">Nümtema Agency</a>
+                        </p>
+                    </div>
                     <div className="flex gap-10">
                         <a href="/blog" className="hover:text-white transition-colors">Blog</a>
                         <a href="/mentions-legales" className="hover:text-white transition-colors">Mentions</a>

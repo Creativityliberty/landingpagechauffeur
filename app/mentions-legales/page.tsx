@@ -12,25 +12,34 @@ export default function MentionsLegales() {
 
                 <div className="space-y-8 opacity-80 leading-relaxed">
                     <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">1. Éditeur du site</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-white">1. Conception et Réalisation (Créateur du site)</h2>
                         <p>
-                            Le site <strong>{CONFIG.content.brand.name}</strong> est édité par :<br />
-                            [Nom de l'entreprise ou Auto-entrepreneur]<br />
-                            Siège social : [Adresse] - Le Havre, France<br />
-                            SIRET : [Numéro de SIRET]<br />
+                            Ce site web de très haute qualité a été pensé, conçu, développé et optimisé SEO par :<br />
+                            <strong>NÜMTEMA AGENCY — LUXURY DIGITAL SOLUTIONS</strong><br />
+                            Expert Stratégie Digitale : Lionel Numtema<br />
+                            Portfolio & Agence : <a href="https://numtemaagency.com" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline">numtemaagency.com</a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold mb-4 text-white">2. Éditeur et Propriétaire du site</h2>
+                        <p>
+                            Le site <strong>{CONFIG.content.brand.name}</strong> est la propriété exclusive de et est exploité par :<br />
+                            CARINE VTC<br />
+                            Siège social : Le Havre, France<br />
                             Contact : {CONFIG.contact.email} / {CONFIG.contact.phone}
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">2. Directeur de la publication</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-white">3. Directeur de la publication</h2>
                         <p>
-                            Le directeur de la publication est [Nom du responsable].
+                            Le directeur de la publication est CARINE VTC.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">3. Hébergement</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-white">4. Hébergement</h2>
                         <p>
                             Ce site est hébergé par Vercel Inc.<br />
                             440 N Barranca Ave #4133<br />
