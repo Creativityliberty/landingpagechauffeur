@@ -26,7 +26,7 @@ const SUGGESTIONS = [
 
 export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'assistant', content: "Bonjour, je suis Mikmik, l'assistant intelligent de **Chauffeur Privé Normandie**. \n\nComment puis-je vous aider aujourd'hui ?" }
+        { role: 'assistant', content: "Bonjour, je suis Mikmik, l'assistant intelligent de **CARINE VTC**. \n\nComment puis-je vous aider aujourd'hui ?" }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -215,8 +215,8 @@ export function RepoChatbot({ isDarkMode, isOpen, onClose }: RepoChatbotProps) {
                                             key={i}
                                             onClick={() => handleSend(sug)}
                                             className={`snap-start shrink-0 px-4 py-2 rounded-full text-[11px] md:text-xs font-semibold max-w-[200px] truncate border transition-all ${isDarkMode
-                                                    ? 'bg-[#1A1A1A] border-white/10 text-white/80 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/50 hover:text-[#D4AF37]'
-                                                    : 'bg-gray-50 border-black/5 text-gray-700 hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/30 hover:text-[#D4AF37]'
+                                                ? 'bg-[#1A1A1A] border-white/10 text-white/80 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/50 hover:text-[#D4AF37]'
+                                                : 'bg-gray-50 border-black/5 text-gray-700 hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/30 hover:text-[#D4AF37]'
                                                 }`}
                                         >
                                             {sug}

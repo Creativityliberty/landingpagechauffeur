@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         return { title: 'Article non trouvé' };
     }
 
-    const title = `${post.title} | Blog Chauffeur Privé Normandie`;
+    const title = `${post.title} | Blog CARINE VTC`;
     const baseUrl = 'https://chauffeur-prive-normandie.fr';
 
     return {
@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         },
         publisher: {
             '@type': 'Organization',
-            name: 'Chauffeur Privé Normandie',
+            name: 'CARINE VTC',
             logo: {
                 '@type': 'ImageObject',
                 url: `${baseUrl}/hero_bg.png`, // Placeholder logo

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: DestinationPageProps): Promis
         return { title: "Page non trouvée" };
     }
 
-    const title = `Chauffeur Privé VTC ${destination.name} | Réservez votre trajet`;
+    const title = `CARINE VTC - ${destination.name} | Réservez votre trajet`;
     const description = destination.description;
     const baseUrl = 'https://chauffeur-prive-normandie.fr';
 
@@ -74,7 +74,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/hero_bg.png"
-                        alt={`Chauffeur Privé ${destination.name}`}
+                        alt={`CARINE VTC ${destination.name}`}
                         fill
                         priority
                         sizes="100vw"

@@ -67,7 +67,7 @@ export function Footer({ isDarkMode }: FooterProps) {
                                 className="text-[11px] font-semibold transition-colors opacity-60 hover:opacity-100 hover:text-[#D4AF37]"
                                 style={{ color: theme.muted }}
                             >
-                                Chauffeur Privé {page.name}
+                                CARINE VTC {page.name}
                             </a>
                         ))}
                     </div>
@@ -77,7 +77,7 @@ export function Footer({ isDarkMode }: FooterProps) {
                     className="w-full pt-16 border-t flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 text-[10px] font-black uppercase tracking-[0.4em]"
                     style={{ borderColor: theme.border, color: theme.muted }}
                 >
-                    <p>© 2026 CHAUFFEUR PRIVÉ NORMANDIE — LUXURY MOBILITY.</p>
+                    <p>© 2026 CARINE VTC — LUXURY MOBILITY.</p>
                     <div className="flex gap-10">
                         <a href="/blog" className="hover:text-white transition-colors">Blog</a>
                         <a href="/mentions-legales" className="hover:text-white transition-colors">Mentions</a>

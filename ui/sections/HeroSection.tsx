@@ -59,7 +59,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero_bg.png"
-          alt="Chauffeur Privé Normandie Le Havre Rouen Luxury"
+          alt="CARINE VTC Normandie Le Havre Rouen Luxury"
           fill
           priority
           sizes="100vw"

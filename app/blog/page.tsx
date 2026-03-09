@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Calendar, ChevronRight } from "lucide-react";
 
 export const metadata = {
-    title: "Le Blog du Chauffeur Privé | Normandie & Paris",
+    title: "Le Blog de CARINE VTC | Normandie & Paris",
     description: "Découvrez nos articles sur le transport de personnes, le tourisme en Normandie et les conseils pour vos transferts aéroport (CDG, Orly).",
 };
 
@@ -26,7 +26,7 @@ export default function BlogList() {
                         Expertise & Actualités
                     </div>
                     <h1 className={`${CONFIG.theme.typography.hero} font-black leading-[0.9] mb-8 text-white`}>
-                        Le Blog Chauffeur Privé
+                        Le Blog CARINE VTC
                     </h1>
                     <p className={`${CONFIG.theme.typography.body} text-lg font-medium opacity-70 max-w-2xl`}>
                         Conseils de transport, découverte du patrimoine Normand et nouveautés de notre service VTC.

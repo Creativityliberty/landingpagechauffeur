@@ -6,10 +6,10 @@ import { Briefcase, Clock, FileText, Shield, Star, Users } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Services VTC pour les Professionnels | Chauffeur Privé Normandie",
+    title: "Services VTC pour les Professionnels | CARINE VTC",
     description: "Solutions de mobilité haut de gamme pour les entreprises, hôtels et agences événementielles en Normandie. Facturation simplifiée et chauffeurs dédiés.",
     openGraph: {
-        title: "Services VTC pour les Professionnels | Chauffeur Privé Normandie",
+        title: "Services VTC pour les Professionnels | CARINE VTC",
         description: "Solutions de mobilité haut de gamme pour les entreprises, hôtels et agences événementielles en Normandie.",
         url: `https://chauffeur-prive-normandie.fr/entreprises`,
         images: ['/hero_bg.png'],
@@ -84,7 +84,7 @@ export default function EntreprisesPage() {
                     </h1>
 
                     <p className={`${CONFIG.theme.typography.body} text-lg md:text-xl font-medium opacity-80 max-w-3xl mb-12 leading-relaxed`}>
-                        Devenez partenaire de Chauffeur Privé Normandie. Nous offrons aux entreprises, hôtels de luxe et organisateurs d'événements un service de transport sur-mesure, fiable et d'une discrétion absolue.
+                        Devenez partenaire de CARINE VTC. Nous offrons aux entreprises, hôtels de luxe et organisateurs d'événements un service de transport sur-mesure, fiable et d'une discrétion absolue.
                     </p>
 
                     <div className="flex justify-center gap-6">

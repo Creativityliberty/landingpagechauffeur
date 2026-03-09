@@ -15,7 +15,7 @@ export const BLOG_POSTS: BlogPost[] = [
         title: "Comment optimiser votre transfert vers l'Aéroport CDG ?",
         description: "Découvrez pourquoi réserver un VTC privé est la solution la plus sereine et fiable pour vos départs et arrivées à Paris Charles de Gaulle depuis la Normandie.",
         date: "2026-03-09",
-        author: "L'Équipe Chauffeur Privé Normandie",
+        author: "L'Équipe CARINE VTC",
         category: "Voyage d'Affaires",
         imageUrl: "/hero_bg.png", // Temporaire
         content: `
@@ -31,7 +31,7 @@ Opter pour un **transfert VTC privé**, c'est faire le choix de l'efficacité et
 - **Tarif fixe et transparent :** Aucun surcoût lié aux bouchons, le prix est connu à l'avance.
 
 ### Pourquoi éviter les taxis de dernière minute ?
-Les files d'attente à l'aéroport ou la recherche d'un taxi à 4h le matin peuvent être très anxiogènes. Avec une réservation à l'avance, votre *Chauffeur Privé Normandie* vous attend avec une pancarte personnalisée dans le hall des arrivées de CDG, prêt à vous ramener chez vous en tout confort.
+Les files d'attente à l'aéroport ou la recherche d'un taxi à 4h le matin peuvent être très anxiogènes. Avec une réservation à l'avance, votre *Chauffeur CARINE VTC* vous attend avec une pancarte personnalisée dans le hall des arrivées de CDG, prêt à vous ramener chez vous en tout confort.
 
 *Réservez votre prochain transfert aéroport directement sur notre site et commencez vos vacances (ou votre voyage d'affaires) dès la porte de votre domicile !*
         `

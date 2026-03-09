@@ -1,5 +1,5 @@
 /**
- * CHAUFFEUR PRIVÉ - CONFIGURATION CENTRALE
+ * CARINE VTC - CONFIGURATION CENTRALE
  * Single Source of Truth pour le contenu et le design
  */
 
@@ -66,7 +66,7 @@ export const CONFIG = {
   // --- Contenus ---
   content: {
     brand: {
-      name: "CHAUFFEUR PRIVÉ",
+      name: "CARINE VTC",
       tagline: "Normandie • Paris",
     },
     navbar: ["Accueil", "Services", "Réserver", "Entreprises", "Blog", "Contact"],

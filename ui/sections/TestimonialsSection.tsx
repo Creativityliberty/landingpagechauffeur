@@ -106,7 +106,7 @@ export function TestimonialsSection({ isDarkMode }: TestimonialsSectionProps) {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "TaxiService",
-                        "name": "Chauffeur Privé Normandie Paris",
+                        "name": "CARINE VTC",
                         "aggregateRating": {
                             "@type": "AggregateRating",
                             "ratingValue": "5",

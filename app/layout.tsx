@@ -7,10 +7,11 @@ const baseUrl = "https://chauffeur-prive-normandie.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "VTC Normandie & Paris | Chauffeur Privé Le Havre, Rouen, Transferts Aéroports",
+  title: "CARINE VTC | VTC Normandie & Paris, Le Havre, Rouen, Transferts",
   description:
     "Réservez votre chauffeur VTC premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris. Transferts aéroports CDG, Orly, Beauvais. Disponible 24h/24, 7j/7. Devis immédiat.",
   keywords: [
+    "CARINE VTC",
     "chauffeur privé Normandie",
     "VTC Le Havre",
     "VTC Rouen",
@@ -23,16 +24,16 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "VTC Normandie & Paris | Chauffeur Privé",
+    title: "CARINE VTC | VTC Normandie & Paris",
     description: "Service de VTC premium en Normandie et transferts aéroports 24/7.",
     url: baseUrl,
-    siteName: "Chauffeur Privé Normandie",
+    siteName: "CARINE VTC",
     locale: "fr_FR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VTC Normandie & Paris | Chauffeur Privé",
+    title: "CARINE VTC | VTC Normandie & Paris",
     description: "Service de VTC premium en Normandie et transferts aéroports 24/7.",
   },
 };
@@ -60,7 +61,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "TaxiService",
-              "name": "Chauffeur Privé Normandie Paris",
+              "name": "CARINE VTC",
               "description": "Service de VTC et chauffeur privé premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris.",
               "url": baseUrl,
               "telephone": CONFIG.contact.phone,
@@ -72,7 +73,7 @@ export default function RootLayout({
               },
               "provider": {
                 "@type": "LocalBusiness",
-                "name": "Chauffeur Privé Normandie",
+                "name": "CARINE VTC",
                 "image": `${baseUrl}/logo.png`,
                 "priceRange": "$$",
                 "telephone": CONFIG.contact.phone
