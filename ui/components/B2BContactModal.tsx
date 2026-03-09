@@ -16,18 +16,21 @@ export function B2BContactModal({ isOpen, onClose }: B2BContactModalProps) {
         contactName: "",
         emailOrPhone: "",
         needType: "Transferts V.I.P",
+        otherNeed: "",
         startDate: "",
     });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        const finalNeedType = formData.needType === "Autre demande" ? `Autre: ${formData.otherNeed}` : formData.needType;
+
         const message = encodeURIComponent(
             `*🔥 NOUVELLE DEMANDE PRO / B2B*\n\n` +
             `🏢 *Entreprise:* ${formData.company}\n` +
             `👤 *Contact:* ${formData.contactName}\n` +
             `📞 *Email / Tél:* ${formData.emailOrPhone}\n` +
-            `💼 *Type de besoin:* ${formData.needType}\n` +
+            `💼 *Type de besoin:* ${finalNeedType}\n` +
             (formData.startDate ? `📅 *Date souhaitée:* ${formData.startDate}\n` : "") +
             `\nJe souhaite ouvrir un compte d'entreprise ou obtenir un devis pro.`
         );
@@ -146,6 +149,28 @@ export function B2BContactModal({ isOpen, onClose }: B2BContactModalProps) {
                                         </select>
                                     </div>
                                 </div>
+
+                                <AnimatePresence>
+                                    {formData.needType === "Autre demande" && (
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="pt-2">
+                                                <label className={labelClasses}>Précisez votre demande *</label>
+                                                <textarea
+                                                    required
+                                                    value={formData.otherNeed}
+                                                    onChange={(e) => setFormData({ ...formData, otherNeed: e.target.value })}
+                                                    className={`${inputClasses} resize-none h-24`}
+                                                    placeholder="Dites-nous en plus sur vos besoins..."
+                                                />
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
 
                                 <div>
                                     <label className={labelClasses}>Date de début souhaitée <span className="text-white/30 lowercase">(Optionnel)</span></label>
