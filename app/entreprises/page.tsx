@@ -1,4 +1,4 @@
-import { BackgroundBeams, Navbar, Footer, B2BContactButton } from "@/ui";
+import { BackgroundBeams, Navbar, Footer, B2BContactButton, BookingSection } from "@/ui";
 import { CONFIG } from "@/config";
 import Image from "next/image";
 import Link from "next/link";
@@ -190,6 +190,8 @@ export default function EntreprisesPage() {
                     </div>
                 </div>
             </section>
+
+            <BookingSection isDarkMode={isDarkMode} />
 
             <Footer isDarkMode={isDarkMode} />
         </div>
