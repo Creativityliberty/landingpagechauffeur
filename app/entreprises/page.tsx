@@ -1,4 +1,4 @@
-import { BackgroundBeams, Navbar, Footer, BookingSection } from "@/ui";
+import { BackgroundBeams, Navbar, Footer, B2BContactButton } from "@/ui";
 import { CONFIG } from "@/config";
 import Image from "next/image";
 import Link from "next/link";
@@ -161,9 +161,9 @@ export default function EntreprisesPage() {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-bl-[100px] -z-10"></div>
                                 <h3 className="text-2xl font-black mb-6">Ouverture de Compte Pro</h3>
                                 <p className="opacity-70 text-sm mb-8">Devenez partenaire officiel et bénéficiez de tarifs préférentiels, d'une ligne prioritaire et du paiement différé mensuel.</p>
-                                <a href="mailto:contact@chauffeur-prive-normandie.fr?subject=Demande de compte entreprise" className="block w-full text-center py-4 bg-white text-black font-black uppercase text-sm rounded-xl hover:bg-gray-200 transition-colors">
+                                <B2BContactButton className="block w-full text-center py-4 bg-white text-black font-black uppercase text-sm rounded-xl hover:bg-gray-200 transition-colors">
                                     Envoyer une demande
-                                </a>
+                                </B2BContactButton>
                             </div>
                         </div>
                     </div>
@@ -181,12 +181,12 @@ export default function EntreprisesPage() {
                         Contactez notre équipe dédiée aux entreprises pour mettre en place votre compte pro en moins de 24 heures.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="tel:+33600000000" className="px-8 py-4 bg-[#D4AF37] text-black rounded-xl font-black uppercase tracking-wider hover:bg-[#E1C45A] transition-colors">
+                        <a href={`tel:${CONFIG.contact.phone.replace(/\s/g, '')}`} className="px-8 py-4 bg-[#D4AF37] text-black rounded-xl font-black uppercase tracking-wider hover:bg-[#E1C45A] transition-colors">
                             Appeler le service Pro
                         </a>
-                        <a href="mailto:contact@chauffeur-prive-normandie.fr?subject=Renseignements B2B" className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-wider hover:bg-white/10 transition-colors">
+                        <B2BContactButton className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-wider hover:bg-white/10 transition-colors">
                             Nous écrire
-                        </a>
+                        </B2BContactButton>
                     </div>
                 </div>
             </section>

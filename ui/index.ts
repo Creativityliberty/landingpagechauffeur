@@ -26,3 +26,5 @@ export * from "./components/BackgroundBeams";
 export * from "./components/BentoGrid";
 export * from "./components/ShinyButton";
 export * from "./components/AddressAutocomplete";
+export * from "./components/B2BContactModal";
+export * from "./components/B2BContactButton";
