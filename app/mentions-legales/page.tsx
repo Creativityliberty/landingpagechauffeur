@@ -26,7 +26,9 @@ export default function MentionsLegales() {
                         <p>
                             Le site <strong>{CONFIG.content.brand.name}</strong> est la propriété exclusive de et est exploité par :<br />
                             CARINE VTC<br />
+                            Entreprise Individuelle<br />
                             Siège social : Le Havre, France<br />
+                            SIRET : 993 641 299 00017<br />
                             Contact : {CONFIG.contact.email} / {CONFIG.contact.phone}
                         </p>
                     </section>
