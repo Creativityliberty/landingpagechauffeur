@@ -14,6 +14,25 @@ export const metadata: Metadata = {
 };
 
 export default function CruisePortGuidePage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: CONFIG.brand.websiteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Le Havre Cruise Port Guide",
+        item: `${CONFIG.brand.websiteUrl}/cruise-port-guide`,
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628] selection:bg-[#C8A45D] selection:text-[#06101E]">
       <Navbar isDarkMode={false} />
@@ -101,7 +120,7 @@ export default function CruisePortGuidePage() {
 
           <div>
             <Link
-              href="/#booking"
+              href="/book"
               className="inline-flex items-center gap-3 pl-7 pr-2.5 py-2.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] font-bold text-sm"
             >
               <span>REQUEST YOUR PRIVATE TOUR</span>
@@ -114,6 +133,10 @@ export default function CruisePortGuidePage() {
       </main>
 
       <Footer isDarkMode={false} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     </div>
   );
 }

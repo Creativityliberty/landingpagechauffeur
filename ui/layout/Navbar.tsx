@@ -2,12 +2,14 @@
 
 /**
  * 3-Zone Floating Framer Navbar — CARINE NORMANDY PRIVATE
- * Zero 390px overflow, solid opaque mobile drawer, EN/FR/ES/DE JSON switcher + Light/Dark toggle.
+ * Clean SEO URLs (zero # fragments), localized /fr /es /de routing, and Mobile Concierge access.
  */
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   ArrowUpRight,
+  Bot,
   ChevronDown,
   Globe,
   MessageCircle,
@@ -20,6 +22,7 @@ import { BrandCrest } from "@/ui/icons/BrandIcons";
 
 interface NavbarProps {
   isDarkMode?: boolean;
+  onOpenConcierge?: () => void;
 }
 
 const LOCALE_OPTIONS: { code: Locale; label: string; native: string }[] = [
@@ -29,12 +32,21 @@ const LOCALE_OPTIONS: { code: Locale; label: string; native: string }[] = [
   { code: "de", label: "DE", native: "Deutsch" },
 ];
 
-export function Navbar({ isDarkMode = false }: NavbarProps) {
+const CLEAN_ROUTE_MAP: Record<string, string> = {
+  "#excursions": "/excursions",
+  "#why-us": "/cruise-port-guide",
+  "#vehicle": "/cruise-port-guide",
+  "#faq": "/cruise-port-guide",
+};
+
+export function Navbar({ isDarkMode = false, onOpenConcierge }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
   const { locale, setLocale, t } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
 
@@ -45,17 +57,29 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
     return () => unsubscribe();
   }, [scrollY]);
 
-  const handleAnchorClick = (
+  const handleSectionLink = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
+    sectionHash: string,
   ) => {
-    if (href.startsWith("#")) {
-      const target = document.getElementById(href.slice(1));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false);
-      }
+    const id = sectionHash.replace("#", "");
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
+  const handleLocaleSelect = (nextLocale: Locale) => {
+    setLocale(nextLocale);
+    setIsLangOpen(false);
+    const isHome =
+      pathname === "/" ||
+      pathname === "/fr" ||
+      pathname === "/es" ||
+      pathname === "/de";
+    if (isHome) {
+      router.push(nextLocale === "en" ? "/" : `/${nextLocale}`);
     }
   };
 
@@ -70,7 +94,7 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
       >
         {/* Zone 1: Left Brand Pill */}
         <a
-          href="/"
+          href={locale === "en" ? "/" : `/${locale}`}
           className="bg-white/95 backdrop-blur-xl border border-[#0B192C]/15 rounded-full flex items-center gap-2 sm:gap-2.5 pl-2 pr-3.5 py-1.5 min-w-0 max-w-[60vw] sm:max-w-none group shadow-lg"
           aria-label={CONFIG.brand.name}
         >
@@ -100,13 +124,13 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
           </div>
         </a>
 
-        {/* Zone 2: Center Detached Navigation Pill (Desktop) */}
+        {/* Zone 2: Center Detached Navigation Pill (Clean URLs without #) */}
         <div className="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-[#0B192C]/15 shadow-lg">
           {t.nav.links.map((link, idx) => (
             <a
               key={link.href}
-              href={`/${link.href}`}
-              onClick={(e) => handleAnchorClick(e, link.href)}
+              href={CLEAN_ROUTE_MAP[link.href] || "/excursions"}
+              onClick={(e) => handleSectionLink(e, link.href)}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
                 idx === 0
                   ? "bg-[#C8A45D] text-[#06101E]"
@@ -128,9 +152,7 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
               aria-label="Select language"
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer"
               style={{
-                backgroundColor: isDarkMode
-                  ? "rgba(255,255,255,0.06)"
-                  : "rgba(11,25,44,0.05)",
+                backgroundColor: "rgba(11,25,44,0.05)",
                 color: theme.text,
               }}
             >
@@ -158,16 +180,11 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
                     <button
                       key={opt.code}
                       type="button"
-                      onClick={() => {
-                        setLocale(opt.code);
-                        setIsLangOpen(false);
-                      }}
+                      onClick={() => handleLocaleSelect(opt.code)}
                       className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                         locale === opt.code
                           ? "bg-[#C8A45D] text-[#06101E]"
-                          : isDarkMode
-                            ? "hover:bg-white/10"
-                            : "hover:bg-black/5"
+                          : "hover:bg-black/5"
                       }`}
                     >
                       <span>{opt.native}</span>
@@ -179,10 +196,10 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
             </AnimatePresence>
           </div>
 
-          {/* CTA Pill */}
+          {/* CTA Pill (Clean URL /book) */}
           <a
-            href="/#booking"
-            onClick={(e) => handleAnchorClick(e, "#booking")}
+            href="/book"
+            onClick={(e) => handleSectionLink(e, "#booking")}
             className="hidden md:inline-flex items-center gap-2 pl-4 pr-1.5 py-1 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] text-xs font-bold tracking-wide transition-all active:scale-[0.98] group"
           >
             <span>{t.nav.cta}</span>
@@ -198,9 +215,7 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
             aria-label="Toggle menu"
             className="lg:hidden w-8 h-8 rounded-full flex flex-col items-center justify-center gap-1.5 relative cursor-pointer"
             style={{
-              backgroundColor: isDarkMode
-                ? "rgba(255,255,255,0.08)"
-                : "rgba(11,25,44,0.06)",
+              backgroundColor: "rgba(11,25,44,0.06)",
               color: theme.text,
             }}
           >
@@ -233,12 +248,12 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
               {t.nav.links.map((link, idx) => (
                 <motion.a
                   key={link.href}
-                  href={`/${link.href}`}
+                  href={CLEAN_ROUTE_MAP[link.href] || "/excursions"}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.04 * idx }}
-                  onClick={(e) => handleAnchorClick(e, link.href)}
-                  className="font-editorial text-3xl font-semibold hover:text-[#C8A45D] transition-colors py-1"
+                  onClick={(e) => handleSectionLink(e, link.href)}
+                  className="font-editorial text-3xl font-semibold hover:text-[#8C6823] transition-colors py-1"
                 >
                   {link.label}
                 </motion.a>
@@ -252,13 +267,28 @@ export function Navbar({ isDarkMode = false }: NavbarProps) {
 
             <div className="flex flex-col gap-3">
               <a
-                href="/#booking"
-                onClick={(e) => handleAnchorClick(e, "#booking")}
+                href="/book"
+                onClick={(e) => handleSectionLink(e, "#booking")}
                 className="w-full py-3.5 px-6 rounded-full bg-[#C8A45D] text-[#06101E] font-bold text-center flex items-center justify-center gap-2"
               >
                 {t.nav.cta}
                 <ArrowUpRight size={16} />
               </a>
+
+              {onOpenConcierge && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    onOpenConcierge();
+                  }}
+                  className="w-full py-3 px-5 rounded-full border border-[#0B192C]/15 bg-[#F8FAFC] text-[#0A1628] text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Bot size={16} className="text-[#8C6823]" />
+                  <span>{t.support.aiTitle}</span>
+                </button>
+              )}
+
               <div className="flex items-center justify-between gap-3 pt-1">
                 <a
                   href={`tel:${CONFIG.contact.phoneInternational.replace(/\s/g, "")}`}

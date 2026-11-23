@@ -122,7 +122,14 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
               </button>
 
               <a
-                href="#excursions"
+                href="/excursions"
+                onClick={(e) => {
+                  const target = document.getElementById("excursions");
+                  if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="inline-flex items-center justify-center px-6 py-4 rounded-full border text-sm font-semibold transition-all hover:border-[#C8A45D]"
                 style={{
                   borderColor: theme.border,

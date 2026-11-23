@@ -79,7 +79,7 @@ export function ContactSection({ isDarkMode }: ContactSectionProps) {
 
         {/* Agenciex-Style Hairline Grid Strip */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 rounded-3xl border overflow-hidden divide-y md:divide-y-0 md:divide-x"
+          className="grid grid-cols-1 lg:grid-cols-3 rounded-3xl border overflow-hidden divide-y lg:divide-y-0 lg:divide-x"
           style={{
             backgroundColor: theme.surface,
             borderColor: theme.border,

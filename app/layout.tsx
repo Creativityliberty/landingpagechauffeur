@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "TravelAgency"],
+    "@type": "LocalBusiness",
     name: CONFIG.brand.name,
     legalName: CONFIG.brand.legalOperator,
     description:
@@ -73,7 +73,13 @@ export default function RootLayout({
       "@type": "PostalAddress",
       addressLocality: "Le Havre",
       addressRegion: "Normandy",
+      postalCode: "76600",
       addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 49.4833,
+      longitude: 0.1117,
     },
     areaServed: [
       "Le Havre Cruise Port",

@@ -8,12 +8,37 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/reserver",
-        destination: "/#booking",
+        destination: "/book",
         permanent: true,
       },
       {
         source: "/services",
-        destination: "/#excursions",
+        destination: "/excursions",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/book",
+        permanent: true,
+      },
+      {
+        source: "/entreprises",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/cruise-port-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/cruise-port-guide",
+        permanent: true,
+      },
+      {
+        source: "/stats",
+        destination: "/",
         permanent: true,
       },
       {

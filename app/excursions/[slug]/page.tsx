@@ -80,6 +80,31 @@ export default async function ExcursionDetailPage({
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: CONFIG.brand.websiteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Excursions",
+        item: `${CONFIG.brand.websiteUrl}/excursions`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: excursion.title,
+        item: `${CONFIG.brand.websiteUrl}/excursions/${excursion.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628] selection:bg-[#C8A45D] selection:text-[#06101E]">
       <Navbar isDarkMode={false} />
@@ -89,7 +114,7 @@ export default async function ExcursionDetailPage({
         <section className="relative py-16 md:py-24 dot-grid overflow-hidden">
           <div className={CONFIG.theme.spacing.container}>
             <Link
-              href="/#excursions"
+              href="/excursions"
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#8C6823] hover:underline mb-8"
             >
               <ArrowLeft size={14} />
@@ -226,6 +251,10 @@ export default async function ExcursionDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
     </div>
   );
