@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
+import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
 
 interface WhyChooseUsProps {
   isDarkMode: boolean;
@@ -372,16 +373,17 @@ export function WhyChooseUsSection({ isDarkMode }: WhyChooseUsProps) {
                         </p>
                       </div>
 
-                      <a
+                      <MagneticGlowButton
+                        variant="navy"
                         href="#booking"
                         onClick={(e) => e.stopPropagation()}
-                        className="shrink-0 inline-flex items-center gap-2 pl-4 pr-2 py-2 rounded-full bg-[#0A1628] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#142642] transition-colors self-start xl:self-end"
+                        className="shrink-0 inline-flex items-center gap-2 pl-4 pr-2 py-2 rounded-full text-xs font-bold uppercase tracking-wider self-start xl:self-end"
                       >
                         <span>{t.nav.cta}</span>
-                        <span className="w-7 h-7 rounded-full bg-[#C8A45D] text-[#06101E] flex items-center justify-center">
+                        <span className="w-7 h-7 rounded-full bg-[#C8A45D] text-[#06101E] group-hover:bg-[#0A1628] group-hover:text-[#C8A45D] flex items-center justify-center transition-colors duration-300">
                           <ArrowUpRight size={14} />
                         </span>
-                      </a>
+                      </MagneticGlowButton>
                     </div>
                   </motion.div>
                 )}

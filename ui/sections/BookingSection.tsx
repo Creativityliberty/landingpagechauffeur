@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
+import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
 import {
   assessCruiseSchedule,
   ExcursionSlug,
@@ -546,10 +547,11 @@ export function BookingSection({
               )}
 
               <div className="space-y-3 pt-2">
-                <button
+                <MagneticGlowButton
                   type="submit"
+                  variant="gold"
                   disabled={isSubmitting}
-                  className="group w-full flex items-center justify-between pl-7 pr-2.5 py-2.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] font-bold text-sm md:text-base tracking-wide transition-all active:scale-[0.98] disabled:opacity-60 cursor-pointer"
+                  className="w-full flex items-center justify-between pl-7 pr-2.5 py-2.5 rounded-full font-bold text-sm md:text-base tracking-wide"
                 >
                   <span className="flex items-center gap-2">
                     {isSubmitting && (
@@ -557,21 +559,21 @@ export function BookingSection({
                     )}
                     {isSubmitting ? t.booking.submitting : t.booking.submitCta}
                   </span>
-                  <span className="w-10 h-10 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <span className="w-10 h-10 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <ArrowUpRight size={18} />
                   </span>
-                </button>
+                </MagneticGlowButton>
 
-                <a
+                <MagneticGlowButton
+                  variant="outline"
                   href={buildWhatsAppUrl()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full py-3.5 px-6 rounded-full border flex items-center justify-center gap-2.5 text-sm font-semibold hover:border-[#16A34A] transition-colors"
-                  style={{ borderColor: theme.border }}
+                  className="w-full py-3.5 px-6 rounded-full flex items-center justify-center gap-2.5 text-sm font-semibold"
                 >
-                  <MessageCircle size={17} className="text-[#16A34A]" />
-                  <span>{t.booking.whatsappDirect}</span>
-                </a>
+                  <span className="w-full flex items-center justify-center gap-2.5">
+                    <MessageCircle size={17} className="text-[#16A34A]" />
+                    <span>{t.booking.whatsappDirect}</span>
+                  </span>
+                </MagneticGlowButton>
               </div>
             </div>
           </motion.form>

@@ -19,6 +19,7 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { CONFIG, Locale } from "@/config";
 import { useLanguage } from "@/lib/i18n";
 import { BrandCrest } from "@/ui/icons/BrandIcons";
+import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
 
 interface NavbarProps {
   isDarkMode?: boolean;
@@ -58,7 +59,7 @@ export function Navbar({ isDarkMode = false, onOpenConcierge }: NavbarProps) {
   }, [scrollY]);
 
   const handleSectionLink = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLElement>,
     sectionHash: string,
   ) => {
     const id = sectionHash.replace("#", "");
@@ -197,16 +198,19 @@ export function Navbar({ isDarkMode = false, onOpenConcierge }: NavbarProps) {
           </div>
 
           {/* CTA Pill (Clean URL /book) */}
-          <a
-            href="/book"
-            onClick={(e) => handleSectionLink(e, "#booking")}
-            className="hidden md:inline-flex items-center gap-2 pl-4 pr-1.5 py-1 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] text-xs font-bold tracking-wide transition-all active:scale-[0.98] group"
-          >
-            <span>{t.nav.cta}</span>
-            <span className="w-6 h-6 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              <ArrowUpRight size={13} />
-            </span>
-          </a>
+          <div className="hidden md:inline-flex">
+            <MagneticGlowButton
+              variant="gold"
+              href="/book"
+              onClick={(e) => handleSectionLink(e, "#booking")}
+              className="inline-flex items-center gap-2 pl-4 pr-1.5 py-1 rounded-full text-xs font-bold tracking-wide"
+            >
+              <span>{t.nav.cta}</span>
+              <span className="w-6 h-6 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowUpRight size={13} />
+              </span>
+            </MagneticGlowButton>
+          </div>
 
           {/* Hamburger (Mobile/Tablet) */}
           <button
@@ -266,14 +270,15 @@ export function Navbar({ isDarkMode = false, onOpenConcierge }: NavbarProps) {
             />
 
             <div className="flex flex-col gap-3">
-              <a
+              <MagneticGlowButton
+                variant="gold"
                 href="/book"
                 onClick={(e) => handleSectionLink(e, "#booking")}
-                className="w-full py-3.5 px-6 rounded-full bg-[#C8A45D] text-[#06101E] font-bold text-center flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-6 rounded-full font-bold text-center flex items-center justify-center gap-2"
               >
-                {t.nav.cta}
+                <span className="flex-1 text-center">{t.nav.cta}</span>
                 <ArrowUpRight size={16} />
-              </a>
+              </MagneticGlowButton>
 
               {onOpenConcierge && (
                 <button

@@ -13,6 +13,7 @@ import { ArrowUpRight, Info } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
 import type { ExcursionSlug } from "@/core/domain/excursion-request";
+import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
 
 interface ServicesSectionProps {
   isDarkMode: boolean;
@@ -209,16 +210,16 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3 pt-2">
-                    <button
-                      type="button"
+                    <MagneticGlowButton
+                      variant="gold"
                       onClick={() => handleSelectExcursion(activeExcursion.slug)}
-                      className="group/btn inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] text-xs font-bold uppercase tracking-wider cursor-pointer"
+                      className="inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
                     >
                       <span>{t.excursionsSection.selectCta}</span>
-                      <span className="w-7 h-7 rounded-full bg-[#06101E]/15 flex items-center justify-center">
+                      <span className="w-7 h-7 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-colors duration-300">
                         <ArrowUpRight size={14} />
                       </span>
-                    </button>
+                    </MagneticGlowButton>
 
                     <Link
                       href={`/excursions/${activeExcursion.slug}`}
@@ -297,16 +298,16 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                       className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t"
                       style={{ borderColor: theme.borderSubtle }}
                     >
-                      <button
-                        type="button"
+                      <MagneticGlowButton
+                        variant="gold"
                         onClick={() => handleSelectExcursion(exc.slug)}
-                        className="group/btn inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] text-xs font-bold uppercase tracking-wider transition-all active:scale-[0.98] cursor-pointer"
+                        className="inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
                       >
                         <span>{t.excursionsSection.selectCta}</span>
-                        <span className="w-7 h-7 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                        <span className="w-7 h-7 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                           <ArrowUpRight size={14} />
                         </span>
-                      </button>
+                      </MagneticGlowButton>
 
                       <Link
                         href={`/excursions/${exc.slug}`}

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { CONFIG } from "@/config";
-import { Footer, Navbar } from "@/ui";
+import { Footer, MagneticGlowButton, Navbar } from "@/ui";
 
 export const metadata: Metadata = {
   title: "Private Normandy Shore Excursions from Le Havre Cruise Port",
@@ -82,15 +82,16 @@ export default function ExcursionsIndexPage() {
                   </div>
                 </div>
                 <div className="px-6 pb-6 pt-2 flex items-center justify-between">
-                  <Link
+                  <MagneticGlowButton
+                    variant="gold"
                     href={`/excursions/${exc.slug}`}
-                    className="inline-flex items-center gap-2 pl-4 pr-2 py-1.5 rounded-full bg-[#C8A45D] text-[#06101E] text-xs font-bold uppercase tracking-wider"
+                    className="inline-flex items-center gap-2 pl-4 pr-2 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
                   >
                     <span>View Itinerary</span>
-                    <span className="w-6 h-6 rounded-full bg-[#06101E]/15 flex items-center justify-center">
+                    <span className="w-6 h-6 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-colors duration-300">
                       <ArrowUpRight size={13} />
                     </span>
-                  </Link>
+                  </MagneticGlowButton>
                   <Link
                     href="/book"
                     className="text-xs font-semibold underline underline-offset-4 text-[#0A1628]"

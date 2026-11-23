@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
+import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
 
 interface HeroSectionProps {
   isDarkMode?: boolean;
@@ -96,22 +97,23 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
 
             {/* 4. Dual CTAs + Compact 1-Line Trust Strip */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-5">
-              <button
-                type="button"
+              <MagneticGlowButton
+                variant="gold"
                 onClick={() =>
                   document
                     .getElementById("booking")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="group inline-flex items-center justify-between sm:justify-center gap-4 pl-7 pr-2.5 py-2.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] font-bold text-sm md:text-base tracking-wide transition-all duration-300 active:scale-[0.98] shadow-2xl shadow-black/35 cursor-pointer"
+                className="inline-flex items-center justify-between sm:justify-center gap-4 pl-7 pr-2.5 py-2.5 rounded-full font-bold text-sm md:text-base tracking-wide shadow-2xl shadow-black/35"
               >
                 <span>{t.hero.ctaPrimary}</span>
-                <span className="w-10 h-10 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
+                <span className="w-10 h-10 rounded-full bg-[#06101E]/15 group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
                   <ArrowUpRight size={18} />
                 </span>
-              </button>
+              </MagneticGlowButton>
 
-              <a
+              <MagneticGlowButton
+                variant="glass"
                 href="/excursions"
                 onClick={(e) => {
                   const target = document.getElementById("excursions");
@@ -120,10 +122,10 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
                     target.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex items-center justify-center px-6 py-4 rounded-full bg-white/12 hover:bg-white/20 border border-white/30 text-white text-sm font-semibold backdrop-blur-md transition-all"
+                className="inline-flex items-center justify-center px-6 py-4 rounded-full text-sm font-semibold"
               >
                 {t.hero.ctaSecondary}
-              </a>
+              </MagneticGlowButton>
             </div>
 
             <p className="text-xs sm:text-[13px] tracking-wider uppercase font-semibold text-slate-200/90">
