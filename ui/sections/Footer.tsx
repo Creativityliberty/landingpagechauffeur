@@ -156,7 +156,7 @@ export function Footer({ isDarkMode }: FooterProps) {
       </div>
 
       {/* Immersive Normandy Horizon + Oversized Brand Wordmark */}
-      <div className="relative h-[220px] sm:h-[290px] w-full overflow-hidden">
+      <div className="relative h-[250px] sm:h-[290px] w-full overflow-hidden">
         <Image
           src="/images/excursions/etretat.jpg"
           alt="Normandy white chalk cliffs coastline at Étretat"
@@ -174,7 +174,7 @@ export function Footer({ isDarkMode }: FooterProps) {
         {/* Oversized Editorial Wordmark anchored at the horizon */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute inset-x-0 bottom-10 sm:bottom-11 flex justify-center px-4"
+          className="pointer-events-none select-none absolute inset-x-0 bottom-16 sm:bottom-12 flex justify-center px-4"
         >
           <p className="font-editorial font-bold tracking-tight uppercase text-center leading-[0.84] text-[10.5vw] sm:text-[9.5vw] text-white/85 drop-shadow-[0_10px_30px_rgba(6,16,30,0.35)] whitespace-nowrap">
             CARINE NORMANDY
@@ -182,21 +182,21 @@ export function Footer({ isDarkMode }: FooterProps) {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="absolute inset-x-0 bottom-0 z-10 bg-[#06101E]/65 backdrop-blur-md border-t border-white/15">
+        <div className="absolute inset-x-0 bottom-0 z-10 bg-[#06101E]/75 backdrop-blur-md border-t border-white/15">
           <div
-            className={`${CONFIG.theme.spacing.container} py-3 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] sm:text-xs text-white/85`}
+            className={`${CONFIG.theme.spacing.container} py-3.5 px-8 sm:px-6 flex flex-col sm:flex-row justify-center sm:justify-between items-center text-center sm:text-left gap-1.5 sm:gap-4 text-[11px] sm:text-xs text-white/90`}
           >
-            <p>
+            <p className="shrink-0">
               © {new Date().getFullYear()} {CONFIG.brand.name}
             </p>
-            <p>
+            <p className="leading-relaxed">
               {t.footer.operatedBy} {CONFIG.brand.legalOperator} (SIRET{" "}
               {CONFIG.brand.siret}) · {t.footer.builtWith}{" "}
               <a
                 href="https://www.numtemaagency.com"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-[#C8A45D] hover:underline underline-offset-4"
+                className="font-semibold text-[#C8A45D] hover:underline underline-offset-4 whitespace-nowrap"
               >
                 Nümtema AGENCY
               </a>
