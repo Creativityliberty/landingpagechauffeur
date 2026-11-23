@@ -15,7 +15,7 @@ export default function BookPage() {
     <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628]">
       <Navbar />
       <main className="pt-20">
-        <BookingSection isDarkMode={false} />
+        <BookingSection isDarkMode={false} headingAs="h1" />
       </main>
       <Footer isDarkMode={false} />
     </div>

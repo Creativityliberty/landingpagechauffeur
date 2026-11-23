@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import type { ExcursionSlug } from "@/core/domain/excursion-request";
 import en from "./i18n/locales/en.json";
 import fr from "./i18n/locales/fr.json";
@@ -16,6 +17,14 @@ export const LOCALE_DICTIONARIES: Record<Locale, TranslationSchema> = {
   es,
   de,
 };
+
+function detectLocaleFromPath(pathname: string | null): Locale | null {
+  if (!pathname) return null;
+  if (pathname === "/fr" || pathname.startsWith("/fr/")) return "fr";
+  if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
+  if (pathname === "/de" || pathname.startsWith("/de/")) return "de";
+  return null;
+}
 
 interface LanguageContextValue {
   locale: Locale;
@@ -34,13 +43,20 @@ export function LanguageProvider({
   children: React.ReactNode;
   initialLocale?: Locale;
 }) {
-  const [locale, setLocale] = useState<Locale>(initialLocale);
+  const pathname = usePathname();
+  const pathLocale = detectLocaleFromPath(pathname);
+  const [locale, setLocale] = useState<Locale>(pathLocale ?? initialLocale);
   const [selectedExcursion, setSelectedExcursion] =
     useState<ExcursionSlug>("etretat-honfleur");
 
   useEffect(() => {
-    setLocale(initialLocale);
-  }, [initialLocale]);
+    const nextPathLocale = detectLocaleFromPath(pathname);
+    if (nextPathLocale) {
+      setLocale(nextPathLocale);
+    } else if (pathname === "/") {
+      setLocale("en");
+    }
+  }, [pathname]);
 
   const t = LOCALE_DICTIONARIES[locale];
 

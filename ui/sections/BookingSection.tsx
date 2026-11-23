@@ -29,11 +29,13 @@ import {
 interface BookingSectionProps {
   isDarkMode: boolean;
   initialExcursion?: ExcursionSlug;
+  headingAs?: "h1" | "h2";
 }
 
 export function BookingSection({
   isDarkMode,
   initialExcursion,
+  headingAs = "h2",
 }: BookingSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
   const { t, selectedExcursion } = useLanguage();
@@ -165,17 +167,31 @@ export function BookingSection({
           >
             {t.booking.eyebrow}
           </div>
-          <h2
-            className={`font-editorial ${CONFIG.theme.typography.h2} tracking-tight leading-[1.04] mb-4`}
-          >
-            <span className="font-normal">{t.booking.titleLead} </span>
-            <span
-              className="font-bold italic"
-              style={{ color: theme.accentText }}
+          {headingAs === "h1" ? (
+            <h1
+              className={`font-editorial ${CONFIG.theme.typography.h2} tracking-tight leading-[1.04] mb-4`}
             >
-              {t.booking.titleAccent}
-            </span>
-          </h2>
+              <span className="font-normal">{t.booking.titleLead} </span>
+              <span
+                className="font-bold italic"
+                style={{ color: theme.accentText }}
+              >
+                {t.booking.titleAccent}
+              </span>
+            </h1>
+          ) : (
+            <h2
+              className={`font-editorial ${CONFIG.theme.typography.h2} tracking-tight leading-[1.04] mb-4`}
+            >
+              <span className="font-normal">{t.booking.titleLead} </span>
+              <span
+                className="font-bold italic"
+                style={{ color: theme.accentText }}
+              >
+                {t.booking.titleAccent}
+              </span>
+            </h2>
+          )}
           <p className="text-base md:text-lg" style={{ color: theme.muted }}>
             {t.booking.description}
           </p>
