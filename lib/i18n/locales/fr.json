@@ -97,6 +97,13 @@
         "badgeDuration": "Journée complète · Selon escale",
         "driveTimeFromPier": "~2h30 par trajet",
         "shortDesc": "Découvrez le célèbre village insulaire, sa baie et sa magnifique abbaye médiévale."
+      },
+      "eiffel-tower": {
+        "title": "PARIS · TOUR EIFFEL",
+        "subtitle": "Escapade Privée à Paris",
+        "badgeDuration": "Journée complète · Selon escale",
+        "driveTimeFromPier": "~2h15 par trajet",
+        "shortDesc": "Transfert privé aller-retour depuis le Terminal Croisière du Havre vers la Tour Eiffel et le Trocadéro."
       }
     }
   },
@@ -216,6 +223,7 @@
       { "value": "honfleur", "label": "Honfleur – Le Vieux Bassin (~4h)" },
       { "value": "dday-landing-beaches", "label": "Plages du Débarquement (~8h)" },
       { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Journée complète)" },
+      { "value": "eiffel-tower", "label": "Paris · Tour Eiffel" },
       { "value": "custom", "label": "Itinéraire sur mesure" }
     ],
     "guestOptions": [

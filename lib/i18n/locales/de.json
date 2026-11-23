@@ -97,6 +97,13 @@
         "badgeDuration": "Ganztags · Je nach Liegezeit",
         "driveTimeFromPier": "~2 Std. 30 Min. pro Strecke",
         "shortDesc": "Besuchen Sie die berühmte Klosterinsel, das mittelalterliche Dorf und die beeindruckende Abtei."
+      },
+      "eiffel-tower": {
+        "title": "PARIS · EIFFELTURM",
+        "subtitle": "Privater Tagesausflug nach Paris",
+        "badgeDuration": "Ganztags · Je nach Liegezeit",
+        "driveTimeFromPier": "~2 Std. 15 pro Strecke",
+        "shortDesc": "Privater Hin- und Rücktransfer vom Kreuzfahrtterminal Le Havre zum Eiffelturm und Trocadéro."
       }
     }
   },
@@ -216,6 +223,7 @@
       { "value": "honfleur", "label": "Honfleur – Der malerische Hafen (~4 Std.)" },
       { "value": "dday-landing-beaches", "label": "D-Day Landungsstrände (~8 Std.)" },
       { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Ganztags)" },
+      { "value": "eiffel-tower", "label": "Paris · Eiffelturm" },
       { "value": "custom", "label": "Individuelle Route" }
     ],
     "guestOptions": [

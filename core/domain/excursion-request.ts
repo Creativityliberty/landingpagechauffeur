@@ -9,6 +9,7 @@ export type ExcursionSlug =
   | "honfleur"
   | "mont-saint-michel"
   | "dday-landing-beaches"
+  | "eiffel-tower"
   | "custom";
 
 export type GuestCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -59,6 +60,7 @@ const EXCURSION_MINIMUM_MINUTES: Record<
   honfleur: { estimatedMinutes: 240, minimumPortMinutes: 300 },
   "dday-landing-beaches": { estimatedMinutes: 480, minimumPortMinutes: 540 },
   "mont-saint-michel": { estimatedMinutes: 540, minimumPortMinutes: 630 },
+  "eiffel-tower": { estimatedMinutes: 540, minimumPortMinutes: 600 },
   custom: { estimatedMinutes: 240, minimumPortMinutes: 300 },
 };
 

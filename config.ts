@@ -289,6 +289,43 @@ export const CONFIG = {
         "Licensed interior monument guide",
       ],
     },
+    {
+      slug: "eiffel-tower",
+      category: "full",
+      title: "PARIS · EIFFEL TOWER",
+      subtitle: "Private Day Trip to Paris",
+      badgeDuration: "Full-day · Ship schedule dependent",
+      driveTimeFromPier: "~2h15 each way",
+      recommendedPortStay: "11+ hours port stay",
+      shortDesc:
+        "Private round-trip transfer from Le Havre Cruise Port to the Eiffel Tower, Trocadéro, and Seine riverfront.",
+      answerBox:
+        "Paris & Eiffel Tower is a private full-day excursion from Le Havre Cruise Port in an exclusive Sedan (1–4) or Van (5–8), taking you directly to Trocadéro and the Eiffel Tower with a guaranteed return before your ship's all-aboard time.",
+      image: "/images/excursions/eiffel-tower.jpg",
+      gridSpan: "lg:col-span-4",
+      highlights: [
+        "Direct highway transfer from Le Havre Cruise Terminal to Paris",
+        "Photo stops at Trocadéro Esplanade, Eiffel Tower & Champ-de-Mars",
+        "Optional scenic drive past Arc de Triomphe & Champs-Élysées",
+        "Safe return timed to your cruise ship's departure",
+      ],
+      sampleTimeline: [
+        { time: "07:45", label: "Pier pick-up at Le Havre Cruise Terminal" },
+        { time: "10:15", label: "Arrival at Trocadéro & Eiffel Tower" },
+        { time: "14:15", label: "Departure from Paris back toward Normandy" },
+        { time: "16:45", label: "Drop-off at Le Havre Cruise Port" },
+      ],
+      included: [
+        "Exclusive private Sedan (1–4) or Van (5–8)",
+        "Direct Le Havre pier pick-up and return drop-off",
+        "Highway tolls, fuel, and Paris drop-off fees",
+        "Real-time port schedule coordination",
+      ],
+      excluded: [
+        "Eiffel Tower summit tickets and meals",
+        "Licensed interior guide",
+      ],
+    },
   ] satisfies ExcursionItem[],
 
   translations: LOCALE_DICTIONARIES,

@@ -97,6 +97,13 @@
         "badgeDuration": "Full-day · Ship schedule dependent",
         "driveTimeFromPier": "~2h30 each way",
         "shortDesc": "Discover the iconic island village, its tidal bay and magnificent medieval abbey."
+      },
+      "eiffel-tower": {
+        "title": "PARIS · EIFFEL TOWER",
+        "subtitle": "Iconic Capital Excursion",
+        "badgeDuration": "Full-day · Ship schedule dependent",
+        "driveTimeFromPier": "~2h15 each way",
+        "shortDesc": "Private round-trip transfer from Le Havre Cruise Terminal to the Eiffel Tower and Trocadéro."
       }
     }
   },
@@ -216,6 +223,7 @@
       { "value": "honfleur", "label": "Honfleur – The Charming Harbour (~4h)" },
       { "value": "dday-landing-beaches", "label": "D-Day Landing Beaches (~8h)" },
       { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Full day)" },
+      { "value": "eiffel-tower", "label": "Paris · Eiffel Tower" },
       { "value": "custom", "label": "Custom itinerary" }
     ],
     "guestOptions": [

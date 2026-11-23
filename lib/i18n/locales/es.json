@@ -97,6 +97,13 @@
         "badgeDuration": "Día completo · Según escala",
         "driveTimeFromPier": "~2h30 por trayecto",
         "shortDesc": "Visite la icónica isla medieval, su bahía de mareas y su impresionante abadía."
+      },
+      "eiffel-tower": {
+        "title": "PARÍS · TORRE EIFFEL",
+        "subtitle": "Escapada Privada a París",
+        "badgeDuration": "Día completo · Según escala",
+        "driveTimeFromPier": "~2h15 por trayecto",
+        "shortDesc": "Traslado privado de ida y vuelta desde la terminal de Le Havre hasta la Torre Eiffel y Trocadéro."
       }
     }
   },
@@ -216,6 +223,7 @@
       { "value": "honfleur", "label": "Honfleur – El Puerto Histórico (~4h)" },
       { "value": "dday-landing-beaches", "label": "Playas del Desembarco (~8h)" },
       { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Día completo)" },
+      { "value": "eiffel-tower", "label": "París · Torre Eiffel" },
       { "value": "custom", "label": "Itinerario personalizado" }
     ],
     "guestOptions": [
