@@ -1,0 +1,322 @@
+{
+  "brandPortLabel": "Port Croisière du Havre",
+  "nav": {
+    "links": [
+      { "label": "Excursions", "href": "#excursions" },
+      { "label": "Atouts", "href": "#why-us" },
+      { "label": "Véhicule", "href": "#vehicle" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "cta": "Devis",
+    "languageLabel": "FR",
+    "themeLight": "Clair",
+    "themeDark": "Sombre"
+  },
+  "hero": {
+    "eyebrow": "Terminal Croisière du Havre · Berline Privée (1–4 Passagers)",
+    "titleLead": "Découvrez la Normandie,",
+    "titleAccent": "à Votre Rythme.",
+    "subtitle": "Excursions Privées depuis le Port Croisière du Havre",
+    "description": "Profitez pleinement de votre escale avec un chauffeur privé et une berline confortable réservée exclusivement à votre groupe : Étretat, Honfleur, Mont-Saint-Michel et les Plages du Débarquement — retour garanti à temps au navire.",
+    "bullets": [
+      "Berline exclusive pour 1 à 4 passagers",
+      "Accueil et retour au quai du Havre",
+      "Tarif par véhicule, jamais à la place",
+      "Communication multilingue"
+    ],
+    "ctaPrimary": "RÉSERVER VOTRE EXCURSION PRIVÉE",
+    "ctaSecondary": "Voir les Excursions",
+    "microCaption": "Chauffeur privé (hors guide intérieur) · Liberté totale · Retour avant embarquement",
+    "badgeTopTitle": "Sécurité Retour Navire",
+    "badgeTopSub": "Marge de 60+ min avant embarquement",
+    "badgeBottomTitle": "Berline Privée Exclusive",
+    "badgeBottomSub": "1–4 passagers · Tarif par voiture, jamais partagé"
+  },
+  "marquee": [
+    "Port Croisière du Havre",
+    "Berline Privée · 1–4 Passagers",
+    "Étretat + Honfleur",
+    "Falaises d'Étretat",
+    "Port d'Honfleur",
+    "Plages du Débarquement",
+    "Mont-Saint-Michel",
+    "Retour Garanti Avant Embarquement"
+  ],
+  "marqueeSecondary": [
+    "Tarif par Véhicule · Jamais par Personne",
+    "Chauffeur Privé · Liberté de Visite",
+    "Communication Multilingue",
+    "Accueil Direct au Terminal",
+    "Itinéraires d'Escale Sur Mesure",
+    "Chauffeur VTC Agréé"
+  ],
+  "excursionsSection": {
+    "eyebrow": "Nos Excursions Phares",
+    "titleLead": "Explorer la Normandie",
+    "titleAccent": "dès la Sortie du Navire.",
+    "description": "Comparez nos circuits depuis le Terminal Croisière du Havre. Chaque sortie est réservée exclusivement à votre groupe de 1 à 4 passagers.",
+    "glanceTitle": "Aperçu Interactif des Circuits",
+    "filterAll": "Tous les circuits",
+    "filterShort": "Demi-journée (~4h)",
+    "filterFull": "Journée complète (7–10h)",
+    "stageStatLabel": "Capacité Véhicule",
+    "stageStatValue": "1–4 Passagers · Berline Privée",
+    "stageDriveLabel": "Depuis le Port du Havre",
+    "selectCta": "Choisir cette excursion",
+    "detailsCta": "Programme & Détails",
+    "disclaimer": "Les durées indiquées sont des estimations indicatives confirmées selon les trajets, les arrêts souhaités et les horaires exacts de votre escale.",
+    "cards": {
+      "etretat-honfleur": {
+        "title": "ÉTRETAT + HONFLEUR",
+        "subtitle": "Le Combiné le Plus Demandé",
+        "badgeDuration": "Environ 7 heures",
+        "driveTimeFromPier": "~35 min entre les sites",
+        "shortDesc": "Les spectaculaires falaises de craie d'Étretat le matin, suivies d'un déjeuner et d'une promenade libre autour du Vieux Bassin d'Honfleur."
+      },
+      "etretat": {
+        "title": "ÉTRETAT",
+        "subtitle": "Les Falaises Célèbres",
+        "badgeDuration": "Environ 4 heures",
+        "driveTimeFromPier": "~35 min du terminal du Havre",
+        "shortDesc": "Découvrez les célèbres falaises de craie blanche, les arches naturelles et les panoramas spectaculaires de la côte normande."
+      },
+      "honfleur": {
+        "title": "HONFLEUR",
+        "subtitle": "Le Port de Charme",
+        "badgeDuration": "Environ 4 heures",
+        "driveTimeFromPier": "~30 min via le Pont de Normandie",
+        "shortDesc": "Appréciez le charme de son Vieux Bassin historique, ses ruelles pittoresques et son architecture traditionnelle."
+      },
+      "dday-landing-beaches": {
+        "title": "PLAGES DU DÉBARQUEMENT",
+        "subtitle": "Un Voyage dans l'Histoire",
+        "badgeDuration": "Environ 8 heures",
+        "driveTimeFromPier": "~1h45 par trajet",
+        "shortDesc": "Explorez les sites historiques du 6 juin 1944, la Pointe du Hoc, Omaha Beach et le Cimetière américain."
+      },
+      "mont-saint-michel": {
+        "title": "MONT-SAINT-MICHEL",
+        "subtitle": "Une Destination Magique",
+        "badgeDuration": "Journée complète · Selon escale",
+        "driveTimeFromPier": "~2h30 par trajet",
+        "shortDesc": "Découvrez le célèbre village insulaire, sa baie et sa magnifique abbaye médiévale."
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Pourquoi nous choisir",
+    "titleLead": "Votre excursion privée,",
+    "titleAccent": "calée sur votre escale.",
+    "comparisonTitle": "Bus Croisière vs. CARINE NORMANDY PRIVATE",
+    "comparisonShip": "Autocar 50 places · Prix par personne · Horaires collectifs imposés",
+    "comparisonPrivate": "Berline Privée (1–4 pers.) · Prix par véhicule · À votre propre rythme",
+    "items": [
+      {
+        "step": "01",
+        "icon": "shield",
+        "title": "Expérience 100% Privée",
+        "titleMuted": "Expérience privée,",
+        "titleBold": "rien que pour vous.",
+        "desc": "Une berline confortable réservée uniquement à votre groupe de 1 à 4 passagers, jamais partagée.",
+        "tag": "1–4 Passagers"
+      },
+      {
+        "step": "02",
+        "icon": "compass",
+        "title": "Itinéraire Personnalisé",
+        "titleMuted": "Chauffeur privé —",
+        "titleBold": "liberté totale.",
+        "desc": "Nous gérons la route, les péages et le stationnement pendant que vous visitez sites et villages à votre rythme.",
+        "tag": "Arrêts Flexibles"
+      },
+      {
+        "step": "03",
+        "icon": "languages",
+        "title": "Communication Multilingue",
+        "titleMuted": "Échange multilingue,",
+        "titleBold": "organisation fluide.",
+        "desc": "Communiquez facilement en anglais, français, espagnol ou allemand du premier contact jusqu'au retour au port.",
+        "tag": "EN · FR · ES · DE"
+      },
+      {
+        "step": "04",
+        "icon": "anchor",
+        "title": "Accueil au Port du Havre",
+        "titleMuted": "Prise en charge quai &",
+        "titleBold": "retour à l'heure.",
+        "desc": "Accueil nominatif à la sortie du terminal avec une marge de sécurité de 60+ minutes avant l'heure limite à bord.",
+        "tag": "Garantie Escale"
+      }
+    ]
+  },
+  "vehicleTrust": {
+    "eyebrow": "Confiance & Transparence",
+    "title": "Votre Berline Privée & Sécurité d'Escale",
+    "description": "Pour une escale sereine dans un port étranger, la clarté sur le véhicule, le tarif et les horaires est essentielle.",
+    "vehicleBadge": "Confort Berline · 1–4 Passagers",
+    "vehicleTitle": "Berline Privée Réservée Exclusivement à Votre Groupe",
+    "vehicleSpecs": [
+      "1 à 4 passagers + coffre spacieux",
+      "Climatisation & confort haut de gamme",
+      "Eau fraîche & chargeurs USB à bord",
+      "Accueil nominatif à la sortie du terminal"
+    ],
+    "pillars": [
+      {
+        "title": "Tarification claire par véhicule",
+        "desc": "Vous réservez la berline entière pour votre groupe (1 à 4 pers.), et non une place individuelle en autocar. Chaque devis est personnalisé."
+      },
+      {
+        "title": "Marge de sécurité retour à bord",
+        "desc": "Nous demandons systématiquement votre heure limite d'embarquement afin de garantir un retour confortable au port."
+      },
+      {
+        "title": "Transport privé avec chauffeur",
+        "desc": "Prestation de transport privé avec chauffeur multilingue (sans visite guidée conférencière à l'intérieur des monuments)."
+      }
+    ]
+  },
+  "booking": {
+    "eyebrow": "Demande en 1 Minute · Devis Personnalisé",
+    "titleLead": "Planifier Votre",
+    "titleAccent": "Excursion en Normandie",
+    "description": "Vous faites escale au Havre ? Sélectionnez votre circuit, indiquez les horaires du navire et recevez nos disponibilités avec un devis personnalisé par véhicule.",
+    "sectionCruise": "1. Navire & Horaires d'Escale",
+    "sectionTrip": "2. Excursion & Groupe",
+    "sectionContact": "3. Vos Coordonnées",
+    "fields": {
+      "fullName": "Nom complet",
+      "email": "Adresse e-mail",
+      "phoneOrWhatsapp": "Numéro WhatsApp / Téléphone",
+      "cruiseShipName": "Nom du navire de croisière",
+      "arrivalDate": "Date d'arrivée au Havre",
+      "shipArrivalTime": "Heure d'arrivée du navire",
+      "allAboardTime": "Heure limite de retour à bord",
+      "preferredExcursion": "Excursion souhaitée",
+      "guestsCount": "Nombre de passagers (1–4)",
+      "preferredLanguage": "Langue préférée",
+      "additionalRequests": "Demandes complémentaires"
+    },
+    "placeholders": {
+      "fullName": "ex. Claire Martin",
+      "email": "claire@example.com",
+      "phoneOrWhatsapp": "+33 6 12 34 56 78",
+      "cruiseShipName": "ex. MSC Virtuosa, Queen Mary 2...",
+      "additionalRequests": "Pause déjeuner, besoins d'accessibilité, horaires souhaités..."
+    },
+    "excursionOptions": [
+      { "value": "etretat-honfleur", "label": "Combiné Étretat + Honfleur (~7h)" },
+      { "value": "etretat", "label": "Étretat – Les Falaises (~4h)" },
+      { "value": "honfleur", "label": "Honfleur – Le Vieux Bassin (~4h)" },
+      { "value": "dday-landing-beaches", "label": "Plages du Débarquement (~8h)" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Journée complète)" },
+      { "value": "custom", "label": "Itinéraire sur mesure" }
+    ],
+    "guestOptions": [
+      { "value": 1, "label": "1 passager (Berline privée)" },
+      { "value": 2, "label": "2 passagers (Berline privée)" },
+      { "value": 3, "label": "3 passagers (Berline privée)" },
+      { "value": 4, "label": "4 passagers (Berline privée)" }
+    ],
+    "languageOptions": [
+      { "value": "English", "label": "Anglais" },
+      { "value": "French", "label": "Français" },
+      { "value": "Spanish", "label": "Espagnol" },
+      { "value": "German", "label": "Allemand" },
+      { "value": "Other", "label": "Autre" }
+    ],
+    "summaryTitle": "Vérification Horaire d'Escale",
+    "summaryDefaultTerminal": "Terminal Croisière du Havre",
+    "summaryLabels": {
+      "portWindow": "Fenêtre d'escale",
+      "excursion": "Excursion",
+      "vehicle": "Véhicule",
+      "privateSedan": "Berline Privée",
+      "guestSingular": "passager",
+      "guestPlural": "passagers"
+    },
+    "statusMessages": {
+      "comfortable": "Fenêtre d'escale confortable avec plus de 60 min de marge de sécurité retour.",
+      "tight": "Escale serrée pour ce circuit — nous vérifierons l'horaire exact et adapterons les arrêts.",
+      "insufficient": "Durée d'escale plus courte que recommandée pour cette destination. Privilégiez Étretat ou Honfleur (~4h).",
+      "unknown": "Renseignez l'heure d'arrivée et l'heure limite à bord pour vérifier la compatibilité."
+    },
+    "disclaimer": "Toutes les demandes sont soumises à disponibilité et confirmation. Nous vous contacterons avec un devis personnalisé.",
+    "submitCta": "DEMANDER MON DEVIS PRIVÉ",
+    "submitting": "Envoi en cours...",
+    "whatsappDirect": "Envoyer via WhatsApp",
+    "successTitle": "Demande bien reçue",
+    "successBody": "Merci ! Nous vérifions les disponibilités selon les horaires de votre navire et revenons vers vous très rapidement."
+  },
+  "faq": {
+    "eyebrow": "Infos Croisiéristes",
+    "title": "Questions Fréquentes",
+    "items": [
+      {
+        "q": "Où le chauffeur nous retrouve-t-il au port du Havre ?",
+        "a": "Votre chauffeur vous attend directement à la sortie de votre terminal croisière avec une pancarte à votre nom."
+      },
+      {
+        "q": "Comment garantissez-vous le retour avant l'heure limite ?",
+        "a": "Nous intégrons toujours l'heure limite d'embarquement et une marge de sécurité d'au moins 60 minutes dans le programme."
+      },
+      {
+        "q": "Le tarif est-il par personne ou par véhicule ?",
+        "a": "Le devis est établi pour le véhicule privatif complet (1 à 4 passagers), jamais à la place."
+      },
+      {
+        "q": "Peut-on combiner Étretat et Honfleur dans la même escale ?",
+        "a": "Oui, le combiné Étretat + Honfleur (~7h) est notre sortie la plus demandée depuis le terminal du Havre."
+      },
+      {
+        "q": "Proposez-vous des visites guidées à l'intérieur des monuments ?",
+        "a": "Notre activité est exclusivement du transport privé avec chauffeur multilingue ; les visites guidées intérieures agréées ne sont pas incluses."
+      },
+      {
+        "q": "Que se passe-t-il si le navire a du retard ?",
+        "a": "Nous suivons l'arrivée réelle du navire et ajustons l'heure de prise en charge."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact Direct",
+    "title": "Une Question Avant de Réserver ?",
+    "description": "Contactez-nous par WhatsApp, téléphone ou e-mail pour vérifier une disponibilité ou préparer votre itinéraire.",
+    "cards": [
+      { "title": "WhatsApp", "subtitle": "Réponse la plus rapide" },
+      { "title": "Téléphone", "subtitle": "Ligne directe internationale" },
+      { "title": "Email", "subtitle": "Devis détaillés" }
+    ]
+  },
+  "footer": {
+    "description": "Excursions privées avec chauffeur (1–4 passagers) au départ direct du terminal croisière du Havre vers la Normandie.",
+    "location": "Le Havre, Normandie, France",
+    "excursionsHeading": "Excursions Croisières",
+    "infoHeading": "Informations",
+    "legalNotice": "Mentions Légales",
+    "terms": "CGV",
+    "privacy": "Confidentialité",
+    "portGuide": "Guide du Port",
+    "operatedBy": "Exploité par",
+    "builtWith": "Conçu avec"
+  },
+  "support": {
+    "buttonAria": "Ouvrir le Concierge Croisière",
+    "tooltip": "Concierge Croisière",
+    "menuTitle": "Assistance Port du Havre",
+    "menuSubtitle": "Excursions Privées · 1–4 Passagers",
+    "aiTitle": "Concierge IA Croisières",
+    "aiSubtitle": "Aide au choix & horaires d'escale",
+    "callTitle": "Appel Direct",
+    "emailTitle": "E-mail",
+    "chatTitle": "Concierge Croisière",
+    "chatSubtitle": "Assistant Multilingue · Port du Havre",
+    "chatGreeting": "Bonjour ! Je suis votre concierge **CARINE NORMANDY PRIVATE**. \n\nIndiquez-moi les horaires d'escale de votre paquebot pour vous conseiller entre **Étretat + Honfleur, Étretat, Honfleur, le Mont-Saint-Michel ou les Plages du Débarquement**.",
+    "chatSuggestions": [
+      "Peut-on combiner Étretat & Honfleur ?",
+      "Durée pour les Plages du Débarquement ?",
+      "Où se trouve le point de rendez-vous au Havre ?"
+    ],
+    "chatPlaceholder": "Posez votre question sur votre escale..."
+  }
+}

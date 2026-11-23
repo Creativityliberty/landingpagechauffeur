@@ -1,80 +1,54 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
+import { CONFIG } from "@/config";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 export async function POST(req: Request) {
-    try {
-        const { messages } = await req.json();
+  try {
+    const { messages } = await req.json();
 
-        // Read the AI Handbook for context
-        const handbookPath = path.join(process.cwd(), "INSTRUCTIONS_AI.md");
-        let handbookContext = "";
-        try {
-            handbookContext = await fs.readFile(handbookPath, "utf-8");
-        } catch (e) {
-            console.error("Could not read INSTRUCTIONS_AI.md", e);
-            handbookContext = "No specific architecture instructions found.";
-        }
+    const excursionSummary = CONFIG.excursions
+      .map(
+        (e) =>
+          `- ${e.title} (${e.subtitle}): ${e.badgeDuration}, ${e.driveTimeFromPier}, recommended stay ${e.recommendedPortStay}. ${e.shortDesc}`,
+      )
+      .join("\n");
 
-        // Read config.ts for pricing and content knowledge
-        const configPath = path.join(process.cwd(), "config.ts");
-        let configContext = "";
-        try {
-            configContext = await fs.readFile(configPath, "utf-8");
-        } catch (e) {
-            console.error("Could not read config.ts", e);
-        }
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: `You are the Multilingual Shore Excursion Concierge for "${CONFIG.brand.name}" (operated by ${CONFIG.brand.legalOperator}) at Le Havre Cruise Port, Normandy, France.
 
-        const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
-            systemInstruction: `Tu es "Mikmik Agent IA", l'Assistant Conciergerie Premium de "CARINE VTC".
-      - Ton objectif : Convertir les visiteurs en clients en répondant à leurs questions.
-      - Ton style : Professionnel, très poli, concis, chaleureux et haut de gamme.
-      - Tes réponses : Courtes et directes. 
-      - Tu es l'expert métier (VTC/CARINE VTC).
-      - Tu parles avec assurance, politesse, expertise et une touche de prestige (ton haut de gamme).
-      - Tu es concis et direct. Tu vas droit au but.
-      
-      TES CAPACITÉS D'AFFICHAGE (UTILISE LE MARKDOWN) :
-      - Utilise **le gras** pour souligner les points clés, notamment les lieux et les avantages.
-      - Tu peux mettre des liens vers les sections du site (ex: [Voir nos services](#services), [Contact](#contact)).
+Key business rules you MUST follow:
+1. Language: Always reply in the SAME language the user writes in (English by default, or French, Spanish, German, etc.).
+2. Positioning: We provide PRIVATE shore excursions in an exclusive comfortable sedan for 1 to 4 guests, priced per vehicle (never shared with strangers), with direct pick-up and drop-off at Le Havre Cruise Port.
+3. Legal scope: Clearly state when asked that we provide private chauffeur-driven transportation with multilingual communication—NOT licensed interior guided tours inside monuments or museums.
+4. Port schedule safety: Always ask for or respect the ship's arrival time and All-Aboard Time, maintaining a minimum 60-minute safety buffer back to the pier.
+5. Quotations & Confirmation: Never invent fixed final prices or confirm a booking automatically. Always direct the user to the personalized quotation form (#booking) or WhatsApp (${CONFIG.contact.phoneInternational}) and remind them that all bookings are subject to availability and confirmation.
 
-      CONNAISSANCES MÉTIER & TARIFS (Extraits de config.ts) :
-      ${configContext}
-      
-      RÈGLES DE RÉPONSE & DEVIS :
-      1. Si un utilisateur demande un prix ou un tarif, EFFECTUE LE CALCUL ESTIMATIF et RÉPONDS EN PROPOSANT LA RÉSERVATION.
-      2. POUR AFFICHER UN DEVIS SOUS FORME DE CARTE UI, tu dois SEULEMENT renvoyer un bloc de code JSON avec la structure exacte suivante (ne rajoute pas de texte avant/après le markdown code block si tu as tout dit dans les autres paragraphes) :
-      
-      \`\`\`json
-      {
-        "type": "quote",
-        "price": "150",
-        "details": "Trajet Le Havre - Aéroport Roissy CDG. Berline Classe Affaires."
-      }
-      \`\`\`
-      
-      3. Propose systématiquement la réservation après avoir répondu à une question sur les services ou un trajet. Pose une question engageante comme "Puis-je vous réserver ce trajet dès maintenant ?" ou "Souhaitez-vous confirmer cette disponibilité ?".
-      4. Réponds toujours en français professionnel et courtois.`
-        });
+Available Excursions from Le Havre Cruise Port:
+${excursionSummary}
 
-        const chat = model.startChat({
-            history: messages.slice(0, -1).map((m: any) => ({
-                role: m.role === "user" ? "user" : "model",
-                parts: [{ text: m.content }],
-            })),
-        });
+Keep answers concise, warm, reassuring, and structured.`,
+    });
 
-        const lastMessage = messages[messages.length - 1].content;
-        const result = await chat.sendMessage(lastMessage);
-        const response = await result.response;
+    const chat = model.startChat({
+      history: messages.slice(0, -1).map((m: { role: string; content: string }) => ({
+        role: m.role === "user" ? "user" : "model",
+        parts: [{ text: m.content }],
+      })),
+    });
 
-        return NextResponse.json({ content: response.text() });
-    } catch (error: any) {
-        console.error("Chat API Error:", error);
-        return NextResponse.json({ error: "Failed to fetch response" }, { status: 500 });
-    }
+    const lastMessage = messages[messages.length - 1].content;
+    const result = await chat.sendMessage(lastMessage);
+    const response = await result.response;
+
+    return NextResponse.json({ content: response.text() });
+  } catch (error) {
+    console.error("Chat API Error:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch response" },
+      { status: 500 },
+    );
+  }
 }

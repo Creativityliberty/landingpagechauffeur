@@ -4,43 +4,65 @@ import { CONFIG } from "@/config";
 import { Navbar, Footer } from "@/ui";
 
 export default function CGV() {
-    return (
-        <div className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7]">
-            <Navbar isDarkMode={true} />
-            <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
-                <h1 className="text-4xl md:text-5xl font-black mb-12 text-[#D4AF37]">Conditions Générales de Vente (CGV)</h1>
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628]">
+      <Navbar isDarkMode={false} />
+      <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
+        <h1 className="font-editorial text-4xl md:text-5xl font-semibold mb-12 text-[#8C6823]">
+          Booking Terms &amp; Conditions
+        </h1>
 
-                <div className="space-y-8 opacity-80 leading-relaxed">
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">1. Objet</h2>
-                        <p>
-                            Les présentes Conditions Générales de Vente régissent les prestations de transport de personnes (VTC) fournies par <strong>{CONFIG.content.brand.name}</strong>. En réservant une course, le client accepte ces conditions sans réserve.
-                        </p>
-                    </section>
+        <div className="space-y-8 text-[#334155] leading-relaxed text-sm sm:text-base">
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              1. Service Scope
+            </h2>
+            <p>
+              <strong>{CONFIG.brand.name}</strong> (operated by{" "}
+              {CONFIG.brand.legalOperator}) provides private chauffeur-driven
+              transportation in an exclusive sedan for 1 to 4 guests from Le
+              Havre Cruise Port. Services are private transportation only and do
+              not include official licensed guiding inside monuments or museums.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">2. Tarifs et Réservation</h2>
-                        <p>
-                            Les tarifs sont communiqués à l'avance lors de la réservation via notre outil en ligne ou par téléphone. Ils sont forfaitaires pour les transferts aéroports et au kilomètre pour les trajets locaux. La réservation est considérée comme validée une fois la confirmation envoyée au client.
-                        </p>
-                    </section>
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              2. Quotations &amp; Confirmation
+            </h2>
+            <p>
+              Submitting a request through our online form does not create an
+              automatic reservation. All bookings are subject to availability
+              and written confirmation along with a personalized per-vehicle
+              quotation.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">3. Annulation et Retard</h2>
-                        <p>
-                            Toute annulation doit être effectuée au moins [X] heures avant l'heure prévue de prise en charge. En cas d'annulation tardive, des frais peuvent s'appliquer. En cas de retard du client, une franchise d'attente de [X] minutes est accordée ; au-delà, des frais d'attente seront facturés.
-                        </p>
-                    </section>
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              3. Cruise Schedule &amp; All-Aboard Policy
+            </h2>
+            <p>
+              Guests must provide accurate cruise ship arrival and latest
+              all-aboard times. Itineraries are structured to return to Le Havre
+              Cruise Terminal with a safety margin before boarding closes.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">4. Bagages</h2>
-                        <p>
-                            Le client doit informer <strong>{CONFIG.content.brand.name}</strong> lors de la réservation du nombre et de la taille de ses bagages afin qu'un véhicule adapté soit fourni. Les bagages demeurent sous la responsabilité du client.
-                        </p>
-                    </section>
-                </div>
-            </main>
-            <Footer isDarkMode={true} />
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              4. Luggage &amp; Capacity
+            </h2>
+            <p>
+              Maximum capacity is 4 passengers per private sedan. Guests are
+              invited to specify any mobility equipment or extra luggage in the
+              Additional Requests field so comfort and trunk space can be
+              verified prior to confirmation.
+            </p>
+          </section>
         </div>
-    );
+      </main>
+      <Footer isDarkMode={false} />
+    </div>
+  );
 }

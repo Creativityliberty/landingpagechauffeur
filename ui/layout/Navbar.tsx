@@ -1,123 +1,286 @@
-'use client';
+"use client";
 
 /**
- * Navbar - Dark glassmorphism with gold accent
+ * 3-Zone Floating Framer Navbar — CARINE NORMANDY PRIVATE
+ * Zero 390px overflow, solid opaque mobile drawer, EN/FR/ES/DE JSON switcher + Light/Dark toggle.
  */
 
-import { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, Moon, Sun, Phone } from 'lucide-react';
-import { motion, AnimatePresence, useScroll } from 'framer-motion';
-import { CONFIG } from '@/config';
+import { useState, useEffect } from "react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Globe,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { CONFIG, Locale } from "@/config";
+import { useLanguage } from "@/lib/i18n";
+import { BrandCrest } from "@/ui/icons/BrandIcons";
 
 interface NavbarProps {
-    isDarkMode: boolean;
-    toggleTheme?: () => void;
+  isDarkMode?: boolean;
 }
 
-export function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const { scrollY } = useScroll();
+const LOCALE_OPTIONS: { code: Locale; label: string; native: string }[] = [
+  { code: "en", label: "EN", native: "English" },
+  { code: "fr", label: "FR", native: "Français" },
+  { code: "es", label: "ES", native: "Español" },
+  { code: "de", label: "DE", native: "Deutsch" },
+];
 
-    const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
+export function Navbar({ isDarkMode = false }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+  const { locale, setLocale, t } = useLanguage();
 
-    useEffect(() => {
-        const unsubscribe = scrollY.on("change", (latest) => setIsScrolled(latest > 50));
-        return () => unsubscribe();
-    }, [scrollY]);
+  const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
 
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 flex justify-center">
-            <motion.div
-                animate={{
-                    height: isScrolled ? "64px" : "80px",
-                    width: isScrolled ? "98%" : "100%",
-                }}
-                className={`glass-dark max-w-6xl rounded-2xl flex items-center justify-between px-4 md:px-8 shadow-2xl transition-all border ${isScrolled ? 'border-[#D4AF37]/30' : 'border-white/5'}`}
-                style={{ color: theme.text }}
+  useEffect(() => {
+    const unsubscribe = scrollY.on("change", (latest) =>
+      setIsScrolled(latest > 40),
+    );
+    return () => unsubscribe();
+  }, [scrollY]);
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.startsWith("#")) {
+      const target = document.getElementById(href.slice(1));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false);
+      }
+    }
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3.5 flex justify-center pointer-events-none">
+      <motion.nav
+        aria-label="Primary navigation"
+        animate={{ scale: isScrolled ? 0.99 : 1 }}
+        transition={{ duration: 0.35, ease: CONFIG.theme.animations.ease }}
+        className="pointer-events-auto w-full max-w-6xl flex items-center justify-between gap-2"
+        style={{ color: theme.text }}
+      >
+        {/* Zone 1: Left Brand Pill */}
+        <a
+          href="/"
+          className="bg-white/95 backdrop-blur-xl border border-[#0B192C]/15 rounded-full flex items-center gap-2 sm:gap-2.5 pl-2 pr-3.5 py-1.5 min-w-0 max-w-[60vw] sm:max-w-none group shadow-lg"
+          aria-label={CONFIG.brand.name}
+        >
+          <div
+            className="w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-105"
+            style={{
+              backgroundColor: theme.accentBgSoft,
+              borderColor: theme.border,
+              color: theme.accentText,
+            }}
+          >
+            <BrandCrest size={17} />
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="font-editorial font-semibold text-[13px] sm:text-base tracking-tight leading-none truncate">
+              {CONFIG.brand.shortFirst}{" "}
+              <span className="italic" style={{ color: theme.accentText }}>
+                {CONFIG.brand.shortAccent}
+              </span>
+            </span>
+            <span
+              className="text-[8px] sm:text-[9px] uppercase tracking-[0.18em] font-semibold mt-0.5 hidden sm:block truncate"
+              style={{ color: theme.muted }}
             >
-                <div className="flex flex-col">
-                    <span className="font-black text-lg md:text-xl tracking-tighter leading-none">
-                        {CONFIG.content.brand.name.split(' ')[0]} <span className="text-[#D4AF37]">{CONFIG.content.brand.name.split(' ')[1]}</span>
-                    </span>
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-widest font-bold opacity-60 mt-1" style={{ color: theme.muted }}>
-                        {CONFIG.content.brand.tagline}
-                    </span>
-                </div>
+              {t.brandPortLabel}
+            </span>
+          </div>
+        </a>
 
-                <div className="hidden lg:flex items-center gap-8">
-                    {CONFIG.content.navbar.map((link) => (
-                        <a
-                            key={link}
-                            href={`/${link.toLowerCase().replace(/é/g, 'e') === 'accueil' ? '' : link.toLowerCase().replace(/é/g, 'e')}`}
-                            className="text-[10px] font-bold transition-all uppercase tracking-[0.2em] relative group"
-                            style={{ color: theme.muted }}
-                        >
-                            {link}
-                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] transition-all group-hover:w-full" />
-                        </a>
-                    ))}
-                </div>
+        {/* Zone 2: Center Detached Navigation Pill (Desktop) */}
+        <div className="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-[#0B192C]/15 shadow-lg">
+          {t.nav.links.map((link, idx) => (
+            <a
+              key={link.href}
+              href={`/${link.href}`}
+              onClick={(e) => handleAnchorClick(e, link.href)}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+                idx === 0
+                  ? "bg-[#C8A45D] text-[#06101E]"
+                  : "text-[#0A1628] hover:bg-[#0B192C]/5"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-                <div className="flex items-center gap-2">
-                    {toggleTheme && (
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2.5 rounded-xl border border-white/10 hover:border-[#D4AF37]/40 transition-all mr-2 flex items-center justify-center shadow-lg"
-                            style={{ color: theme.text, backgroundColor: theme.surface }}
-                        >
-                            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                        </button>
-                    )}
-                    <a
-                        href={`https://wa.me/${CONFIG.contact.whatsapp}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4AF37] text-black text-[10px] font-black shadow-lg hover:bg-[#E1C45A] transition-all uppercase tracking-widest"
-                    >
-                        <MessageCircle size={12} /> WhatsApp
-                    </a>
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="lg:hidden ml-2 p-2 rounded-lg bg-white/5 border border-white/10"
-                        style={{ backgroundColor: theme.surface, color: theme.text }}
-                    >
-                        {isOpen ? <X size={20} /> : <Menu size={20} />}
-                    </button>
-                </div>
-            </motion.div>
+        {/* Zone 3: Right Utility + CTA Pill */}
+        <div className="bg-white/95 backdrop-blur-xl border border-[#0B192C]/15 rounded-full flex items-center gap-1 sm:gap-1.5 p-1.5 shadow-lg shrink-0">
+          {/* Language Switcher */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              aria-label="Select language"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer"
+              style={{
+                backgroundColor: isDarkMode
+                  ? "rgba(255,255,255,0.06)"
+                  : "rgba(11,25,44,0.05)",
+                color: theme.text,
+              }}
+            >
+              <Globe size={12} style={{ color: theme.accentText }} />
+              <span>{t.nav.languageLabel}</span>
+              <ChevronDown
+                size={11}
+                className={`transition-transform duration-300 ${
+                  isLangOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
             <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: -20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                        className="absolute top-24 left-4 right-4 glass-dark rounded-3xl p-6 md:p-8 flex flex-col items-center text-center gap-5 lg:hidden border border-white/10 shadow-3xl overflow-hidden"
-                        style={{ backgroundColor: theme.surface }}
+              {isLangOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 mt-2 w-40 rounded-2xl p-1.5 glass-drawer shadow-2xl z-50"
+                  style={{ color: theme.text }}
+                >
+                  {LOCALE_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.code}
+                      type="button"
+                      onClick={() => {
+                        setLocale(opt.code);
+                        setIsLangOpen(false);
+                      }}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                        locale === opt.code
+                          ? "bg-[#C8A45D] text-[#06101E]"
+                          : isDarkMode
+                            ? "hover:bg-white/10"
+                            : "hover:bg-black/5"
+                      }`}
                     >
-                        {CONFIG.content.navbar.map((link) => (
-                            <a
-                                key={link}
-                                href={`/${link.toLowerCase().replace(/é/g, 'e') === 'accueil' ? '' : link.toLowerCase().replace(/é/g, 'e')}`}
-                                onClick={() => setIsOpen(false)}
-                                className="text-xl md:text-2xl font-black hover:text-[#D4AF37] tracking-tight transition-colors w-full py-2"
-                                style={{ color: theme.text }}
-                            >
-                                {link}
-                            </a>
-                        ))}
-                        <div className="h-[1px] w-2/3 my-2" style={{ backgroundColor: theme.border }} />
-                        <a
-                            href={`tel:${CONFIG.contact.phone.replace(/\s/g, '')}`}
-                            className="flex items-center justify-center gap-3 font-bold text-base md:text-lg w-full py-2"
-                            style={{ color: theme.text }}
-                        >
-                            <Phone size={18} className="text-[#D4AF37]" /> {CONFIG.contact.phone}
-                        </a>
-                    </motion.div>
-                )}
+                      <span>{opt.native}</span>
+                      <span className="opacity-75">{opt.label}</span>
+                    </button>
+                  ))}
+                </motion.div>
+              )}
             </AnimatePresence>
-        </nav>
-    );
+          </div>
+
+          {/* CTA Pill */}
+          <a
+            href="/#booking"
+            onClick={(e) => handleAnchorClick(e, "#booking")}
+            className="hidden md:inline-flex items-center gap-2 pl-4 pr-1.5 py-1 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] text-xs font-bold tracking-wide transition-all active:scale-[0.98] group"
+          >
+            <span>{t.nav.cta}</span>
+            <span className="w-6 h-6 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <ArrowUpRight size={13} />
+            </span>
+          </a>
+
+          {/* Hamburger (Mobile/Tablet) */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            className="lg:hidden w-8 h-8 rounded-full flex flex-col items-center justify-center gap-1.5 relative cursor-pointer"
+            style={{
+              backgroundColor: isDarkMode
+                ? "rgba(255,255,255,0.08)"
+                : "rgba(11,25,44,0.06)",
+              color: theme.text,
+            }}
+          >
+            <span
+              className={`w-3.5 h-[1.5px] bg-current transition-transform duration-300 ${
+                isOpen ? "rotate-45 translate-y-[3.5px]" : ""
+              }`}
+            />
+            <span
+              className={`w-3.5 h-[1.5px] bg-current transition-transform duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-[4px]" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* Solid Opaque Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.28, ease: CONFIG.theme.animations.ease }}
+            className="pointer-events-auto fixed inset-x-3 top-20 rounded-[1.75rem] glass-drawer p-7 flex flex-col gap-5 lg:hidden shadow-2xl z-40"
+            style={{ color: theme.text }}
+          >
+            <div className="flex flex-col gap-2">
+              {t.nav.links.map((link, idx) => (
+                <motion.a
+                  key={link.href}
+                  href={`/${link.href}`}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.04 * idx }}
+                  onClick={(e) => handleAnchorClick(e, link.href)}
+                  className="font-editorial text-3xl font-semibold hover:text-[#C8A45D] transition-colors py-1"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+
+            <div
+              className="h-[1px] w-full"
+              style={{ backgroundColor: theme.border }}
+            />
+
+            <div className="flex flex-col gap-3">
+              <a
+                href="/#booking"
+                onClick={(e) => handleAnchorClick(e, "#booking")}
+                className="w-full py-3.5 px-6 rounded-full bg-[#C8A45D] text-[#06101E] font-bold text-center flex items-center justify-center gap-2"
+              >
+                {t.nav.cta}
+                <ArrowUpRight size={16} />
+              </a>
+              <div className="flex items-center justify-between gap-3 pt-1">
+                <a
+                  href={`tel:${CONFIG.contact.phoneInternational.replace(/\s/g, "")}`}
+                  className="flex items-center gap-2 text-sm font-semibold"
+                >
+                  <Phone size={15} style={{ color: theme.accentText }} />
+                  {CONFIG.contact.phoneInternational}
+                </a>
+                <a
+                  href={`https://wa.me/${CONFIG.contact.whatsapp}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-[#16A34A]"
+                >
+                  <MessageCircle size={15} />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
 }

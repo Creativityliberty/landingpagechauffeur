@@ -1,122 +1,153 @@
-'use client';
+"use client";
 
 /**
- * Support Button and Menu for VTC
+ * Support Button & Concierge Menu — CARINE NORMANDY PRIVATE (Light Mode Edition)
  */
 
-import { X, Bell, MessageCircle, Send, Mail, Phone, Bot } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { CONFIG } from '@/config';
+import { X, MessageCircle, Mail, Phone, Bot } from "lucide-react";
+import { motion } from "framer-motion";
+import { CONFIG } from "@/config";
+import { useLanguage } from "@/lib/i18n";
+import { BrandCrest } from "@/ui/icons/BrandIcons";
 
 interface SupportMenuProps {
-    isOpen: boolean;
-    onClose: () => void;
-    onOpenChat: () => void;
-    isDarkMode: boolean;
+  isOpen: boolean;
+  onClose: () => void;
+  onOpenChat: () => void;
+  isDarkMode?: boolean;
 }
 
 export function SupportButton({ onClick }: { onClick: () => void }) {
-    return (
-        <button
-            onClick={onClick}
-            className="fixed bottom-8 left-8 w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center text-black shadow-xl shadow-[#D4AF37]/30 hover:scale-110 transition-all active:scale-95 z-[60] group border-4 border-[#0B0B0F]"
-            aria-label="Ouvrir le support"
-        >
-            <Bell size={32} className="group-hover:animate-bounce" />
-            <span className="absolute left-20 bg-white text-gray-900 px-4 py-2 rounded-xl text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-gray-100">
-                Besoin d&apos;aide ?
-            </span>
-        </button>
-    );
+  const { t } = useLanguage();
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="hidden md:flex fixed bottom-5 right-5 w-12 h-12 bg-[#06101E] rounded-full items-center justify-center text-[#C8A45D] shadow-xl shadow-black/25 hover:scale-105 transition-transform active:scale-95 z-[60] group border border-[#C8A45D]/45 cursor-pointer"
+      aria-label={t.support.buttonAria}
+    >
+      <BrandCrest size={22} />
+      <span className="absolute right-14 bg-[#06101E] text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-[#C8A45D]/35">
+        {t.support.tooltip}
+      </span>
+    </button>
+  );
 }
 
-export function SupportMenu({ isOpen, onClose, onOpenChat }: SupportMenuProps) {
-    if (!isOpen) return null;
+export function SupportMenu({
+  isOpen,
+  onClose,
+  onOpenChat,
+}: SupportMenuProps) {
+  const { t } = useLanguage();
+  if (!isOpen) return null;
 
-    const content = CONFIG.content.support;
+  const options = [
+    {
+      name: t.support.aiTitle,
+      subtitle: t.support.aiSubtitle,
+      icon: <Bot className="w-5 h-5 text-[#8C6823]" />,
+      action: onOpenChat,
+      highlight: true,
+    },
+    {
+      name: "WhatsApp",
+      subtitle: CONFIG.contact.phoneInternational,
+      icon: <MessageCircle className="w-5 h-5 text-[#16A34A]" />,
+      link: `https://wa.me/${CONFIG.contact.whatsapp}`,
+    },
+    {
+      name: t.support.callTitle,
+      subtitle: CONFIG.contact.phoneInternational,
+      icon: <Phone className="w-5 h-5 text-[#8C6823]" />,
+      link: `tel:${CONFIG.contact.phoneInternational.replace(/\s/g, "")}`,
+    },
+    {
+      name: t.support.emailTitle,
+      subtitle: CONFIG.contact.email,
+      icon: <Mail className="w-5 h-5 text-[#8C6823]" />,
+      link: `mailto:${CONFIG.contact.email}`,
+    },
+  ];
 
-    const options = [
-        { name: 'Mikmik Agent IA', icon: <Bot className="w-7 h-7 text-[#D4AF37]" />, action: onOpenChat, highlight: true },
-        { name: 'Appeler', icon: <Phone className="w-7 h-7 text-[#D4AF37]" />, link: `tel:${CONFIG.contact.phone.replace(/\s/g, '')}` },
-        { name: 'WhatsApp', icon: <MessageCircle className="w-7 h-7 text-[#25D366]" />, link: `https://wa.me/${CONFIG.contact.whatsapp}` },
-        { name: 'Telegram', icon: <Send className="w-7 h-7 text-[#0088CC]" />, link: `https://t.me/${CONFIG.contact.whatsapp}` },
-        { name: 'Email', icon: <Mail className="w-7 h-7 text-gray-500" />, link: `mailto:${CONFIG.contact.email}` }
-    ];
+  return (
+    <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-0 md:p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="absolute inset-0 bg-[#06101E]/55 backdrop-blur-sm"
+        onClick={onClose}
+      />
 
-    return (
-        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-0 md:p-4">
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                onClick={onClose}
-            />
-
-            <motion.div
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: "100%", opacity: 0 }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative w-full max-w-lg bg-[#F9F9F9] rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden"
-            >
-                <div className="p-7 text-white relative bg-[#0B0B0F]">
-                    <button onClick={onClose} className="absolute top-7 right-7 hover:bg-white/20 p-1.5 rounded-full transition-all active:scale-90">
-                        <X size={26} strokeWidth={2.5} />
-                    </button>
-                    <h2 className="text-2xl font-black tracking-tight">{content.headerTitle}</h2>
-                    <p className="text-[15px] opacity-70 mt-0.5">{content.headerSub}</p>
-                </div>
-
-                <div className="p-8 md:p-10 pb-12">
-                    <h3 className="text-[1.85rem] leading-[1.1] font-black text-[#111111] mb-10 max-w-[90%] tracking-tight">
-                        {content.mainQuestion}
-                    </h3>
-
-                    <div className="space-y-4 flex flex-col">
-                        {options.map((option) => (
-                            option.action ? (
-                                <button
-                                    key={option.name}
-                                    onClick={option.action}
-                                    className={`w-full bg-white hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center gap-5 p-5 rounded-[2rem] shadow-sm border text-left group ${option.highlight ? 'border-[#D4AF37]/30 bg-[#D4AF37]/5' : 'border-black/5'}`}
-                                >
-                                    <div className={`w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md shrink-0 ${option.highlight ? 'text-[#D4AF37]' : ''}`}>
-                                        {option.icon}
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-2xl font-black text-black leading-none">
-                                            {option.name}
-                                        </span>
-                                        {option.highlight && <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest mt-1">Expert Architecture</span>}
-                                    </div>
-                                </button>
-                            ) : (
-                                <a
-                                    key={option.name}
-                                    href={option.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="w-full bg-white hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center gap-5 p-5 rounded-[2rem] shadow-sm border border-black/5 text-left group"
-                                >
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md shrink-0">
-                                        {option.icon}
-                                    </div>
-                                    <span className="text-2xl font-black text-black">
-                                        {option.name}
-                                    </span>
-                                </a>
-                            )
-                        ))}
-                    </div>
-
-                    <footer className="mt-12 text-center px-4">
-                        <p className="text-[13px] italic text-gray-400 font-bold leading-relaxed">
-                            {content.availability}
-                        </p>
-                    </footer>
-                </div>
-            </motion.div>
+      <motion.div
+        initial={{ y: "100%", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: "100%", opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 220 }}
+        className="relative w-full max-w-md bg-white text-[#0A1628] rounded-t-[2rem] md:rounded-[2rem] border border-[#0B192C]/15 shadow-2xl overflow-hidden"
+      >
+        <div className="p-6 bg-[#06101E] text-white flex items-center justify-between">
+          <div>
+            <h2 className="font-editorial text-2xl font-semibold">
+              {t.support.menuTitle}
+            </h2>
+            <p className="text-xs text-slate-300 mt-0.5">
+              {t.support.menuSubtitle}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-white/15 transition-colors cursor-pointer"
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
         </div>
-    );
+
+        <div className="p-6 space-y-3">
+          {options.map((option) =>
+            option.action ? (
+              <button
+                key={option.name}
+                type="button"
+                onClick={option.action}
+                className="w-full p-4 rounded-2xl border border-[#C8A45D]/40 bg-[#C8A45D]/12 hover:bg-[#C8A45D]/20 transition-colors flex items-center gap-4 text-left cursor-pointer"
+              >
+                <div className="w-11 h-11 rounded-full bg-white border border-[#0B192C]/10 flex items-center justify-center shrink-0">
+                  {option.icon}
+                </div>
+                <div>
+                  <p className="font-bold text-base text-[#0A1628]">
+                    {option.name}
+                  </p>
+                  <p className="text-xs text-[#475569]">{option.subtitle}</p>
+                </div>
+              </button>
+            ) : (
+              <a
+                key={option.name}
+                href={option.link}
+                target={option.link?.startsWith("http") ? "_blank" : undefined}
+                rel={option.link?.startsWith("http") ? "noreferrer" : undefined}
+                className="w-full p-4 rounded-2xl border border-[#0B192C]/12 bg-[#F8FAFC] hover:border-[#C8A45D] transition-colors flex items-center gap-4 text-left"
+              >
+                <div className="w-11 h-11 rounded-full bg-white border border-[#0B192C]/10 flex items-center justify-center shrink-0">
+                  {option.icon}
+                </div>
+                <div>
+                  <p className="font-bold text-base text-[#0A1628]">
+                    {option.name}
+                  </p>
+                  <p className="text-xs text-[#475569]">{option.subtitle}</p>
+                </div>
+              </a>
+            ),
+          )}
+        </div>
+      </motion.div>
+    </div>
+  );
 }

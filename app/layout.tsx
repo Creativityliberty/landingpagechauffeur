@@ -1,96 +1,115 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CONFIG } from "@/config";
+import { LanguageProvider } from "@/lib/i18n";
 
-
-const baseUrl = "https://www.carinevtc.com";
+const baseUrl = CONFIG.brand.websiteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "CARINE VTC | VTC Normandie & Paris, Le Havre, Rouen, Transferts",
+  title: {
+    default: `${CONFIG.brand.name} | Private Shore Excursions from Le Havre Cruise Port`,
+    template: `%s | ${CONFIG.brand.name}`,
+  },
   description:
-    "Réservez votre chauffeur VTC premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris. Transferts aéroports CDG, Orly, Beauvais. Disponible 24h/24, 7j/7. Devis immédiat.",
+    "Private sedan shore excursions (1–4 guests) from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel & D-Day Landing Beaches. Multilingual driver, direct pier pick-up, guaranteed return before all-aboard.",
   keywords: [
-    "CARINE VTC",
-    "chauffeur privé Normandie",
-    "VTC Le Havre",
-    "VTC Rouen",
-    "chauffeur privé Paris",
-    "transfert aéroport CDG",
-    "VTC haut de gamme",
-    "réservation chauffeur 24/7",
+    "Le Havre cruise port private excursions",
+    "private shore excursions Normandy",
+    "Le Havre private driver cruise",
+    "Étretat shore excursion from Le Havre",
+    "Honfleur private tour from Le Havre",
+    "Mont-Saint-Michel from Le Havre cruise port",
+    "D-Day beaches private tour from Le Havre",
+    "1-4 guests private sedan Normandy",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "CARINE VTC | VTC Normandie & Paris",
-    description: "Service de VTC premium en Normandie et transferts aéroports 24/7.",
+    title: `${CONFIG.brand.name} | Private Shore Excursions from Le Havre Cruise Port`,
+    description:
+      "Explore Normandy in comfort with your own private sedan (1–4 guests) and multilingual driver directly from Le Havre Cruise Terminal.",
     url: baseUrl,
-    siteName: "CARINE VTC",
-    locale: "fr_FR",
+    siteName: CONFIG.brand.name,
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/excursions/etretat.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Étretat White Cliffs — Private Shore Excursions from Le Havre",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CARINE VTC | VTC Normandie & Paris",
-    description: "Service de VTC premium en Normandie et transferts aéroports 24/7.",
+    title: `${CONFIG.brand.name} | Private Shore Excursions from Le Havre`,
+    description:
+      "Private vehicle · 1–4 guests · Personalized excursions from Le Havre Cruise Port.",
+    images: ["/images/excursions/etretat.jpg"],
   },
 };
-
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "TravelAgency"],
+    name: CONFIG.brand.name,
+    legalName: CONFIG.brand.legalOperator,
+    description:
+      "Private chauffeur-driven shore excursions in a comfortable sedan (1–4 guests) departing directly from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel, and the D-Day Landing Beaches.",
+    url: baseUrl,
+    telephone: CONFIG.contact.phoneInternational,
+    email: CONFIG.contact.email,
+    image: `${baseUrl}/images/excursions/etretat.jpg`,
+    priceRange: "$$$",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Le Havre",
+      addressRegion: "Normandy",
+      addressCountry: "FR",
+    },
+    areaServed: [
+      "Le Havre Cruise Port",
+      "Étretat",
+      "Honfleur",
+      "Mont-Saint-Michel",
+      "Normandy D-Day Landing Beaches",
+      "Normandy",
+    ],
+    availableLanguage: ["English", "French", "Spanish", "German"],
+  };
+
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://maps.googleapis.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "TaxiService",
-              "name": "CARINE VTC",
-              "description": "Service de VTC et chauffeur privé premium en Normandie (Le Havre, Rouen, Deauville) et vers Paris.",
-              "url": baseUrl,
-              "telephone": CONFIG.contact.phone,
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Le Havre",
-                "addressRegion": "Normandie",
-                "addressCountry": "FR"
-              },
-              "provider": {
-                "@type": "LocalBusiness",
-                "name": "CARINE VTC",
-                "image": `${baseUrl}/logo.png`,
-                "priceRange": "$$",
-                "telephone": CONFIG.contact.phone
-              },
-              "serviceArea": ["Normandie", "Paris", "Le Havre", "Rouen", "Deauville"],
-              "offers": {
-                "@type": "Offer",
-                "priceCurrency": "EUR",
-                "price": CONFIG.pricing.minPrice,
-                "description": "Prix de base à partir de"
-              }
-
-            })
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

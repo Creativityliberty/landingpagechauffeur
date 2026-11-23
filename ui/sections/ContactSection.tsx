@@ -1,111 +1,126 @@
 "use client";
 
 /**
- * Contact Section
+ * Contact Strip — Agenciex-Style Hairline Grid (WhatsApp ↗ | Phone ↗ | Email ↗)
  */
 
+import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 import { CONFIG } from "@/config";
-import { motion } from "framer-motion";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 interface ContactSectionProps {
   isDarkMode: boolean;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: {
-    duration: 0.6,
-    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-  },
-};
-
 export function ContactSection({ isDarkMode }: ContactSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
+  const { t } = useLanguage();
 
   const contacts = [
     {
-      icon: Phone,
-      title: "Appeler",
-      value: CONFIG.contact.phone,
-      link: `tel:${CONFIG.contact.phone.replace(/\s/g, "")}`,
+      icon: MessageCircle,
+      title: t.contact.cards[0].title,
+      subtitle: t.contact.cards[0].subtitle,
+      value: CONFIG.contact.phoneInternational,
+      link: `https://wa.me/${CONFIG.contact.whatsapp}`,
+      accent: "#16A34A",
     },
     {
-      icon: MessageCircle,
-      title: "WhatsApp",
-      value: "Message instantané",
-      link: `https://wa.me/${CONFIG.contact.whatsapp}`,
+      icon: Phone,
+      title: t.contact.cards[1].title,
+      subtitle: t.contact.cards[1].subtitle,
+      value: CONFIG.contact.phoneInternational,
+      link: `tel:${CONFIG.contact.phoneInternational.replace(/\s/g, "")}`,
+      accent: theme.accentText,
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t.contact.cards[2].title,
+      subtitle: t.contact.cards[2].subtitle,
       value: CONFIG.contact.email,
       link: `mailto:${CONFIG.contact.email}`,
+      accent: theme.accentText,
     },
   ];
 
   return (
     <section
       id="contact"
-      className={CONFIG.theme.spacing.section}
-      style={{ backgroundColor: theme.surface2 }}
+      className="py-16 md:py-24 border-t"
+      style={{
+        backgroundColor: theme.bg,
+        color: theme.text,
+        borderColor: theme.border,
+      }}
     >
       <div className={CONFIG.theme.spacing.container}>
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
-          <motion.div
-            {...fadeInUp}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-6 border border-[#D4AF37]/20"
-          >
-            Support
-          </motion.div>
-          <motion.h2
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className={`${CONFIG.theme.typography.h2} font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]`}
-            style={{ color: isDarkMode ? "#F5F5F7" : theme.text }}
-          >
-            Contactez-nous
-          </motion.h2>
-          <motion.p
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-70"
-            style={{ color: isDarkMode ? "#B7B7C2" : theme.muted }}
-          >
-            Une question ? Un trajet spécifique ? Notre équipe est à votre
-            écoute 7j/7.
-          </motion.p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 border"
+              style={{
+                backgroundColor: theme.accentBgSoft,
+                borderColor: theme.border,
+                color: theme.accentText,
+              }}
+            >
+              {t.contact.eyebrow}
+            </div>
+            <h2
+              className={`font-editorial ${CONFIG.theme.typography.h2} font-semibold tracking-tight leading-[1.04]`}
+            >
+              {t.contact.title}
+            </h2>
+          </div>
+          <p className="text-sm md:text-base max-w-md" style={{ color: theme.muted }}>
+            {t.contact.description}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-5xl mx-auto px-4 md:px-6">
-          {contacts.map((contact, i) => (
-            <motion.a
-              key={i}
+        {/* Agenciex-Style Hairline Grid Strip */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 rounded-3xl border overflow-hidden divide-y md:divide-y-0 md:divide-x"
+          style={{
+            backgroundColor: theme.surface,
+            borderColor: theme.border,
+          }}
+        >
+          {contacts.map((contact) => (
+            <a
+              key={contact.title}
               href={contact.link}
-              {...fadeInUp}
-              transition={{ delay: i * CONFIG.theme.animations.stagger }}
-              className="p-8 md:p-10 lg:p-12 rounded-3xl md:rounded-[3rem] glass-dark border flex flex-col items-center group hover:border-[#D4AF37]/40 transition-all shadow-xl"
+              target={contact.link.startsWith("http") ? "_blank" : undefined}
+              rel={contact.link.startsWith("http") ? "noreferrer" : undefined}
+              className="group p-7 sm:p-8 flex items-center justify-between gap-4 transition-colors hover:bg-[#C8A45D]/5"
               style={{ borderColor: theme.border }}
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mb-6 md:mb-8 border border-[#D4AF37]/20 group-hover:scale-110 transition-transform">
-                <contact.icon size={28} className="md:w-8 md:h-8" />
+              <div className="min-w-0">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <contact.icon size={18} style={{ color: contact.accent }} />
+                  <h3 className="font-editorial text-2xl font-semibold">
+                    {contact.title}
+                  </h3>
+                </div>
+                <p className="text-xs mb-1" style={{ color: theme.muted }}>
+                  {contact.subtitle}
+                </p>
+                <p
+                  className="text-sm font-semibold truncate"
+                  style={{ color: theme.accentText }}
+                >
+                  {contact.value}
+                </p>
               </div>
-              <h3
-                className="text-lg md:text-xl lg:text-2xl font-black mb-2 md:mb-3 tracking-tight"
-                style={{ color: isDarkMode ? "#F5F5F7" : theme.text }}
+              <span
+                className="w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                style={{
+                  borderColor: theme.border,
+                  color: theme.accentText,
+                }}
               >
-                {contact.title}
-              </h3>
-              <p
-                className="font-medium opacity-60 text-sm md:text-base"
-                style={{ color: isDarkMode ? "#B7B7C2" : theme.muted }}
-              >
-                {contact.value}
-              </p>
-            </motion.a>
+                <ArrowUpRight size={17} />
+              </span>
+            </a>
           ))}
         </div>
       </div>

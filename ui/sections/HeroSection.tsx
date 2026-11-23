@@ -1,138 +1,221 @@
 "use client";
-import Image from "next/image";
+
 /**
- * Hero Section - VTC avec rotating text
+ * Framer Studio Editorial Hero — CARINE NORMANDY PRIVATE
+ * Dot-matrix drafting canvas, split-weight headline, tactile rotated photo collage + always-dark overlays.
  */
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Car } from "lucide-react";
 import { CONFIG } from "@/config";
-import { BackgroundBeams, ShinyButton } from "@/ui";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Award } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 interface HeroSectionProps {
   isDarkMode: boolean;
 }
 
-function RotatingText() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(
-      () =>
-        setIndex(
-          (prev) => (prev + 1) % CONFIG.content.hero.rotatingWords.length,
-        ),
-      3000,
-    );
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="h-[1.5em] overflow-hidden inline-block relative align-middle px-2">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={index}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: "0%", opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#E1C45A] italic block py-2 pr-10 whitespace-nowrap"
-        >
-          {CONFIG.content.hero.rotatingWords[index]}
-
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export function HeroSection({ isDarkMode }: HeroSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
+  const { t } = useLanguage();
 
   return (
     <section
       id="accueil"
-      className="relative min-h-screen flex items-center pt-32 pb-16 px-4 md:px-6 overflow-hidden"
+      className="relative min-h-[100dvh] dot-grid flex items-center pt-28 pb-16 lg:pt-28 lg:pb-16 overflow-hidden"
+      style={{ backgroundColor: theme.bg, color: theme.text }}
     >
-      {/* Background Layer - Higher Z to be sure it's visible */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero_bg.png"
-          alt="CARINE VTC Normandie Le Havre Rouen Luxury"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-      </div>
-
-      {/* Stylized Grid Overlay */}
       <div
-        className="absolute inset-0 hero-grid pointer-events-none z-[1] transition-opacity duration-500"
-        style={{ color: theme.text, opacity: theme.gridOpacity * 0.3 }}
+        className="pointer-events-none absolute -top-32 -right-24 w-[580px] h-[580px] rounded-full opacity-25 blur-[140px]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(200,164,93,0.35) 0%, rgba(15,34,61,0.08) 65%, transparent 100%)",
+        }}
       />
-      <BackgroundBeams className="z-[2]" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#D4AF37]/20 bg-black/40 text-[#D4AF37] text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] mb-10 md:mb-14 shadow-lg shadow-[#D4AF37]/10 backdrop-blur-md"
-        >
-          <Award size={14} className="animate-pulse" />
-          {CONFIG.content.hero.badge}
-        </motion.div>
+      <div className={`${CONFIG.theme.spacing.container} relative z-10 w-full`}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column — Split-Weight Editorial Copy */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            <motion.div
+              initial={{ opacity: 1, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: CONFIG.theme.animations.ease }}
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border text-[11px] font-bold uppercase tracking-[0.2em] mb-5"
+              style={{
+                backgroundColor: theme.accentBgSoft,
+                borderColor: theme.border,
+                color: theme.accentText,
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: theme.accentText }}
+              />
+              {t.hero.eyebrow}
+            </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={`${CONFIG.theme.typography.hero} font-black leading-[0.9] mb-10 md:mb-16 max-w-5xl px-4`}
-          style={{ color: "white" }}
-        >
-          {CONFIG.content.hero.titleMain} <br />
-          <span className="md:ml-4 inline-block mt-2 md:mt-0">
-            <RotatingText />
-          </span>
-        </motion.h1>
+            {/* Agenciex Split-Weight Display Headline */}
+            <motion.h1
+              initial={{ opacity: 1, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                ease: CONFIG.theme.animations.ease,
+              }}
+              className={`font-editorial ${CONFIG.theme.typography.hero} tracking-tight leading-[0.96] mb-4`}
+            >
+              <span className="font-normal block">{t.hero.titleLead}</span>
+              <span
+                className="font-bold italic block"
+                style={{ color: theme.accentText }}
+              >
+                {t.hero.titleAccent}
+              </span>
+            </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className={`${CONFIG.theme.typography.body} font-medium max-w-3xl mb-12 md:mb-20 leading-relaxed text-white/90 drop-shadow-lg`}
-        >
-          {CONFIG.content.hero.description}
-        </motion.p>
+            <p
+              className="text-lg sm:text-xl font-semibold mb-3"
+              style={{ color: theme.text }}
+            >
+              {t.hero.subtitle}
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
-        >
-          <ShinyButton
-            onClick={() =>
-              document
-                .getElementById("reserver")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="w-full sm:w-auto bg-[#D4AF37] text-black shadow-2xl shadow-[#D4AF37]/40 py-8 px-12"
-          >
-            <div className="flex items-center gap-4 text-xl">
-              {CONFIG.content.hero.ctaPrimary}
-              <ArrowRight size={24} />
+            <p
+              className="text-base md:text-lg leading-relaxed max-w-2xl mb-6"
+              style={{ color: theme.muted }}
+            >
+              {t.hero.description}
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-7 w-full max-w-2xl">
+              {t.hero.bullets.map((bullet, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-sm md:text-[15px] font-medium"
+                >
+                  <CheckCircle2
+                    size={17}
+                    strokeWidth={1.75}
+                    className="shrink-0 mt-0.5"
+                    style={{ color: theme.accentText }}
+                  />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("booking")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="group inline-flex items-center justify-between sm:justify-center gap-4 pl-7 pr-2.5 py-2.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] font-bold text-sm md:text-base tracking-wide transition-all duration-300 active:scale-[0.98] shadow-xl shadow-[#C8A45D]/20 cursor-pointer"
+              >
+                <span>{t.hero.ctaPrimary}</span>
+                <span className="w-10 h-10 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105">
+                  <ArrowUpRight size={18} />
+                </span>
+              </button>
+
+              <a
+                href="#excursions"
+                className="inline-flex items-center justify-center px-6 py-4 rounded-full border text-sm font-semibold transition-all hover:border-[#C8A45D]"
+                style={{
+                  borderColor: theme.border,
+                  backgroundColor: isDarkMode
+                    ? "rgba(255,255,255,0.04)"
+                    : "#FFFFFF",
+                  color: theme.text,
+                }}
+              >
+                {t.hero.ctaSecondary}
+              </a>
             </div>
-          </ShinyButton>
-          <a
-            href="#services"
-            className="w-full sm:w-auto px-12 md:px-16 py-6 md:py-7 glass-dark border border-white/20 rounded-2xl font-black text-sm md:text-xl text-white hover:border-[#D4AF37]/50 transition-all text-center flex items-center justify-center backdrop-blur-sm"
+
+            <p
+              className="mt-4 text-xs tracking-wider uppercase font-semibold"
+              style={{ color: theme.muted }}
+            >
+              {t.hero.microCaption}
+            </p>
+          </div>
+
+          {/* Right Column — Agenciex-Style Tactile Photo Collage + Always-Dark Badges */}
+          <motion.div
+            initial={{ opacity: 1, scale: 1, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: CONFIG.theme.animations.ease,
+            }}
+            className="lg:col-span-5 relative"
           >
-            {CONFIG.content.hero.ctaSecondary}
-          </a>
-        </motion.div>
+            {/* Secondary rotated card peeking behind on desktop */}
+            <div className="hidden lg:block absolute -top-4 -left-4 w-44 h-56 rounded-3xl overflow-hidden border border-[#C8A45D]/35 -rotate-6 shadow-2xl opacity-85 pointer-events-none">
+              <Image
+                src="/images/excursions/honfleur.jpg"
+                alt="Honfleur Harbour Normandy"
+                fill
+                sizes="180px"
+                className="object-cover"
+              />
+            </div>
+
+            <div
+              className="relative p-2 rounded-[2.25rem] ring-1 lg:rotate-[1.25deg] transition-transform duration-700 hover:rotate-0"
+              style={{
+                backgroundColor: isDarkMode
+                  ? "rgba(255,255,255,0.03)"
+                  : "rgba(11,25,44,0.05)",
+                borderColor: theme.border,
+              }}
+            >
+              <div className="relative rounded-[calc(2.25rem-0.5rem)] overflow-hidden aspect-[4/4.1] bg-[#06101E]">
+                <Image
+                  src="/images/excursions/etretat.jpg"
+                  alt="Étretat White Cliffs — CARINE NORMANDY PRIVATE"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06101E]/90 via-[#06101E]/10 to-transparent" />
+
+                <div className="absolute top-4 right-4 left-4 sm:left-auto flex items-center gap-3 px-4 py-3 rounded-2xl glass-photo-overlay shadow-xl">
+                  <div className="w-9 h-9 rounded-full bg-[#22C55E]/20 border border-[#22C55E]/45 flex items-center justify-center text-[#4ADE80] shrink-0">
+                    <ShieldCheck size={18} strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white leading-tight">
+                      {t.hero.badgeTopTitle}
+                    </p>
+                    <p className="text-[11px] text-slate-200 leading-tight mt-0.5">
+                      {t.hero.badgeTopSub}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-photo-overlay flex items-center gap-3.5 shadow-xl">
+                  <div className="w-10 h-10 rounded-full bg-[#C8A45D]/20 border border-[#C8A45D]/45 flex items-center justify-center text-[#C8A45D] shrink-0">
+                    <Car size={18} strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white leading-tight">
+                      {t.hero.badgeBottomTitle}
+                    </p>
+                    <p className="text-xs text-slate-200 leading-tight mt-0.5">
+                      {t.hero.badgeBottomSub}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

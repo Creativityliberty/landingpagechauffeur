@@ -1,0 +1,322 @@
+{
+  "brandPortLabel": "Le Havre Cruise Port",
+  "nav": {
+    "links": [
+      { "label": "Excursions", "href": "#excursions" },
+      { "label": "Why Us", "href": "#why-us" },
+      { "label": "Vehicle", "href": "#vehicle" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "cta": "Book Tour",
+    "languageLabel": "EN",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "hero": {
+    "eyebrow": "Le Havre Cruise Terminal · Exclusive Sedan (1–4 Guests)",
+    "titleLead": "Discover Normandy,",
+    "titleAccent": "Your Way.",
+    "subtitle": "Private Shore Excursions from Le Havre Cruise Port",
+    "description": "Make the most of your time in Normandy with a private driver and a comfortable sedan exclusively for your group. Visit Étretat, Honfleur, Mont-Saint-Michel and the D-Day landing beaches—back at your ship on time.",
+    "bullets": [
+      "Exclusive sedan for 1 to 4 guests",
+      "Pier pick-up & drop-off at Le Havre",
+      "Price per vehicle, never per seat",
+      "Multilingual communication"
+    ],
+    "ctaPrimary": "BOOK YOUR PRIVATE EXCURSION",
+    "ctaSecondary": "Explore Excursions",
+    "microCaption": "Drivers, not guides · Explore freely at your own pace · Back before all-aboard",
+    "badgeTopTitle": "All-Aboard Safe Guarantee",
+    "badgeTopSub": "60+ min return buffer built in",
+    "badgeBottomTitle": "Exclusive Private Sedan",
+    "badgeBottomSub": "1–4 guests · Price per car, never shared"
+  },
+  "marquee": [
+    "Le Havre Cruise Port",
+    "Private Sedan · 1–4 Guests",
+    "Étretat + Honfleur",
+    "Étretat Cliffs",
+    "Honfleur Harbour",
+    "D-Day Landing Beaches",
+    "Mont-Saint-Michel",
+    "Back Before All-Aboard"
+  ],
+  "marqueeSecondary": [
+    "Price Per Vehicle · Never Per Seat",
+    "Drivers, Not Guides · Total Freedom",
+    "Multilingual Communication",
+    "Direct Terminal Pick-Up",
+    "Personalized Shore Itineraries",
+    "Licensed VTC Chauffeur"
+  ],
+  "excursionsSection": {
+    "eyebrow": "Curated Shore Excursions",
+    "titleLead": "Explore Normandy",
+    "titleAccent": "from the Pier.",
+    "description": "Compare our signature Normandy routes from Le Havre Cruise Port. Every trip is reserved exclusively for your group of 1 to 4 guests.",
+    "glanceTitle": "Interactive Excursion Preview",
+    "filterAll": "All Routes",
+    "filterShort": "Half-Day (~4h)",
+    "filterFull": "Full-Day (7–10h)",
+    "stageStatLabel": "Vehicle Capacity",
+    "stageStatValue": "1–4 Guests · Private Car",
+    "stageDriveLabel": "From Le Havre Pier",
+    "selectCta": "Select This Excursion",
+    "detailsCta": "Itinerary & Guide",
+    "disclaimer": "Durations are indicative estimates to be confirmed after checking routes, planned stops, and your ship's exact port schedule.",
+    "cards": {
+      "etretat-honfleur": {
+        "title": "ÉTRETAT + HONFLEUR",
+        "subtitle": "Most Popular Shore Combo",
+        "badgeDuration": "Approx. 7 hours",
+        "driveTimeFromPier": "~35 min between sights",
+        "shortDesc": "The dramatic white chalk cliffs of Étretat in the morning, followed by lunch and free time around Honfleur's historic Old Harbour."
+      },
+      "etretat": {
+        "title": "ÉTRETAT",
+        "subtitle": "The Famous Cliffs",
+        "badgeDuration": "Approx. 4 hours",
+        "driveTimeFromPier": "~35 min from Le Havre Terminal",
+        "shortDesc": "Discover the famous white cliffs, natural arches and spectacular coastal scenery of Normandy."
+      },
+      "honfleur": {
+        "title": "HONFLEUR",
+        "subtitle": "The Charming Harbour",
+        "badgeDuration": "Approx. 4 hours",
+        "driveTimeFromPier": "~30 min via Normandy Bridge",
+        "shortDesc": "Enjoy the charm of this historic harbour, its picturesque streets and traditional architecture."
+      },
+      "dday-landing-beaches": {
+        "title": "D-DAY LANDING BEACHES",
+        "subtitle": "A Journey Through History",
+        "badgeDuration": "Approx. 8 hours",
+        "driveTimeFromPier": "~1h45 each way",
+        "shortDesc": "Explore the historic landing sites, Pointe du Hoc, Omaha Beach and the American Cemetery."
+      },
+      "mont-saint-michel": {
+        "title": "MONT-SAINT-MICHEL",
+        "subtitle": "A Magical Destination",
+        "badgeDuration": "Full-day · Ship schedule dependent",
+        "driveTimeFromPier": "~2h30 each way",
+        "shortDesc": "Discover the iconic island village, its tidal bay and magnificent medieval abbey."
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Why Cruise Guests Choose Us",
+    "titleLead": "Your private excursion,",
+    "titleAccent": "engineered for ship time.",
+    "comparisonTitle": "Cruise Ship Coach vs. CARINE NORMANDY PRIVATE",
+    "comparisonShip": "50-Seat Ship Coach · Priced per person · Fixed crowd schedule",
+    "comparisonPrivate": "Private Sedan (1–4 guests) · Priced per car · Tailored to your pace",
+    "items": [
+      {
+        "step": "01",
+        "icon": "shield",
+        "title": "Private Experience",
+        "titleMuted": "Private experience,",
+        "titleBold": "exclusively yours.",
+        "desc": "Enjoy an executive sedan reserved solely for your group of 1 to 4 guests—never shared with strangers.",
+        "tag": "1–4 Guests Only"
+      },
+      {
+        "step": "02",
+        "icon": "compass",
+        "title": "Personalized Itinerary",
+        "titleMuted": "Drivers, not guides —",
+        "titleBold": "total freedom.",
+        "desc": "We handle all driving, tolls, and pier logistics so you explore monuments, cliffs, and cafés at your own pace.",
+        "tag": "Flexible Stops"
+      },
+      {
+        "step": "03",
+        "icon": "languages",
+        "title": "Multilingual Communication",
+        "titleMuted": "Multilingual support,",
+        "titleBold": "effortless planning.",
+        "desc": "Communicate seamlessly in English, French, Spanish, or German from first inquiry to drop-off.",
+        "tag": "EN · FR · ES · DE"
+      },
+      {
+        "step": "04",
+        "icon": "anchor",
+        "title": "Cruise Port Pick-up",
+        "titleMuted": "Pier pick-up &",
+        "titleBold": "on-time return.",
+        "desc": "Direct greeting outside Le Havre Cruise Terminal with a 60+ minute buffer built in before your ship's all-aboard time.",
+        "tag": "All-Aboard Safe"
+      }
+    ]
+  },
+  "vehicleTrust": {
+    "eyebrow": "Trust, Safety & Transparency",
+    "title": "Your Private Sedan & Port Safety Commitment",
+    "description": "When stepping off a cruise ship in a foreign port, reliability matters most. Here is exactly what you book with us.",
+    "vehicleBadge": "Executive Comfort · 1–4 Guests",
+    "vehicleTitle": "Private Sedan Reserved Exclusively for Your Party",
+    "vehicleSpecs": [
+      "Up to 4 passengers + trunk space",
+      "Air-conditioned executive cabin",
+      "Bottled water & USB charging",
+      "Direct pier meeting with name sign"
+    ],
+    "pillars": [
+      {
+        "title": "Per-Vehicle Pricing Clarity",
+        "desc": "You book the entire private vehicle for your group of 1 to 4 guests—never a per-seat shared bus ticket. Every quote is personalized upfront."
+      },
+      {
+        "title": "All-Aboard Schedule Security",
+        "desc": "We systematically ask for your ship's all-aboard time and build a generous return buffer. We never accept an itinerary incompatible with your port call."
+      },
+      {
+        "title": "Licensed Private Chauffeur Scope",
+        "desc": "We provide private chauffeur-driven transportation with multilingual communication. We do not sell guided interior monument tours requiring a licensed museum lecturer."
+      }
+    ]
+  },
+  "booking": {
+    "eyebrow": "Book in 1 Minute · Personalized Quotation",
+    "titleLead": "Plan Your",
+    "titleAccent": "Normandy Excursion",
+    "description": "Are you visiting Le Havre on a cruise? Pick your route, enter your ship schedule, and receive availability plus a personalized per-vehicle quotation.",
+    "sectionCruise": "1. Cruise Ship & Port Schedule",
+    "sectionTrip": "2. Excursion & Group Details",
+    "sectionContact": "3. Passenger Contact",
+    "fields": {
+      "fullName": "Full name",
+      "email": "Email address",
+      "phoneOrWhatsapp": "WhatsApp / Phone number",
+      "cruiseShipName": "Cruise ship name",
+      "arrivalDate": "Date of arrival in Le Havre",
+      "shipArrivalTime": "Ship arrival time",
+      "allAboardTime": "All aboard time (latest boarding time)",
+      "preferredExcursion": "Preferred excursion",
+      "guestsCount": "Number of guests (1–4)",
+      "preferredLanguage": "Preferred language",
+      "additionalRequests": "Additional requests"
+    },
+    "placeholders": {
+      "fullName": "e.g. Sarah Johnson",
+      "email": "sarah@example.com",
+      "phoneOrWhatsapp": "+1 555 019 2834",
+      "cruiseShipName": "e.g. MSC Virtuosa, Norwegian Star...",
+      "additionalRequests": "Lunch stop ideas, mobility needs, custom timing..."
+    },
+    "excursionOptions": [
+      { "value": "etretat-honfleur", "label": "Étretat + Honfleur Combo (~7h)" },
+      { "value": "etretat", "label": "Étretat – The Famous Cliffs (~4h)" },
+      { "value": "honfleur", "label": "Honfleur – The Charming Harbour (~4h)" },
+      { "value": "dday-landing-beaches", "label": "D-Day Landing Beaches (~8h)" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Full day)" },
+      { "value": "custom", "label": "Custom itinerary" }
+    ],
+    "guestOptions": [
+      { "value": 1, "label": "1 guest (Private Sedan)" },
+      { "value": 2, "label": "2 guests (Private Sedan)" },
+      { "value": 3, "label": "3 guests (Private Sedan)" },
+      { "value": 4, "label": "4 guests (Private Sedan)" }
+    ],
+    "languageOptions": [
+      { "value": "English", "label": "English" },
+      { "value": "French", "label": "French" },
+      { "value": "Spanish", "label": "Spanish" },
+      { "value": "German", "label": "German" },
+      { "value": "Other", "label": "Other" }
+    ],
+    "summaryTitle": "Live Port Call Safety Check",
+    "summaryDefaultTerminal": "Le Havre Cruise Terminal",
+    "summaryLabels": {
+      "portWindow": "Port Window",
+      "excursion": "Excursion",
+      "vehicle": "Vehicle",
+      "privateSedan": "Private Sedan",
+      "guestSingular": "guest",
+      "guestPlural": "guests"
+    },
+    "statusMessages": {
+      "comfortable": "Comfortable port window with a 60+ min all-aboard safety buffer.",
+      "tight": "Tight port window for this route—we will verify exact timing and adjust stops to guarantee timely return.",
+      "insufficient": "Port stay appears shorter than recommended for this destination. Consider Étretat or Honfleur (~4h).",
+      "unknown": "Enter your ship arrival and all-aboard times to verify excursion compatibility."
+    },
+    "disclaimer": "Please note that all bookings are subject to availability and confirmation. We will contact you with a personalized quotation.",
+    "submitCta": "REQUEST YOUR PRIVATE TOUR",
+    "submitting": "Sending Request...",
+    "whatsappDirect": "Send Summary via WhatsApp",
+    "successTitle": "Quotation Request Received",
+    "successBody": "Thank you! We are checking availability and port timing for your ship. Expect a personalized quotation via email or WhatsApp shortly."
+  },
+  "faq": {
+    "eyebrow": "Cruise Passenger Guide",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "Where will my private driver meet us at Le Havre Cruise Port?",
+        "a": "Your driver waits directly at the exit of your Le Havre cruise ship terminal holding a welcome sign with your name, eliminating taxi queues or shuttle transfers."
+      },
+      {
+        "q": "How do you guarantee we return before All-Aboard Time?",
+        "a": "We systematically ask for your ship's all-aboard time when quoting and plan a minimum 60-minute safety margin back to the pier. If a route like Mont-Saint-Michel does not fit your port call, we advise you honestly beforehand."
+      },
+      {
+        "q": "Is the price per person or per vehicle?",
+        "a": "Every quotation is per private vehicle for your exclusive group of 1 to 4 guests—never per seat. You never share the car with strangers."
+      },
+      {
+        "q": "Can we combine Étretat and Honfleur in one excursion?",
+        "a": "Yes! Étretat + Honfleur (~7h) is our most requested combination because both towns are within 30–35 minutes of Le Havre Cruise Terminal."
+      },
+      {
+        "q": "Do you provide guided tours inside monuments and museums?",
+        "a": "We provide private chauffeur-driven transportation with multilingual communication. You explore monuments freely at your own pace; official interior monument guides are not included."
+      },
+      {
+        "q": "What if our cruise ship is delayed or skips Le Havre?",
+        "a": "We monitor ship arrivals closely. If your arrival time shifts slightly, we adapt pick-up accordingly. Please review our booking terms regarding weather or port-call cancellations."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Direct Assistance",
+    "title": "Questions Before Booking?",
+    "description": "Reach us directly by WhatsApp, phone, or email for fast availability checks and custom Normandy itineraries.",
+    "cards": [
+      { "title": "WhatsApp", "subtitle": "Fastest reply for cruisers" },
+      { "title": "Phone", "subtitle": "International direct line" },
+      { "title": "Email", "subtitle": "Detailed itinerary quotes" }
+    ]
+  },
+  "footer": {
+    "description": "Private chauffeur-driven shore excursions for 1 to 4 cruise passengers departing directly from Le Havre Cruise Port across Normandy.",
+    "location": "Le Havre, Normandy, France",
+    "excursionsHeading": "Shore Excursions",
+    "infoHeading": "Information",
+    "legalNotice": "Legal Notice",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "portGuide": "Port Guide",
+    "operatedBy": "Operated by",
+    "builtWith": "Crafted with"
+  },
+  "support": {
+    "buttonAria": "Open Cruise Concierge",
+    "tooltip": "Cruise Concierge",
+    "menuTitle": "Cruise Port Assistance",
+    "menuSubtitle": "Le Havre Shore Excursions · 1–4 Guests",
+    "aiTitle": "AI Cruise Concierge",
+    "aiSubtitle": "Ask about port timing & itineraries",
+    "callTitle": "Call Direct",
+    "emailTitle": "Email",
+    "chatTitle": "Cruise Concierge",
+    "chatSubtitle": "Multilingual Assistant · Le Havre Port",
+    "chatGreeting": "Welcome! I am your **CARINE NORMANDY PRIVATE** concierge. \n\nTell me your cruise ship's arrival & all-aboard times, and I can help you choose between **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel, or the D-Day Beaches** (private sedan, 1–4 guests).",
+    "chatSuggestions": [
+      "Can we combine Étretat & Honfleur?",
+      "How long is the D-Day Beaches tour?",
+      "Where does the driver meet us at Le Havre?"
+    ],
+    "chatPlaceholder": "Ask about your ship schedule or excursion..."
+  }
+}

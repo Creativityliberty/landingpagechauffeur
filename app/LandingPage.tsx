@@ -1,31 +1,30 @@
 "use client";
 
 /**
- * Landing Page - Chauffeur Privé VTC
- * Orchestrates all UI sections + Support modal + Dark/Light mode
+ * Landing Page — CARINE NORMANDY PRIVATE (Light Maritime Editorial Edition)
  */
 
+import { useState } from "react";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { CONFIG } from "@/config";
 import {
   BookingSection,
   ContactSection,
-  EnterpriseSection,
+  ExcursionsSection,
   FAQSection,
   Footer,
   HeroSection,
   MarqueeSection,
   Navbar,
   RepoChatbot,
-  ServicesSection,
-  TestimonialsSection,
   SupportButton,
   SupportMenu,
+  VehicleTrustSection,
+  WhyChooseUsSection,
 } from "@/ui";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export function LandingPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const isDarkMode = false;
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -36,56 +35,32 @@ export function LandingPage() {
     restDelta: 0.001,
   });
 
-  const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
-
-  useEffect(() => {
-    if (!isDarkMode) document.body.classList.add("light-mode");
-    else document.body.classList.remove("light-mode");
-
-    // Auto-scroll based on pathname for "Clean URLs" SEO
-    const path = window.location.pathname.replace("/", "");
-    if (path && path !== "") {
-      const sectionMap: Record<string, string> = {
-        services: "services",
-        reserver: "reserver",
-        entreprises: "entreprises",
-        contact: "contact",
-      };
-      const sectionId = sectionMap[path];
-      if (sectionId) {
-        setTimeout(() => {
-          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-        }, 500);
-      }
-    }
-  }, [isDarkMode]);
+  const theme = CONFIG.theme.modes.light;
 
   return (
     <div
-      className="min-h-screen selection:bg-[#D4AF37] selection:text-black overflow-x-hidden"
+      className="min-h-screen selection:bg-[#C8A45D] selection:text-[#06101E] overflow-x-hidden"
       style={{ backgroundColor: theme.bg, color: theme.text }}
     >
-      {/* Progress bar */}
+      {/* Top Scroll Progress Line */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1.5 bg-[#D4AF37] z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-[#C8A45D] z-[60] origin-left"
         style={{ scaleX }}
       />
 
-      <Navbar
-        isDarkMode={isDarkMode}
-        toggleTheme={() => setIsDarkMode(!isDarkMode)}
-      />
-      <HeroSection isDarkMode={isDarkMode} />
-      <MarqueeSection isDarkMode={isDarkMode} />
-      <ServicesSection isDarkMode={isDarkMode} />
+      <Navbar isDarkMode={isDarkMode} />
 
+      <main>
+        <HeroSection isDarkMode={isDarkMode} />
+        <MarqueeSection isDarkMode={isDarkMode} />
+        <ExcursionsSection isDarkMode={isDarkMode} />
+        <WhyChooseUsSection isDarkMode={isDarkMode} />
+        <VehicleTrustSection isDarkMode={isDarkMode} />
+        <BookingSection isDarkMode={isDarkMode} />
+        <FAQSection isDarkMode={isDarkMode} />
+        <ContactSection isDarkMode={isDarkMode} />
+      </main>
 
-
-      <BookingSection isDarkMode={isDarkMode} />
-      <EnterpriseSection isDarkMode={isDarkMode} />
-      <TestimonialsSection isDarkMode={isDarkMode} />
-      <FAQSection isDarkMode={isDarkMode} />
-      <ContactSection isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
 
       <SupportButton onClick={() => setIsSupportOpen(true)} />
@@ -94,6 +69,7 @@ export function LandingPage() {
         isOpen={isChatOpen}
         onClose={() => setIsChatOpen(false)}
       />
+
       <AnimatePresence>
         {isSupportOpen && (
           <SupportMenu

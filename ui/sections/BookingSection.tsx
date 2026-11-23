@@ -1,384 +1,686 @@
 "use client";
 
 /**
- * Booking Section - Booking form with detailed price estimation
+ * Stepped Cruise Passenger Booking & Personalized Quotation Section
+ * Features Visual Excursion Chips (inspired by lehavrecruisetransfers.com) + Live Port Window Safety Check.
  */
 
-import { CONFIG } from "@/config";
-import { calculatePrice, PriceBreakdown } from "@/lib/pricing"; // Import direct logic
-import { ShinyButton, AddressAutocomplete } from "@/ui";
-import { useJsApiLoader } from "@react-google-maps/api";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  Compass,
-  CreditCard,
-  MapPin,
-  MessageCircle,
-  Zap,
-  Navigation,
+  AlertTriangle,
+  ArrowUpRight,
+  CheckCircle2,
+  Clock,
   Loader2,
+  MessageCircle,
+  ShieldCheck,
+  Ship,
 } from "lucide-react";
-import { useState, useCallback, useEffect } from "react";
+import { CONFIG } from "@/config";
+import { useLanguage } from "@/lib/i18n";
+import {
+  assessCruiseSchedule,
+  ExcursionSlug,
+  GuestCount,
+  PreferredLanguage,
+} from "@/core/domain/excursion-request";
 
 interface BookingSectionProps {
   isDarkMode: boolean;
+  initialExcursion?: ExcursionSlug;
 }
 
-interface FormData {
-  pickup: string;
-  dropoff: string;
-  date: string;
-  time: string;
-  distancePickup: number; // Approach
-  distanceTrip: number;   // Course
-  distanceDropoff: number;// Return
-}
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: {
-    duration: 0.6,
-    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-  },
-};
-
-const LIBRARIES: ("places")[] = ["places"];
-const CENTER_BASE = "Gare du Havre, France";
-
-export function BookingSection({ isDarkMode }: BookingSectionProps) {
+export function BookingSection({
+  isDarkMode,
+  initialExcursion,
+}: BookingSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
+  const { t, selectedExcursion } = useLanguage();
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-    libraries: LIBRARIES,
-  });
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneOrWhatsapp, setPhoneOrWhatsapp] = useState("");
+  const [cruiseShipName, setCruiseShipName] = useState("");
+  const [arrivalDate, setArrivalDate] = useState("");
+  const [shipArrivalTime, setShipArrivalTime] = useState("08:00");
+  const [allAboardTime, setAllAboardTime] = useState("18:00");
+  const [preferredExcursion, setPreferredExcursion] = useState<ExcursionSlug>(
+    initialExcursion || selectedExcursion || "etretat-honfleur",
+  );
+  const [guestsCount, setGuestsCount] = useState<GuestCount>(2);
+  const [preferredLanguage, setPreferredLanguage] =
+    useState<PreferredLanguage>("English");
+  const [additionalRequests, setAdditionalRequests] = useState("");
 
-  const [formData, setFormData] = useState<FormData>({
-    pickup: "",
-    dropoff: "",
-    date: "",
-    time: "",
-    distancePickup: 0,
-    distanceTrip: 0,
-    distanceDropoff: 0,
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [submittedRequestId, setSubmittedRequestId] = useState<string | null>(
+    null,
+  );
 
-  const [estimate, setEstimate] = useState<PriceBreakdown | null>(null);
-  const [isCalculating, setIsCalculating] = useState(false);
-
-  // Auto calculate distances when pickup or dropoff changes
-  const updateDistances = useCallback(async (pickup: string, dropoff: string) => {
-    if (!pickup || !dropoff || !window.google) return;
-
-    setIsCalculating(true);
-    const service = new google.maps.DistanceMatrixService();
-
-    try {
-      const response = await service.getDistanceMatrix({
-        origins: [CENTER_BASE, pickup, dropoff],
-        destinations: [pickup, dropoff, CENTER_BASE],
-        travelMode: google.maps.TravelMode.DRIVING,
-        drivingOptions: {
-          departureTime: new Date(Date.now() + 1000), // trafic maintenant
-          trafficModel: google.maps.TrafficModel.BEST_GUESS,
-        },
-      });
-
-      if (response.rows.length >= 3) {
-        // Row 0: Center -> Pickup (Approach)
-        const distancePickup = response.rows[0].elements[0].distance.value / 1000;
-        // Row 1: Pickup -> Dropoff (Trip)
-        const distanceTrip = response.rows[1].elements[1].distance.value / 1000;
-        // Row 2: Dropoff -> Center (Return)
-        const distanceDropoff = response.rows[2].elements[2].distance.value / 1000;
-
-        setFormData(prev => ({
-          ...prev,
-          pickup,
-          dropoff,
-          distancePickup: Math.round(distancePickup * 10) / 10,
-          distanceTrip: Math.round(distanceTrip * 10) / 10,
-          distanceDropoff: Math.round(distanceDropoff * 10) / 10,
-        }));
-      }
-    } catch (error) {
-      console.error("Distance Matrix Error:", error);
-    } finally {
-      setIsCalculating(false);
-    }
-  }, []);
-
-  // Recalculate price whenever distances change
   useEffect(() => {
-    if (formData.distanceTrip > 0) {
-      const result = calculatePrice(
-        formData.distancePickup,
-        formData.distanceTrip,
-        formData.distanceDropoff
-      );
-      setEstimate(result);
+    if (initialExcursion) {
+      setPreferredExcursion(initialExcursion);
+    } else if (selectedExcursion) {
+      setPreferredExcursion(selectedExcursion);
     }
-  }, [formData.distancePickup, formData.distanceTrip, formData.distanceDropoff]);
+  }, [initialExcursion, selectedExcursion]);
 
-  const calculateEstimate = () => {
-    // If user clicks, force update if possible
-    if (!formData.distanceTrip) return;
-    const result = calculatePrice(
-      formData.distancePickup,
-      formData.distanceTrip,
-      formData.distanceDropoff
-    );
-    setEstimate(result);
+  const scheduleAssessment = useMemo(
+    () =>
+      assessCruiseSchedule(shipArrivalTime, allAboardTime, preferredExcursion),
+    [shipArrivalTime, allAboardTime, preferredExcursion],
+  );
+
+  const selectedExcursionLabel =
+    t.booking.excursionOptions.find((o) => o.value === preferredExcursion)
+      ?.label || preferredExcursion;
+
+  const formatHours = (minutes: number | null) => {
+    if (minutes === null || minutes <= 0) return "—";
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return `${h}h${m > 0 ? `${m.toString().padStart(2, "0")}` : "00"}`;
   };
 
-  const handleWhatsAppBooking = (isCash: boolean) => {
-    if (!estimate) return;
-    const paymentMethod = isCash ? "À bord (Espèces/CB)" : "Lien de paiement à distance";
-    const message = encodeURIComponent(
-      `*🚗 NOUVELLE RÉSERVATION*\n\n` +
-      `📍 *Départ:* ${formData.pickup}\n` +
-      `🏁 *Arrivée:* ${formData.dropoff}\n` +
-      `📅 *Date:* ${formData.date || "À définir"}\n` +
-      `🕒 *Heure:* ${formData.time || "À définir"}\n\n` +
-      `💳 *Paiement souhaité:* ${paymentMethod}\n` +
-      `💰 *Tarif Fixe Garanti:* ${estimate.total.toFixed(2)}€\n\n` +
-      `Bonjour, je souhaite confirmer cette réservation.`
+  const buildWhatsAppUrl = () => {
+    const text = encodeURIComponent(
+      `Hello ${CONFIG.brand.name}! I would like to request a private shore excursion from Le Havre Cruise Port:\n\n` +
+        `- Name: ${fullName || "Not specified"}\n` +
+        `- Email: ${email || "Not specified"}\n` +
+        `- Ship: ${cruiseShipName || "Not specified"}\n` +
+        `- Arrival Date: ${arrivalDate || "Not specified"}\n` +
+        `- Ship Arrival: ${shipArrivalTime} | All Aboard: ${allAboardTime}\n` +
+        `- Excursion: ${selectedExcursionLabel}\n` +
+        `- Guests: ${guestsCount} (Private Sedan)\n` +
+        `- Preferred Language: ${preferredLanguage}\n` +
+        (additionalRequests ? `- Notes: ${additionalRequests}\n` : "") +
+        `\nPlease let me know availability and a personalized quotation.`,
     );
-    window.open(`https://wa.me/${CONFIG.contact.whatsapp}?text=${message}`, "_blank");
+    return `https://wa.me/${CONFIG.contact.whatsapp}?text=${text}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/excursion-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phoneOrWhatsapp,
+          cruiseShipName,
+          arrivalDate,
+          shipArrivalTime,
+          allAboardTime,
+          preferredExcursion,
+          guestsCount,
+          preferredLanguage,
+          additionalRequests,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Please check all required fields.");
+      }
+
+      setSubmittedRequestId(data.requestId);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const inputStyle = {
+    backgroundColor: isDarkMode ? "#06101E" : "#F8FAFC",
+    borderColor: theme.border,
+    color: theme.text,
   };
 
   return (
     <section
-      id="reserver"
-      className={CONFIG.theme.spacing.section}
-      style={{ backgroundColor: theme.surface2 }}
+      id="booking"
+      className={`${CONFIG.theme.spacing.section} dot-grid`}
+      style={{ backgroundColor: theme.bg, color: theme.text }}
     >
       <div className={CONFIG.theme.spacing.container}>
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
-          <motion.div
-            {...fadeInUp}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-6 border border-[#D4AF37]/20"
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 border"
+            style={{
+              backgroundColor: theme.accentBgSoft,
+              borderColor: theme.border,
+              color: theme.accentText,
+            }}
           >
-            Réservation
-          </motion.div>
-          <motion.h2
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className={`${CONFIG.theme.typography.h2} font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]`}
-            style={{ color: theme.text }}
+            {t.booking.eyebrow}
+          </div>
+          <h2
+            className={`font-editorial ${CONFIG.theme.typography.h2} tracking-tight leading-[1.04] mb-4`}
           >
-            Réserver Votre Chauffeur
-          </motion.h2>
-          <motion.p
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-70"
-            style={{ color: theme.muted }}
-          >
-            Saisissez vos adresses pour obtenir un tarif précis et automatique.
-          </motion.p>
+            <span className="font-normal">{t.booking.titleLead} </span>
+            <span
+              className="font-bold italic"
+              style={{ color: theme.accentText }}
+            >
+              {t.booking.titleAccent}
+            </span>
+          </h2>
+          <p className="text-base md:text-lg" style={{ color: theme.muted }}>
+            {t.booking.description}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
-          {/* Form */}
-          <motion.div
-            {...fadeInUp}
-            className="lg:col-span-7 glass-dark p-8 md:p-16 rounded-[4rem] border shadow-3xl"
-            style={{ borderColor: theme.border }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* Left: Form */}
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, ease: CONFIG.theme.animations.ease }}
+            className="lg:col-span-7 p-1.5 rounded-[2rem] ring-1"
+            style={{
+              backgroundColor: isDarkMode
+                ? "rgba(255,255,255,0.03)"
+                : "rgba(11,25,44,0.04)",
+              borderColor: theme.border,
+            }}
           >
-            {!isLoaded ? (
-              <div className="flex flex-col items-center justify-center py-20 gap-4">
-                <Loader2 className="animate-spin text-[#D4AF37]" size={40} />
-                <p className="font-bold opacity-50">Chargement de Google Maps...</p>
-              </div>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mb-12 md:mb-16">
-                  {/* Pickup Address */}
-                  <div className="space-y-3 col-span-1 sm:col-span-2">
-                    <label
-                      className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block"
-                      style={{ color: theme.muted }}
-                    >
-                      Lieu de départ
-                    </label>
-                    <AddressAutocomplete
-                      placeholder="Adresse complète (Départ)"
-                      defaultValue={formData.pickup}
-                      onAddressSelect={(address) => {
-                        setFormData(prev => ({ ...prev, pickup: address }));
-                        if (formData.dropoff) updateDistances(address, formData.dropoff);
-                      }}
-                      className="w-full border-2 rounded-2xl pl-12 pr-5 py-5 outline-none font-bold text-sm md:text-base focus:border-[#D4AF37]"
-                      style={{
-                        backgroundColor: theme.bg,
-                        borderColor: theme.border,
-                        color: theme.text,
-                      }}
-                    />
-                  </div>
-
-                  {/* Dropoff Address */}
-                  <div className="space-y-3 col-span-1 sm:col-span-2">
-                    <label
-                      className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block"
-                      style={{ color: theme.muted }}
-                    >
-                      Lieu d&apos;arrivée
-                    </label>
-                    <AddressAutocomplete
-                      placeholder="Aéroport, Gare, Destination..."
-                      defaultValue={formData.dropoff}
-                      onAddressSelect={(address) => {
-                        setFormData(prev => ({ ...prev, dropoff: address }));
-                        if (formData.pickup) updateDistances(formData.pickup, address);
-                      }}
-                      className="w-full border-2 rounded-2xl pl-12 pr-5 py-5 outline-none font-bold text-sm md:text-base focus:border-[#D4AF37]"
-                      style={{
-                        backgroundColor: theme.bg,
-                        borderColor: theme.border,
-                        color: theme.text,
-                      }}
-                    />
-                  </div>
-
-                  {/* Date */}
-                  <div className="space-y-3">
-                    <label
-                      className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block"
-                      style={{ color: theme.muted }}
-                    >
-                      Date du trajet
-                    </label>
-                    <input
-                      type="date"
-                      className="w-full border-2 rounded-2xl px-6 py-5 outline-none font-bold text-sm md:text-base focus:border-[#D4AF37]"
-                      style={{
-                        backgroundColor: theme.bg,
-                        borderColor: theme.border,
-                        color: theme.text,
-                      }}
-                      onChange={(e) =>
-                        setFormData({ ...formData, date: e.target.value })
-                      }
-                    />
-                  </div>
-
-                  {/* Time */}
-                  <div className="space-y-3">
-                    <label
-                      className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] block"
-                      style={{ color: theme.muted }}
-                    >
-                      Heure de prise en charge
-                    </label>
-                    <input
-                      type="time"
-                      className="w-full border-2 rounded-2xl px-6 py-5 outline-none font-bold text-sm md:text-base focus:border-[#D4AF37]"
-                      style={{
-                        backgroundColor: theme.bg,
-                        borderColor: theme.border,
-                        color: theme.text,
-                      }}
-                      onChange={(e) =>
-                        setFormData({ ...formData, time: e.target.value })
-                      }
-                    />
-                  </div>
-
-                  <div className="col-span-1 sm:col-span-2 border-t pt-8 mt-4 hidden" style={{ borderColor: theme.border }}>
-                    {/* Distances Hidden - Logic remains for calculation */}
-                  </div>
-
-                </div>
-
-                <ShinyButton
-                  onClick={calculateEstimate}
-                  disabled={isCalculating}
-                  className={`w-full shadow-xl ${isDarkMode
-                    ? "bg-white text-black hover:bg-gray-100"
-                    : "bg-black text-white hover:bg-gray-900"
-                    } ${isCalculating ? "opacity-50 cursor-not-allowed" : ""}`}
+            <div
+              className="rounded-[calc(2rem-0.375rem)] p-6 sm:p-8 md:p-10 space-y-8"
+              style={{ backgroundColor: theme.surface }}
+            >
+              {/* Visual Excursion Picker Chips */}
+              <div className="space-y-3">
+                <label
+                  htmlFor="preferredExcursion"
+                  className="text-xs font-bold uppercase tracking-[0.2em] block"
+                  style={{ color: theme.accentText }}
                 >
-                  <div className="flex items-center justify-center gap-4">
-                    {isCalculating ? "CALCUL..." : "ÉVALUER LE TRAJET"} <ArrowRight size={26} />
-                  </div>
-                </ShinyButton>
-              </>
-            )}
-          </motion.div>
-
-          {/* Estimate Display */}
-          <div className="lg:col-span-5 flex flex-col gap-8 h-full">
-            <AnimatePresence mode="wait">
-              {estimate ? (
-                <motion.div
-                  key="est"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="p-10 md:p-16 rounded-[4rem] border-2 border-[#D4AF37]/40 flex-1 relative overflow-hidden shadow-3xl"
-                  style={{ backgroundColor: theme.surface }}
-                >
-                  <div
-                    className="text-5xl md:text-8xl font-black mb-4 tracking-tighter"
-                    style={{ color: theme.text }}
-                  >
-                    {estimate.total.toFixed(2)}
-                    <span className="text-xl md:text-3xl ml-2 text-[#D4AF37]">
-                      €
-                    </span>
-                  </div>
-                  <p
-                    className="text-sm md:text-lg font-medium opacity-80 mb-6 leading-relaxed italic"
-                    style={{ color: theme.muted }}
-                  >
-                    &quot;Tarif fixe et garanti, incluant le trafic en temps réel&quot;
-                  </p>
-
-                  {/* Plus d'affichage de distance ici */}
-
-                  <div className="space-y-5">
-                    <button
-                      onClick={() => handleWhatsAppBooking(false)}
-                      className="w-full py-6 bg-[#D4AF37] text-black rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 shadow-2xl shadow-[#D4AF37]/30 hover:bg-[#E1C45A] transition-all">
-                      <CreditCard size={22} /> RÉSERVER & PAYER (CB)
-                    </button>
-                    <button
-                      onClick={() => handleWhatsAppBooking(true)}
-                      className={`w-full py-6 border-2 rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 transition-all ${isDarkMode
-                        ? "border-white/20 text-white hover:bg-white/5 hover:border-white/30"
-                        : "border-black/20 text-black hover:bg-black/5 hover:border-black/30"
+                  {t.booking.fields.preferredExcursion} *
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {t.booking.excursionOptions.map((opt) => {
+                    const isSelected = preferredExcursion === opt.value;
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() =>
+                          setPreferredExcursion(opt.value as ExcursionSlug)
+                        }
+                        className={`text-left px-4 py-3 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                          isSelected
+                            ? "bg-[#C8A45D] text-[#06101E] border-[#C8A45D] shadow-md"
+                            : "hover:border-[#C8A45D]/60"
                         }`}
-                    >
-                      <MessageCircle size={22} className="text-[#25D366]" />{" "}
-                      PAYER À BORD
-                    </button>
-                  </div>
-                </motion.div>
-              ) : (
-                <div
-                  className="h-full border-2 border-dashed rounded-[4rem] flex flex-col items-center justify-center text-center p-12 min-h-[400px]"
-                  style={{ borderColor: theme.border }}
+                        style={
+                          isSelected
+                            ? undefined
+                            : {
+                                backgroundColor: isDarkMode
+                                  ? "#06101E"
+                                  : "#F8FAFC",
+                                borderColor: theme.border,
+                                color: theme.text,
+                              }
+                        }
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                {/* Sync hidden/accessible select for form accessibility & testing */}
+                <select
+                  id="preferredExcursion"
+                  value={preferredExcursion}
+                  onChange={(e) =>
+                    setPreferredExcursion(e.target.value as ExcursionSlug)
+                  }
+                  className="sr-only"
+                  aria-label={t.booking.fields.preferredExcursion}
                 >
-                  <Zap
-                    size={40}
-                    className="opacity-20 mb-10"
-                    style={{ color: theme.text }}
-                  />
-                  <p
-                    className="text-lg md:text-xl font-medium leading-relaxed opacity-40 max-w-xs"
-                    style={{ color: theme.muted }}
-                  >
-                    Choisissez vos adresses pour obtenir votre tarif immédiat.
+                  {t.booking.excursionOptions.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Group 1: Cruise Schedule */}
+              <div
+                className="space-y-4 pt-4 border-t"
+                style={{ borderColor: theme.borderSubtle }}
+              >
+                <h3
+                  className="text-xs font-bold uppercase tracking-[0.2em]"
+                  style={{ color: theme.accentText }}
+                >
+                  {t.booking.sectionCruise}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="cruiseShipName"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.cruiseShipName} *
+                    </label>
+                    <input
+                      id="cruiseShipName"
+                      type="text"
+                      required
+                      value={cruiseShipName}
+                      onChange={(e) => setCruiseShipName(e.target.value)}
+                      placeholder={t.booking.placeholders.cruiseShipName}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="arrivalDate"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.arrivalDate} *
+                    </label>
+                    <input
+                      id="arrivalDate"
+                      type="date"
+                      required
+                      value={arrivalDate}
+                      onChange={(e) => setArrivalDate(e.target.value)}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="shipArrivalTime"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.shipArrivalTime} *
+                    </label>
+                    <input
+                      id="shipArrivalTime"
+                      type="time"
+                      required
+                      value={shipArrivalTime}
+                      onChange={(e) => setShipArrivalTime(e.target.value)}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="allAboardTime"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.allAboardTime} *
+                    </label>
+                    <input
+                      id="allAboardTime"
+                      type="time"
+                      required
+                      value={allAboardTime}
+                      onChange={(e) => setAllAboardTime(e.target.value)}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Group 2: Guests & Language */}
+              <div
+                className="space-y-4 pt-4 border-t"
+                style={{ borderColor: theme.borderSubtle }}
+              >
+                <h3
+                  className="text-xs font-bold uppercase tracking-[0.2em]"
+                  style={{ color: theme.accentText }}
+                >
+                  {t.booking.sectionTrip}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="guestsCount"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.guestsCount} *
+                    </label>
+                    <select
+                      id="guestsCount"
+                      value={guestsCount}
+                      onChange={(e) =>
+                        setGuestsCount(Number(e.target.value) as GuestCount)
+                      }
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    >
+                      {t.booking.guestOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="preferredLanguage"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.preferredLanguage} *
+                    </label>
+                    <select
+                      id="preferredLanguage"
+                      value={preferredLanguage}
+                      onChange={(e) =>
+                        setPreferredLanguage(
+                          e.target.value as PreferredLanguage,
+                        )
+                      }
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    >
+                      {t.booking.languageOptions.map((lang) => (
+                        <option key={lang.value} value={lang.value}>
+                          {lang.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Group 3: Contact */}
+              <div
+                className="space-y-4 pt-4 border-t"
+                style={{ borderColor: theme.borderSubtle }}
+              >
+                <h3
+                  className="text-xs font-bold uppercase tracking-[0.2em]"
+                  style={{ color: theme.accentText }}
+                >
+                  {t.booking.sectionContact}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5 sm:col-span-2">
+                    <label
+                      htmlFor="fullName"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.fullName} *
+                    </label>
+                    <input
+                      id="fullName"
+                      type="text"
+                      required
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder={t.booking.placeholders.fullName}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="email"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.email} *
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t.booking.placeholders.email}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="phoneOrWhatsapp"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.phoneOrWhatsapp} *
+                    </label>
+                    <input
+                      id="phoneOrWhatsapp"
+                      type="tel"
+                      required
+                      value={phoneOrWhatsapp}
+                      onChange={(e) => setPhoneOrWhatsapp(e.target.value)}
+                      placeholder={t.booking.placeholders.phoneOrWhatsapp}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5 sm:col-span-2">
+                    <label
+                      htmlFor="additionalRequests"
+                      className="text-xs font-semibold block"
+                      style={{ color: theme.muted }}
+                    >
+                      {t.booking.fields.additionalRequests}
+                    </label>
+                    <textarea
+                      id="additionalRequests"
+                      rows={3}
+                      value={additionalRequests}
+                      onChange={(e) => setAdditionalRequests(e.target.value)}
+                      placeholder={t.booking.placeholders.additionalRequests}
+                      className="w-full rounded-xl border px-4 py-3 text-sm font-medium focus:border-[#C8A45D] transition-colors resize-none"
+                      style={inputStyle}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {errorMessage && (
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 text-sm font-medium">
+                  {errorMessage}
+                </div>
+              )}
+
+              {submittedRequestId && (
+                <div className="p-5 rounded-2xl bg-[#16A34A]/10 border border-[#16A34A]/30 space-y-2">
+                  <div className="flex items-center gap-2 text-[#16A34A] font-bold">
+                    <CheckCircle2 size={18} />
+                    <span>{t.booking.successTitle}</span>
+                  </div>
+                  <p className="text-sm" style={{ color: theme.muted }}>
+                    {t.booking.successBody}
                   </p>
                 </div>
               )}
-            </AnimatePresence>
+
+              <div className="space-y-3 pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group w-full flex items-center justify-between pl-7 pr-2.5 py-2.5 rounded-full bg-[#C8A45D] hover:bg-[#D9B873] text-[#06101E] font-bold text-sm md:text-base tracking-wide transition-all active:scale-[0.98] disabled:opacity-60 cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    {isSubmitting && (
+                      <Loader2 size={16} className="animate-spin" />
+                    )}
+                    {isSubmitting ? t.booking.submitting : t.booking.submitCta}
+                  </span>
+                  <span className="w-10 h-10 rounded-full bg-[#06101E]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <ArrowUpRight size={18} />
+                  </span>
+                </button>
+
+                <a
+                  href={buildWhatsAppUrl()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-3.5 px-6 rounded-full border flex items-center justify-center gap-2.5 text-sm font-semibold hover:border-[#16A34A] transition-colors"
+                  style={{ borderColor: theme.border }}
+                >
+                  <MessageCircle size={17} className="text-[#16A34A]" />
+                  <span>{t.booking.whatsappDirect}</span>
+                </a>
+              </div>
+            </div>
+          </motion.form>
+
+          {/* Right: Sticky Live Port Schedule Check */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div
+              className="p-1.5 rounded-[2rem] ring-1"
+              style={{
+                backgroundColor: isDarkMode
+                  ? "rgba(255,255,255,0.03)"
+                  : "rgba(11,25,44,0.04)",
+                borderColor: theme.border,
+              }}
+            >
+              <div
+                className="rounded-[calc(2rem-0.375rem)] p-7 sm:p-8 space-y-6"
+                style={{ backgroundColor: theme.surface }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-10 h-10 rounded-full border flex items-center justify-center shrink-0"
+                    style={{
+                      backgroundColor: theme.accentBgSoft,
+                      borderColor: theme.border,
+                      color: theme.accentText,
+                    }}
+                  >
+                    <Ship size={18} />
+                  </div>
+                  <div>
+                    <p
+                      className="text-xs font-bold uppercase tracking-[0.18em]"
+                      style={{ color: theme.accentText }}
+                    >
+                      {t.booking.summaryTitle}
+                    </p>
+                    <p className="text-sm font-semibold">
+                      {cruiseShipName || t.booking.summaryDefaultTerminal}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  className="p-5 rounded-2xl border space-y-3"
+                  style={{
+                    borderColor: theme.border,
+                    backgroundColor: isDarkMode ? "#06101E" : "#F8FAFC",
+                  }}
+                >
+                  <div className="flex items-center justify-between text-sm gap-2">
+                    <span style={{ color: theme.muted }}>
+                      {t.booking.summaryLabels.portWindow}
+                    </span>
+                    <span className="font-bold flex items-center gap-1.5">
+                      <Clock size={14} style={{ color: theme.accentText }} />
+                      {shipArrivalTime} → {allAboardTime} (
+                      {formatHours(scheduleAssessment.portWindowMinutes)})
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between text-sm gap-2">
+                    <span style={{ color: theme.muted }}>
+                      {t.booking.summaryLabels.excursion}
+                    </span>
+                    <span className="font-semibold text-right">
+                      {selectedExcursionLabel}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between text-sm gap-2">
+                    <span style={{ color: theme.muted }}>
+                      {t.booking.summaryLabels.vehicle}
+                    </span>
+                    <span className="font-semibold text-right">
+                      {t.booking.summaryLabels.privateSedan} ({guestsCount}{" "}
+                      {guestsCount === 1
+                        ? t.booking.summaryLabels.guestSingular
+                        : t.booking.summaryLabels.guestPlural}
+                      )
+                    </span>
+                  </div>
+
+                  <div
+                    className="pt-3 border-t"
+                    style={{ borderColor: theme.borderSubtle }}
+                  >
+                    {scheduleAssessment.status === "comfortable" && (
+                      <div className="flex items-start gap-2.5 text-xs font-semibold text-[#16A34A]">
+                        <ShieldCheck size={16} className="shrink-0 mt-0.5" />
+                        <span>{t.booking.statusMessages.comfortable}</span>
+                      </div>
+                    )}
+                    {scheduleAssessment.status === "tight" && (
+                      <div className="flex items-start gap-2.5 text-xs font-semibold text-[#D97706]">
+                        <AlertTriangle size={16} className="shrink-0 mt-0.5" />
+                        <span>{t.booking.statusMessages.tight}</span>
+                      </div>
+                    )}
+                    {scheduleAssessment.status === "insufficient" && (
+                      <div className="flex items-start gap-2.5 text-xs font-semibold text-[#DC2626]">
+                        <AlertTriangle size={16} className="shrink-0 mt-0.5" />
+                        <span>{t.booking.statusMessages.insufficient}</span>
+                      </div>
+                    )}
+                    {scheduleAssessment.status === "unknown" && (
+                      <p className="text-xs" style={{ color: theme.muted }}>
+                        {t.booking.statusMessages.unknown}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div
+                  className="p-4 rounded-2xl border"
+                  style={{
+                    backgroundColor: theme.accentBgSoft,
+                    borderColor: theme.border,
+                  }}
+                >
+                  <p className="text-xs sm:text-sm leading-relaxed font-medium">
+                    {t.booking.disclaimer}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

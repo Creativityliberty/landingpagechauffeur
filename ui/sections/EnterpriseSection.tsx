@@ -1,94 +1,171 @@
 "use client";
 
 /**
- * Enterprise Section - B2B services
+ * Why Choose Us Section — Agenciex-Style 01-04 Editorial Process Modules + Ship Coach vs. Sedan Comparison
  */
 
-import { CONFIG } from "@/config";
 import { motion } from "framer-motion";
-import { Building2, FileText, Receipt } from "lucide-react";
+import { Anchor, ArrowDownRight, Compass, Languages, Shield, Check, X } from "lucide-react";
+import { CONFIG } from "@/config";
+import { useLanguage } from "@/lib/i18n";
 
-interface EnterpriseSectionProps {
+interface WhyChooseUsProps {
   isDarkMode: boolean;
 }
 
-const iconMap: Record<string, React.ComponentType<{ size: number; className?: string }>> = {
-  building: Building2,
-  receipt: Receipt,
-  filetext: FileText,
-};
+const iconMap = {
+  shield: Shield,
+  compass: Compass,
+  languages: Languages,
+  anchor: Anchor,
+} as const;
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: {
-    duration: 0.6,
-    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-  },
-};
-
-export function EnterpriseSection({ isDarkMode }: EnterpriseSectionProps) {
+export function WhyChooseUsSection({ isDarkMode }: WhyChooseUsProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
+  const { t } = useLanguage();
 
   return (
-    <section id="entreprises" className={CONFIG.theme.spacing.section}>
+    <section
+      id="why-us"
+      className={`${CONFIG.theme.spacing.section} dot-grid`}
+      style={{ backgroundColor: theme.bg, color: theme.text }}
+    >
       <div className={CONFIG.theme.spacing.container}>
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
-          <motion.div
-            {...fadeInUp}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-6 border border-[#D4AF37]/20"
+        {/* Header + Comparison Bar */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 md:mb-18">
+          <div className="max-w-2xl">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 border"
+              style={{
+                backgroundColor: theme.accentBgSoft,
+                borderColor: theme.border,
+                color: theme.accentText,
+              }}
+            >
+              {t.whyUs.eyebrow}
+            </div>
+            <h2
+              className={`font-editorial ${CONFIG.theme.typography.h2} tracking-tight leading-[1.02]`}
+            >
+              <span className="font-normal">{t.whyUs.titleLead} </span>
+              <span
+                className="font-bold italic"
+                style={{ color: theme.accentText }}
+              >
+                {t.whyUs.titleAccent}
+              </span>
+            </h2>
+          </div>
+
+          {/* Competitor Conversion Anchor: Coach vs. Private Sedan */}
+          <div
+            className="p-5 rounded-2xl border max-w-md w-full space-y-2.5"
+            style={{
+              backgroundColor: theme.surface,
+              borderColor: theme.border,
+            }}
           >
-            Espace Pro
-          </motion.div>
-          <motion.h2
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className={`${CONFIG.theme.typography.h2} font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]`}
-            style={{ color: theme.text }}
-          >
-            Solutions Entreprises
-          </motion.h2>
-          <motion.p
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-70"
-            style={{ color: theme.muted }}
-          >
-            Nous accompagnons les professionnels pour leurs déplacements
-            réguliers avec une gestion simplifiée et une facturation dédiée.
-          </motion.p>
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.18em]"
+              style={{ color: theme.accentText }}
+            >
+              {t.whyUs.comparisonTitle}
+            </p>
+            <div className="flex items-start gap-2 text-xs" style={{ color: theme.muted }}>
+              <X size={14} className="text-red-500 shrink-0 mt-0.5" />
+              <span>{t.whyUs.comparisonShip}</span>
+            </div>
+            <div className="flex items-start gap-2 text-xs font-semibold">
+              <Check size={14} className="text-[#16A34A] shrink-0 mt-0.5" />
+              <span>{t.whyUs.comparisonPrivate}</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 text-center px-4 md:px-6">
-          {CONFIG.enterprise.map((item, i) => {
-            const IconComponent = iconMap[item.icon];
+        {/* Agenciex-Style Stacked 01-04 Editorial Modules */}
+        <div
+          className="rounded-[2rem] border overflow-hidden"
+          style={{
+            backgroundColor: theme.surface,
+            borderColor: theme.border,
+          }}
+        >
+          {t.whyUs.items.map((item, idx) => {
+            const Icon = iconMap[item.icon as keyof typeof iconMap] || Shield;
             return (
               <motion.div
-                key={i}
-                {...fadeInUp}
-                transition={{ delay: i * CONFIG.theme.animations.stagger }}
-                className="p-8 md:p-10 lg:p-12 rounded-3xl md:rounded-[3.5rem] glass-dark border flex flex-col items-center"
-                style={{ borderColor: theme.border }}
+                key={item.step}
+                initial={{ opacity: 1, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.45,
+                  ease: CONFIG.theme.animations.ease,
+                }}
+                className={`p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${
+                  idx !== 0 ? "border-t" : ""
+                }`}
+                style={{ borderColor: theme.borderSubtle }}
               >
-                <div className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mb-6 md:mb-8 lg:mb-10 border border-[#D4AF37]/20 shadow-xl">
-                  {IconComponent && (
-                    <IconComponent size={36} className="md:w-10 md:h-10" />
-                  )}
+                {/* Step Number Circle */}
+                <div className="lg:col-span-2 flex items-center gap-3">
+                  <span
+                    className="w-11 h-11 rounded-full border flex items-center justify-center font-editorial text-xl font-semibold shrink-0"
+                    style={{
+                      borderColor: theme.border,
+                      backgroundColor: theme.accentBgSoft,
+                      color: theme.accentText,
+                    }}
+                  >
+                    {item.step}
+                  </span>
+                  <span
+                    className="px-3 py-1 rounded-full border text-[11px] font-bold uppercase tracking-wider"
+                    style={{
+                      borderColor: theme.border,
+                      color: theme.muted,
+                    }}
+                  >
+                    {item.tag}
+                  </span>
                 </div>
-                <h3
-                  className="text-xl md:text-2xl lg:text-3xl font-black mb-4 md:mb-6 tracking-tight"
-                  style={{ color: theme.text }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="font-medium text-sm md:text-base leading-relaxed opacity-60"
-                  style={{ color: theme.muted }}
-                >
-                  {item.text}
-                </p>
+
+                {/* Split-Weight Headline */}
+                <div className="lg:col-span-4">
+                  <h3 className="font-editorial text-2xl sm:text-3xl leading-tight">
+                    <span className="font-normal">{item.titleMuted} </span>
+                    <span
+                      className="font-bold italic"
+                      style={{ color: theme.accentText }}
+                    >
+                      {item.titleBold}
+                    </span>
+                  </h3>
+                </div>
+
+                {/* Description */}
+                <div className="lg:col-span-5">
+                  <p
+                    className="text-sm sm:text-base leading-relaxed"
+                    style={{ color: theme.muted }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* Right Icon Badge */}
+                <div className="hidden lg:flex lg:col-span-1 justify-end">
+                  <div
+                    className="w-11 h-11 rounded-2xl border flex items-center justify-center"
+                    style={{
+                      backgroundColor: theme.accentBgSoft,
+                      borderColor: theme.border,
+                      color: theme.accentText,
+                    }}
+                  >
+                    <Icon size={19} strokeWidth={1.6} />
+                  </div>
+                </div>
               </motion.div>
             );
           })}
@@ -97,3 +174,5 @@ export function EnterpriseSection({ isDarkMode }: EnterpriseSectionProps) {
     </section>
   );
 }
+
+export { WhyChooseUsSection as EnterpriseSection };

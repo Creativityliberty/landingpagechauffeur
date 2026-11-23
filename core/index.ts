@@ -1,16 +1,20 @@
 /**
  * Core Module - Public API
- * Export everything that adapters need to consume
  */
 
-// Domain
-export * from './domain/waitlist-entry';
-export * from './domain/trip';
+export * from "./domain/waitlist-entry";
+export * from "./domain/excursion-request";
 
-// Ports
-export type { WaitlistRepository } from './ports/waitlist-repository';
+export type { WaitlistRepository } from "./ports/waitlist-repository";
+export type { ExcursionRequestRepository } from "./ports/excursion-request-repository";
 
-// Application Services
-export { JoinWaitlistService } from './application/join-waitlist';
-export type { JoinWaitlistInput, JoinWaitlistOutput } from './application/join-waitlist';
-export { CalculatePriceService } from './application/calculate-price';
+export { JoinWaitlistService } from "./application/join-waitlist";
+export type {
+  JoinWaitlistInput,
+  JoinWaitlistOutput,
+} from "./application/join-waitlist";
+export { SubmitExcursionRequestService } from "./application/submit-excursion-request";
+export type {
+  SubmitExcursionRequestInput,
+  SubmitExcursionRequestOutput,
+} from "./application/submit-excursion-request";

@@ -4,43 +4,59 @@ import { CONFIG } from "@/config";
 import { Navbar, Footer } from "@/ui";
 
 export default function Confidentialite() {
-    return (
-        <div className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7]">
-            <Navbar isDarkMode={true} />
-            <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
-                <h1 className="text-4xl md:text-5xl font-black mb-12 text-[#D4AF37]">Politique de Confidentialité</h1>
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628]">
+      <Navbar isDarkMode={false} />
+      <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
+        <h1 className="font-editorial text-4xl md:text-5xl font-semibold mb-12 text-[#8C6823]">
+          Privacy Policy
+        </h1>
 
-                <div className="space-y-8 opacity-80 leading-relaxed">
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">1. Collecte des données personnelles</h2>
-                        <p>
-                            Nous collectons les données personnelles que vous nous fournissez volontairement lors de l'utilisation de notre formulaire de réservation ou de contact (nom, prénom, adresse e-mail, numéro de téléphone, adresse de prise en charge et de destination).
-                        </p>
-                    </section>
+        <div className="space-y-8 text-[#334155] leading-relaxed text-sm sm:text-base">
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              1. Data Collected
+            </h2>
+            <p>
+              When you submit a shore excursion quotation request, we collect
+              only the information needed to prepare and coordinate your trip:
+              full name, email address, phone/WhatsApp number, cruise ship
+              details, port times, group size (1–4), and language preference.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">2. Utilisation des données</h2>
-                        <p>
-                            Par <strong>{CONFIG.content.brand.name}</strong>, vos données sont utilisées exclusivement pour le traitement de vos réservations, la gestion de votre dossier client, la facturation et la communication liée à nos services.
-                        </p>
-                    </section>
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              2. Purpose of Processing
+            </h2>
+            <p>
+              Data provided to <strong>{CONFIG.brand.name}</strong> (operated by{" "}
+              {CONFIG.brand.legalOperator}) is used solely to verify
+              availability, prepare your personalized quotation, and coordinate
+              your Le Havre pier pick-up. We never sell or share guest data with
+              third-party marketers.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">3. Protection des données</h2>
-                        <p>
-                            Nous mettons en œuvre toutes les mesures techniques et organisationnelles nécessaires pour assurer la sécurité de vos données personnelles contre l'accès, la modification, la divulgation ou la destruction non autorisés.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">4. Vos droits</h2>
-                        <p>
-                            Conformément à la réglementation en vigueur (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation du traitement, d'opposition et de portabilité de vos données. Pour exercer ces droits, veuillez nous contacter à l'adresse : {CONFIG.contact.email}.
-                        </p>
-                    </section>
-                </div>
-            </main>
-            <Footer isDarkMode={true} />
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              3. Your GDPR Rights
+            </h2>
+            <p>
+              Under EU GDPR regulations, you may request access, correction, or
+              deletion of your personal data at any time by contacting{" "}
+              <a
+                href={`mailto:${CONFIG.contact.email}`}
+                className="text-[#8C6823] font-semibold hover:underline"
+              >
+                {CONFIG.contact.email}
+              </a>
+              .
+            </p>
+          </section>
         </div>
-    );
+      </main>
+      <Footer isDarkMode={false} />
+    </div>
+  );
 }

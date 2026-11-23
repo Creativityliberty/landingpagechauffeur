@@ -1,0 +1,318 @@
+{
+  "brandPortLabel": "Kreuzfahrthafen Le Havre",
+  "nav": {
+    "links": [
+      { "label": "Ausflüge", "href": "#excursions" },
+      { "label": "Vorteile", "href": "#why-us" },
+      { "label": "Fahrzeug", "href": "#vehicle" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "cta": "Anfragen",
+    "languageLabel": "DE",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel"
+  },
+  "hero": {
+    "eyebrow": "Kreuzfahrthafen Le Havre · Privat-Limousine (1–4 Gäste)",
+    "titleLead": "Entdecken Sie die Normandie,",
+    "titleAccent": "in Ihrem Tempo.",
+    "subtitle": "Private Landausflüge ab dem Kreuzfahrthafen Le Havre",
+    "description": "Nutzen Sie Ihren Landgang optimal mit einem privaten Fahrer und einer komfortablen Limousine exklusiv für Ihre Gruppe: Étretat, Honfleur, Mont-Saint-Michel und die D-Day-Strände — pünktlich zurück am Schiff.",
+    "bullets": [
+      "Exklusive Limousine für 1 bis 4 Gäste",
+      "Abholung & Rückkehr am Terminal Le Havre",
+      "Preis pro Fahrzeug, nicht pro Person",
+      "Mehrsprachige Kommunikation"
+    ],
+    "ctaPrimary": "PRIVATEN AUSFLUG ANFRAGEN",
+    "ctaSecondary": "Ausflüge ansehen",
+    "microCaption": "Privater Fahrer (kein Innenführer) · Volle Freiheit · Pünktlich zurück",
+    "badgeTopTitle": "Pünktlich Zurück an Bord",
+    "badgeTopSub": "60+ Min. Sicherheitspuffer inklusive",
+    "badgeBottomTitle": "Exklusive Privat-Limousine",
+    "badgeBottomSub": "1–4 Gäste · Preis pro Auto, keine Gruppe"
+  },
+  "marquee": [
+    "Kreuzfahrthafen Le Havre",
+    "Privat-Limousine · 1–4 Gäste",
+    "Étretat + Honfleur",
+    "Kreidefelsen von Étretat",
+    "Hafen von Honfleur",
+    "D-Day Landungsstrände",
+    "Mont-Saint-Michel",
+    "Pünktlich zurück vor Abfahrt"
+  ],
+  "marqueeSecondary": [
+    "Fahrzeugpreis · Kein Ticket pro Person",
+    "Privater Chauffeur · Freie Besichtigung",
+    "Mehrsprachige Kommunikation",
+    "Direktabholung am Terminal",
+    "Individuelle Hafen-Routen",
+    "Lizenzierter Mietwagenverkehr"
+  ],
+  "excursionsSection": {
+    "eyebrow": "Ausgewählte Landausflüge",
+    "titleLead": "Die Normandie Erleben",
+    "titleAccent": "direkt ab Hafen.",
+    "description": "Vergleichen Sie unsere beliebtesten Routen ab dem Kreuzfahrthafen Le Havre. Jede Fahrt ist exklusiv für Ihre Gruppe (1–4 Gäste).",
+    "glanceTitle": "Interaktive Ausflugsvorschau",
+    "filterAll": "Alle Routen",
+    "filterShort": "Halbtags (~4 Std.)",
+    "filterFull": "Ganztags (7–10 Std.)",
+    "stageStatLabel": "Fahrzeugkapazität",
+    "stageStatValue": "1–4 Gäste · Privatwagen",
+    "stageDriveLabel": "Ab Hafen Le Havre",
+    "selectCta": "Ausflug wählen",
+    "detailsCta": "Route & Details",
+    "disclaimer": "Zeitangaben sind Richtwerte und werden anhand der genauen Liegezeiten Ihres Schiffes bestätigt.",
+    "cards": {
+      "etretat-honfleur": {
+        "title": "ÉTRETAT + HONFLEUR",
+        "subtitle": "Beliebteste Kombination",
+        "badgeDuration": "Ca. 7 Stunden",
+        "driveTimeFromPier": "~35 Min. zwischen den Orten",
+        "shortDesc": "Am Vormittag die weißen Kreidefelsen von Étretat, anschließend Mittagessen und Spaziergang im historischen Hafen von Honfleur."
+      },
+      "etretat": {
+        "title": "ÉTRETAT",
+        "subtitle": "Die Berühmten Kreidefelsen",
+        "badgeDuration": "Ca. 4 Stunden",
+        "driveTimeFromPier": "~35 Min. ab Terminal Le Havre",
+        "shortDesc": "Entdecken Sie die spektakulären weißen Kreidefelsen, Felsbögen und Küstenpanoramen der Normandie."
+      },
+      "honfleur": {
+        "title": "HONFLEUR",
+        "subtitle": "Der Malerische Hafen",
+        "badgeDuration": "Ca. 4 Stunden",
+        "driveTimeFromPier": "~30 Min. über Pont de Normandie",
+        "shortDesc": "Genießen Sie den Charme des historischen Hafenbeckens, der Gassen und der Fachwerkarchitektur."
+      },
+      "dday-landing-beaches": {
+        "title": "D-DAY LANDUNGSSTRÄNDE",
+        "subtitle": "Eine Reise durch die Geschichte",
+        "badgeDuration": "Ca. 8 Stunden",
+        "driveTimeFromPier": "~1 Std. 45 Min. pro Strecke",
+        "shortDesc": "Erkunden Sie die historischen Schauplätze wie Pointe du Hoc, Omaha Beach und den Amerikanischen Friedhof."
+      },
+      "mont-saint-michel": {
+        "title": "MONT-SAINT-MICHEL",
+        "subtitle": "Ein Magisches Reiseziel",
+        "badgeDuration": "Ganztags · Je nach Liegezeit",
+        "driveTimeFromPier": "~2 Std. 30 Min. pro Strecke",
+        "shortDesc": "Besuchen Sie die berühmte Klosterinsel, das mittelalterliche Dorf und die beeindruckende Abtei."
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Ihre Vorteile",
+    "titleLead": "Ihr privater Landgang,",
+    "titleAccent": "abgestimmt auf Ihr Schiff.",
+    "comparisonTitle": "Schiffsbus vs. CARINE NORMANDY PRIVATE",
+    "comparisonShip": "50-Sitzer Reisebus · Preis pro Gast · Fester Gruppenplan",
+    "comparisonPrivate": "Privat-Limousine (1–4 Gäste) · Fahrzeugpreis · Eigenes Tempo",
+    "items": [
+      {
+        "step": "01",
+        "icon": "shield",
+        "title": "Privates Erlebnis",
+        "titleMuted": "Privates Erlebnis,",
+        "titleBold": "nur für Sie.",
+        "desc": "Exklusives Fahrzeug nur für Ihre Gruppe mit 1 bis 4 Gästen — keine fremden Mitreisenden.",
+        "tag": "1–4 Gäste"
+      },
+      {
+        "step": "02",
+        "icon": "compass",
+        "title": "Individuelle Route",
+        "titleMuted": "Privater Fahrer —",
+        "titleBold": "volle Freiheit.",
+        "desc": "Wir kümmern uns um Fahrt, Maut und Parken, während Sie Sehenswürdigkeiten frei in Ihrem Tempo erkunden.",
+        "tag": "Flexible Stopps"
+      },
+      {
+        "step": "03",
+        "icon": "languages",
+        "title": "Mehrsprachige Betreuung",
+        "titleMuted": "Mehrsprachiger Service,",
+        "titleBold": "einfache Planung.",
+        "desc": "Abstimmung auf Englisch, Französisch, Spanisch oder Deutsch von der Anfrage bis zur Rückkehr.",
+        "tag": "EN · FR · ES · DE"
+      },
+      {
+        "step": "04",
+        "icon": "anchor",
+        "title": "Direkt ab Hafen Le Havre",
+        "titleMuted": "Abholung am Terminal &",
+        "titleBold": "pünktlich zurück.",
+        "desc": "Empfang direkt am Ausgang des Kreuzfahrtterminals mit mindestens 60 Minuten Sicherheitspuffer vor Abfahrt.",
+        "tag": "All-Aboard Sicher"
+      }
+    ]
+  },
+  "vehicleTrust": {
+    "eyebrow": "Sicherheit & Transparenz",
+    "title": "Ihre Privat-Limousine & Pünktlichkeitsgarantie",
+    "description": "Klare Rahmenbedingungen für einen entspannten Landgang.",
+    "vehicleBadge": "Komfort-Limousine · 1–4 Gäste",
+    "vehicleTitle": "Exklusives Fahrzeug für Ihre Gruppe",
+    "vehicleSpecs": [
+      "1 bis 4 Gäste + geräumiger Kofferraum",
+      "Klimatisierter Komfort",
+      "Kostenloses Wasser & USB-Ladeanschlüsse",
+      "Abholung mit Namensschild am Terminal"
+    ],
+    "pillars": [
+      {
+        "title": "Fahrzeugpreis statt Pro-Kopf-Ticket",
+        "desc": "Sie buchen das gesamte Fahrzeug für Ihre Gruppe (1–4 Pers.) auf Basis eines individuellen Angebots."
+      },
+      {
+        "title": "All-Aboard-Zeitpuffer",
+        "desc": "Wir planen stets mit großzügigem Sicherheitspuffer vor der letzten Einschiffungszeit."
+      },
+      {
+        "title": "Privater Fahrservice",
+        "desc": "Privater Chauffeur-Transport ohne lizenzierte Innenführungen in Museen oder Denkmälern."
+      }
+    ]
+  },
+  "booking": {
+    "eyebrow": "Anfrage in 1 Minute · Individuelles Angebot",
+    "titleLead": "Ihren Normandie-",
+    "titleAccent": "Ausflug Planen",
+    "description": "Besuchen Sie Le Havre mit einem Kreuzfahrtschiff? Wählen Sie Ihre Route und teilen Sie uns Liegezeiten für ein individuelles Fahrzeugangebot mit.",
+    "sectionCruise": "1. Schiff & Liegezeiten",
+    "sectionTrip": "2. Ausflug & Gruppengröße",
+    "sectionContact": "3. Kontaktdaten",
+    "fields": {
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phoneOrWhatsapp": "WhatsApp / Telefonnummer",
+      "cruiseShipName": "Name des Kreuzfahrtschiffes",
+      "arrivalDate": "Ankunftsdatum in Le Havre",
+      "shipArrivalTime": "Ankunftszeit des Schiffes",
+      "allAboardTime": "Späteste Rückkehr an Bord",
+      "preferredExcursion": "Gewünschter Ausflug",
+      "guestsCount": "Anzahl der Gäste (1–4)",
+      "preferredLanguage": "Bevorzugte Sprache",
+      "additionalRequests": "Zusätzliche Wünsche"
+    },
+    "placeholders": {
+      "fullName": "z. B. Thomas Weber",
+      "email": "thomas@example.com",
+      "phoneOrWhatsapp": "+49 170 0000000",
+      "cruiseShipName": "z. B. AIDA, Mein Schiff, MSC...",
+      "additionalRequests": "Mittagspause, besondere Wünsche..."
+    },
+    "excursionOptions": [
+      { "value": "etretat-honfleur", "label": "Kombination Étretat + Honfleur (~7 Std.)" },
+      { "value": "etretat", "label": "Étretat – Die berühmten Klippen (~4 Std.)" },
+      { "value": "honfleur", "label": "Honfleur – Der malerische Hafen (~4 Std.)" },
+      { "value": "dday-landing-beaches", "label": "D-Day Landungsstrände (~8 Std.)" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Ganztags)" },
+      { "value": "custom", "label": "Individuelle Route" }
+    ],
+    "guestOptions": [
+      { "value": 1, "label": "1 Gast (Privat-Limousine)" },
+      { "value": 2, "label": "2 Gäste (Privat-Limousine)" },
+      { "value": 3, "label": "3 Gäste (Privat-Limousine)" },
+      { "value": 4, "label": "4 Gäste (Privat-Limousine)" }
+    ],
+    "languageOptions": [
+      { "value": "English", "label": "Englisch" },
+      { "value": "French", "label": "Französisch" },
+      { "value": "Spanish", "label": "Spanisch" },
+      { "value": "German", "label": "Deutsch" },
+      { "value": "Other", "label": "Andere" }
+    ],
+    "summaryTitle": "Liegezeit-Sicherheitscheck",
+    "summaryDefaultTerminal": "Kreuzfahrtterminal Le Havre",
+    "summaryLabels": {
+      "portWindow": "Hafenzeitfenster",
+      "excursion": "Ausflug",
+      "vehicle": "Fahrzeug",
+      "privateSedan": "Privat-Limousine",
+      "guestSingular": "Gast",
+      "guestPlural": "Gäste"
+    },
+    "statusMessages": {
+      "comfortable": "Komfortables Zeitfenster mit mindestens 60 Min. Sicherheitspuffer.",
+      "tight": "Knappes Zeitfenster — wir prüfen die genauen Zeiten und passen Stopps an.",
+      "insufficient": "Die Hafenzeit erscheint zu kurz für dieses Ziel. Empfehlung: Étretat oder Honfleur (~4 Std.).",
+      "unknown": "Zeiten eingeben, um die Machbarkeit direkt zu prüfen."
+    },
+    "disclaimer": "Alle Anfragen erfolgen vorbehaltlich Verfügbarkeit und Bestätigung. Sie erhalten ein individuelles Angebot.",
+    "submitCta": "ANGEBOT ANFORDERN",
+    "submitting": "Wird gesendet...",
+    "whatsappDirect": "Per WhatsApp senden",
+    "successTitle": "Anfrage eingegangen",
+    "successBody": "Vielen Dank! Wir prüfen die Verfügbarkeit passend zu Ihren Schiffszeiten und melden uns umgehend."
+  },
+  "faq": {
+    "eyebrow": "Kreuzfahrt-FAQ",
+    "title": "Häufig Gestellte Fragen",
+    "items": [
+      {
+        "q": "Wo holt uns der Fahrer am Hafen Le Havre ab?",
+        "a": "Direkt am Ausgang Ihres Kreuzfahrtterminals mit einem Namensschild."
+      },
+      {
+        "q": "Wie stellen Sie die rechtzeitige Rückkehr sicher?",
+        "a": "Wir berücksichtigen immer Ihre All-Aboard-Zeit und planen mindestens 60 Minuten Sicherheitspuffer ein."
+      },
+      {
+        "q": "Gilt der Preis pro Person oder pro Fahrzeug?",
+        "a": "Immer pro Privatfahrzeug für Ihre gesamte Gruppe (1–4 Gäste)."
+      },
+      {
+        "q": "Lassen sich Étretat und Honfleur kombinieren?",
+        "a": "Ja, unsere Kombination Étretat + Honfleur (~7 Std.) ist die beliebteste Option ab Le Havre."
+      },
+      {
+        "q": "Sind Innenführungen in Denkmälern enthalten?",
+        "a": "Nein, es handelt sich um einen privaten Chauffeur-Fahrservice ohne lizenzierte Museumsführungen."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Direktkontakt",
+    "title": "Fragen Vorab?",
+    "description": "Kontaktieren Sie uns direkt per WhatsApp, Telefon oder E-Mail.",
+    "cards": [
+      { "title": "WhatsApp", "subtitle": "Schnellste Antwort" },
+      { "title": "Telefon", "subtitle": "Direktwahl" },
+      { "title": "E-Mail", "subtitle": "Individuelle Angebote" }
+    ]
+  },
+  "footer": {
+    "description": "Private Chauffeur-Landausflüge (1–4 Gäste) direkt ab dem Kreuzfahrthafen Le Havre in die Normandie.",
+    "location": "Le Havre, Normandie, Frankreich",
+    "excursionsHeading": "Landausflüge",
+    "infoHeading": "Informationen",
+    "legalNotice": "Impressum",
+    "terms": "AGB",
+    "privacy": "Datenschutz",
+    "portGuide": "Hafen-Guide",
+    "operatedBy": "Betrieben von",
+    "builtWith": "Entwickelt mit"
+  },
+  "support": {
+    "buttonAria": "Kreuzfahrt-Concierge öffnen",
+    "tooltip": "Kreuzfahrt-Hilfe",
+    "menuTitle": "Hafen-Assistent Le Havre",
+    "menuSubtitle": "Private Ausflüge · 1–4 Gäste",
+    "aiTitle": "KI-Ausflugsberater",
+    "aiSubtitle": "Fragen zu Liegezeiten & Routen",
+    "callTitle": "Direktanruf",
+    "emailTitle": "E-Mail",
+    "chatTitle": "Kreuzfahrt-Concierge",
+    "chatSubtitle": "Mehrsprachiger Assistent · Le Havre",
+    "chatGreeting": "Willkommen! Ich bin Ihr Concierge von **CARINE NORMANDY PRIVATE**. \n\nNennen Sie mir Ihre Liegezeiten in Le Havre, und ich helfe Ihnen bei der Auswahl zwischen **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel oder den D-Day-Stränden**.",
+    "chatSuggestions": [
+      "Étretat & Honfleur kombinieren?",
+      "Dauer der D-Day-Strände Tour?",
+      "Wo ist der Treffpunkt im Hafen?"
+    ],
+    "chatPlaceholder": "Frage zu Schiffszeiten oder Ausflug..."
+  }
+}

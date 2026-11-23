@@ -1,20 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --gold: #d4af37;
-  --bg-dark: #0b0b0f;
-  --bg-light: #ffffff;
+  --gold: #c8a45d;
+  --gold-hover: #d9b873;
+  --accent-text: #8c6823;
+  --bg-light: #f8fafc;
+  --surface-light: #ffffff;
+  --ink-navy: #0a1628;
 }
 
 @theme inline {
-  --color-background: var(--bg-dark);
-  --color-foreground: #f5f5f7;
+  --color-background: var(--bg-light);
+  --color-foreground: var(--ink-navy);
   --color-gold: var(--gold);
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
   * {
-    @apply border-white/5 outline-none;
+    @apply border-[#0B192C]/10 outline-none;
   }
 
   html {
@@ -22,76 +27,96 @@
     overflow-x: hidden;
   }
 
+  section[id] {
+    scroll-margin-top: 6.5rem;
+  }
+
   body {
-    font-family:
-      "Outfit",
-      "Inter",
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--ink-navy);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    transition:
-      background-color 0.5s ease,
-      color 0.5s ease;
   }
 }
 
-/* Glassmorphism */
-.glass-dark {
-  background: rgba(18, 18, 26, 0.85);
+.font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Tactile Swiss/Framer Dot-Matrix Drafting Canvas (Light Mode Default) */
+.dot-grid {
+  background-image: radial-gradient(rgba(11, 25, 44, 0.11) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Dark Dot-Grid Stage (used inside the Champagne-Gold Showcase Card) */
+.dot-grid-navy {
+  background-image: radial-gradient(rgba(200, 164, 93, 0.2) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Navbar Floating Glass Pill — crisp light glass with subtle navy border */
+.glass-maritime {
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(11, 25, 44, 0.14);
+  box-shadow: 0 12px 32px -10px rgba(6, 16, 30, 0.12);
 }
 
-.light-mode .glass-dark {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+/* Mobile Menu Drawer — 100% solid white opaque so nothing bleeds through */
+.glass-drawer {
+  background: #ffffff;
+  border: 1px solid rgba(11, 25, 44, 0.14);
+  box-shadow: 0 24px 48px -12px rgba(6, 16, 30, 0.2);
 }
 
-/* Hero Grid with Fade Effect */
-.hero-grid {
-  background-size: 40px 40px;
-  background-image:
-    linear-gradient(to right, currentColor 1px, transparent 1px),
-    linear-gradient(to bottom, currentColor 1px, transparent 1px);
-  mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
-  -webkit-mask-image: radial-gradient(
-    circle at center,
-    black 0%,
-    transparent 80%
-  );
+/* Photo Overlay Glass — Deep Midnight Navy + crisp white text over coastal photography */
+.glass-photo-overlay {
+  background: rgba(6, 16, 30, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 164, 93, 0.34);
+  color: #f8fafc;
 }
 
-/* Marquee Animation */
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
 .animate-marquee {
   display: flex;
   width: fit-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 34s linear infinite;
 }
 
-.animate-marquee:hover {
+.animate-marquee-reverse {
+  display: flex;
+  width: fit-content;
+  animation: marquee-reverse 38s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -101,7 +126,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #242433;
+  background: #cbd5e1;
   border-radius: 10px;
 }
 
@@ -109,16 +134,7 @@
   background: var(--gold);
 }
 
-.light-mode ::-webkit-scrollbar-thumb {
-  background: #d1d1d6;
-}
-
-.light-mode ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
-}
-
-/* Selection */
 ::selection {
-  background-color: #d4af37;
-  color: black;
+  background-color: #c8a45d;
+  color: #06101e;
 }

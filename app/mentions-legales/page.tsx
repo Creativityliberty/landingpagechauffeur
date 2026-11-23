@@ -4,61 +4,69 @@ import { CONFIG } from "@/config";
 import { Navbar, Footer } from "@/ui";
 
 export default function MentionsLegales() {
-    return (
-        <div className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7]">
-            <Navbar isDarkMode={true} />
-            <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
-                <h1 className="text-4xl md:text-5xl font-black mb-12 text-[#D4AF37]">Mentions Légales</h1>
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0A1628]">
+      <Navbar isDarkMode={false} />
+      <main className="pt-32 pb-24 px-4 md:px-6 max-w-4xl mx-auto min-h-[70vh]">
+        <h1 className="font-editorial text-4xl md:text-5xl font-semibold mb-12 text-[#8C6823]">
+          Legal Notice / Mentions Légales
+        </h1>
 
-                <div className="space-y-8 opacity-80 leading-relaxed">
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">1. Conception et Réalisation (Créateur du site)</h2>
-                        <p>
-                            Ce site web de très haute qualité a été pensé, conçu, développé et optimisé SEO par :<br />
-                            <strong>NÜMTEMA AGENCY — LUXURY DIGITAL SOLUTIONS</strong><br />
-                            Expert Stratégie Digitale : Lionel Numtema<br />
-                            Portfolio & Agence : <a href="https://numtemaagency.com" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline">numtemaagency.com</a>
-                        </p>
-                    </section>
+        <div className="space-y-8 text-[#334155] leading-relaxed text-sm sm:text-base">
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              1. Website Publisher &amp; Operator
+            </h2>
+            <p>
+              <strong>{CONFIG.brand.name}</strong> is operated by:<br />
+              <strong>{CONFIG.brand.legalOperator}</strong> — Sole Proprietorship (Entreprise Individuelle)<br />
+              Location: {CONFIG.brand.location}<br />
+              SIRET: {CONFIG.brand.siret}<br />
+              Contact: {CONFIG.contact.email} / {CONFIG.contact.phoneInternational}
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">2. Éditeur et Propriétaire du site</h2>
-                        <p>
-                            Le site <strong>{CONFIG.content.brand.name}</strong> est la propriété exclusive de et est exploité par :<br />
-                            CARINE VTC<br />
-                            Entreprise Individuelle<br />
-                            Siège social : Le Havre, France<br />
-                            SIRET : 993 641 299 00017<br />
-                            Contact : {CONFIG.contact.email} / {CONFIG.contact.phone}
-                        </p>
-                    </section>
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              2. Scope of Activity
+            </h2>
+            <p>
+              Private chauffeur-driven passenger transport (VTC) and tailored
+              private shore excursions for 1 to 4 passengers departing from Le
+              Havre Cruise Port. This service does not include licensed interior
+              monument or museum guided tours.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">3. Directeur de la publication</h2>
-                        <p>
-                            Le directeur de la publication est CARINE VTC.
-                        </p>
-                    </section>
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">
+              3. Design &amp; Technical Development
+            </h2>
+            <p>
+              Designed and engineered by{" "}
+              <strong>NÜMTEMA AGENCY — LUXURY DIGITAL SOLUTIONS</strong> (
+              <a
+                href="https://numtemaagency.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8C6823] font-semibold hover:underline"
+              >
+                numtemaagency.com
+              </a>
+              ).
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">4. Hébergement</h2>
-                        <p>
-                            Ce site est hébergé par Vercel Inc.<br />
-                            440 N Barranca Ave #4133<br />
-                            Covina, CA 91723<br />
-                            États-Unis
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-bold mb-4 text-white">4. Propriété intellectuelle</h2>
-                        <p>
-                            L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.
-                        </p>
-                    </section>
-                </div>
-            </main>
-            <Footer isDarkMode={true} />
+          <section>
+            <h2 className="text-xl font-bold mb-3 text-[#0A1628]">4. Hosting</h2>
+            <p>
+              Hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA
+              91723, United States.
+            </p>
+          </section>
         </div>
-    );
+      </main>
+      <Footer isDarkMode={false} />
+    </div>
+  );
 }

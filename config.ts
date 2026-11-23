@@ -1,247 +1,295 @@
 /**
- * CARINE VTC - CONFIGURATION CENTRALE
- * Single Source of Truth pour le contenu et le design
+ * CARINE NORMANDY PRIVATE - CENTRAL CONFIGURATION
+ * Single Source of Truth for branding, maritime theme, excursions, and multilingual JSON dictionaries.
  */
 
+import type { ExcursionSlug } from "@/core/domain/excursion-request";
+import { LOCALE_DICTIONARIES } from "@/lib/i18n";
+
+export type { Locale, TranslationSchema } from "@/lib/i18n";
+
+export interface ExcursionItem {
+  slug: Exclude<ExcursionSlug, "custom">;
+  category: "short" | "full";
+  title: string;
+  subtitle: string;
+  badgeDuration: string;
+  driveTimeFromPier: string;
+  recommendedPortStay: string;
+  shortDesc: string;
+  answerBox: string;
+  image: string;
+  gridSpan: string;
+  highlights: string[];
+  sampleTimeline: { time: string; label: string }[];
+  included: string[];
+  excluded: string[];
+}
+
 export const CONFIG = {
-  // --- Contact ---
+  brand: {
+    name: "CARINE NORMANDY PRIVATE",
+    shortFirst: "CARINE NORMANDY",
+    shortAccent: "Private",
+    tagline: "Private Shore Excursions from Le Havre Cruise Port",
+    legalOperator: "CARINE VTC",
+    siret: "993 641 299 00017",
+    location: "Le Havre, Normandy, France",
+    websiteUrl: "https://www.carinevtc.com",
+  },
+
   contact: {
     whatsapp: "33661619697",
+    phoneInternational: "+33 6 61 61 96 97",
     phone: "06 61 61 96 97",
     email: "contact@chauffeur-prive.fr",
     socials: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
     },
   },
 
-  // --- Theme Dark/Light avec Or ---
   theme: {
     modes: {
       dark: {
-        bg: "#0B0B0F",
-        surface: "#12121A",
-        surface2: "#07070D",
-        border: "rgba(255, 255, 255, 0.05)",
-        text: "#F5F5F7",
-        muted: "#B7B7C2",
-        gridOpacity: 0.1,
+        bg: "#06101E",
+        surface: "#0B192C",
+        surface2: "#0F223D",
+        border: "rgba(200, 164, 93, 0.22)",
+        borderSubtle: "rgba(248, 250, 252, 0.08)",
+        text: "#F8FAFC",
+        muted: "#B4C2D4",
+        accentText: "#C8A45D",
+        accentBgSoft: "rgba(200, 164, 93, 0.14)",
+        gridOpacity: 0.08,
       },
       light: {
-        bg: "#FFFFFF",
-        surface: "#F8FAFC",
-        surface2: "#F1F5F9",
-        border: "rgba(15, 23, 42, 0.08)",
-        text: "#0F172A",
-        muted: "#475569",
+        bg: "#F8FAFC",
+        surface: "#FFFFFF",
+        surface2: "#EFF4FA",
+        border: "rgba(11, 25, 44, 0.14)",
+        borderSubtle: "rgba(11, 25, 44, 0.08)",
+        text: "#0A1628",
+        muted: "#334155",
+        accentText: "#8C6823", // WCAG AA accessible deep bronze-gold on light backgrounds
+        accentBgSoft: "rgba(140, 104, 35, 0.10)",
         gridOpacity: 0.05,
       },
     },
     colors: {
-      gold: "#D4AF37",
-      goldHover: "#E1C45A",
-      success: "#22C55E",
-      danger: "#EF4444",
+      gold: "#C8A45D",
+      goldHover: "#D9B873",
+      success: "#16A34A",
+      warning: "#D97706",
+      danger: "#DC2626",
     },
     typography: {
-      hero: "text-4xl sm:text-6xl md:text-7xl lg:text-[90px]",
-      h2: "text-3xl md:text-5xl lg:text-[70px]",
-      h3: "text-xl md:text-3xl",
+      hero: "text-4xl sm:text-5xl lg:text-[4.25rem]",
+      h2: "text-3xl sm:text-5xl lg:text-[3.25rem]",
+      h3: "text-xl md:text-2xl",
       body: "text-base md:text-lg",
     },
     spacing: {
-      section: "py-24 md:py-40",
-      container: "max-w-7xl mx-auto px-4 md:px-6",
-      cardPadding: "p-10 md:p-16",
-      borderRadius: "rounded-[3.5rem]",
+      section: "py-20 md:py-28",
+      container: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
     },
     animations: {
-      duration: 0.6,
-      stagger: 0.1,
+      duration: 0.65,
+      ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
+      stagger: 0.08,
     },
   },
 
-  // --- Contenus ---
-  content: {
-    brand: {
-      name: "CARINE VTC",
-      tagline: "Normandie • Paris",
-    },
-    navbar: ["Accueil", "Services", "Réserver", "Entreprises", "Blog", "Contact"],
-    hero: {
-      badge: "Service de Prestige • Normandie & Paris",
-      titleMain: "VOTRE CHAUFFEUR",
-      rotatingWords: [
-        "AU HAVRE",
-        "À ROUEN",
-        "À DEAUVILLE",
-        "À CAEN",
-        "À PARIS",
-        "EN NORMANDIE",
+  excursions: [
+    {
+      slug: "etretat-honfleur",
+      category: "full",
+      title: "ÉTRETAT + HONFLEUR",
+      subtitle: "Most Popular Shore Combo",
+      badgeDuration: "Approx. 7 hours",
+      driveTimeFromPier: "~35 min between sights",
+      recommendedPortStay: "8+ hours port stay",
+      shortDesc:
+        "The dramatic white chalk cliffs of Étretat in the morning, followed by lunch and free time around Honfleur's historic Old Harbour.",
+      answerBox:
+        "The Étretat + Honfleur combined private shore excursion from Le Havre Cruise Port lasts approximately 7 hours. Travelling in an exclusive sedan for 1 to 4 guests, you explore Étretat's white cliffs in the morning before crossing the Normandy Bridge for lunch and free time in Honfleur's Vieux Bassin.",
+      image: "/images/excursions/etretat.jpg",
+      gridSpan: "lg:col-span-6",
+      highlights: [
+        "Direct pier pick-up and drop-off at Le Havre Cruise Terminal",
+        "Morning coastal viewpoints at Étretat (Falaise d'Aval & L'Aiguille)",
+        "Scenic crossing over the Pont de Normandie into Honfleur",
+        "Lunch and free stroll around the Vieux Bassin & Sainte-Catherine Church",
       ],
-      description:
-        "Besoin d'un VTC de luxe ? Votre chauffeur privé d'exception disponible 24h/24 au Havre, Rouen, Deauville et partout en Normandie. Transferts gares et aéroports en toute sérénité.",
-      ctaPrimary: "OBTENIR MON DEVIS",
-      ctaSecondary: "NOS SERVICES LOCAUX",
-    },
-    marquee: [
-      "Le Havre",
-      "Rouen",
-      "Deauville",
-      "Caen",
-      "Honfleur",
-      "Étretat",
-      "Paris CDG",
-      "Aéroport d'Orly",
-      "Transferts VIP",
-      "Chauffeur 24/7",
-    ],
-    actionSection: {
-      highlight: "Disponibilité Immédiate 24/7",
-      title: "UNE COURSE SANS ATTENTE",
-      description:
-        "Ne laissez plus le hasard décider de vos trajets. Profitez d'un chauffeur professionnel prêt à vous accueillir à chaque instant.",
-    },
-    support: {
-      headerTitle: "Support Client",
-      headerSub: "Nous sommes là pour vous aider",
-      mainQuestion: "Comment préférez-vous nous contacter ?",
-      availability:
-        "Disponible 7 jours sur 7 — Temps de réponse moyen : 5 minutes",
-    },
-    footer: {
-      description:
-        "Votre partenaire de confiance pour tous vos déplacements d'exception en Normandie, vers Paris et les aéroports européens.",
-      columns: [
-        {
-          title: "Services",
-          links: [
-            { name: "Aéroports", href: "#services" },
-            { name: "Transferts", href: "#services" },
-            { name: "Mise à disposition", href: "#services" },
-            { name: "Longue distance", href: "#services" },
-          ],
-        },
-        {
-          title: "Compagnie",
-          links: [
-            { name: "À propos", href: "#" },
-            { name: "Entreprises", href: "#entreprises" },
-            { name: "Contact", href: "#contact" },
-          ],
-        },
+      sampleTimeline: [
+        { time: "08:45", label: "Meet your private driver at Le Havre Cruise Terminal" },
+        { time: "09:25", label: "Étretat white cliffs & promenade photo stops" },
+        { time: "12:00", label: "Arrive in Honfleur for harbourside lunch & old town walk" },
+        { time: "15:45", label: "Return to Le Havre Cruise Terminal well before all-aboard" },
+      ],
+      included: [
+        "Exclusive private sedan for 1 to 4 guests (price per vehicle, not per seat)",
+        "Direct pick-up and drop-off at Le Havre Cruise Port",
+        "Multilingual private driver, Normandy Bridge toll, fuel, and parking",
+        "Bottled water and onboard smartphone chargers",
+      ],
+      excluded: [
+        "Lunch, drinks, and museum tickets",
+        "Licensed interior tour guide services (chauffeur-driven transport)",
       ],
     },
-  },
+    {
+      slug: "etretat",
+      category: "short",
+      title: "ÉTRETAT",
+      subtitle: "The Famous Cliffs",
+      badgeDuration: "Approx. 4 hours",
+      driveTimeFromPier: "~35 min from Le Havre Terminal",
+      recommendedPortStay: "5+ hours port stay",
+      shortDesc:
+        "Discover the famous white cliffs, natural arches and spectacular coastal scenery of Normandy.",
+      answerBox:
+        "A private shore excursion from Le Havre Cruise Port to Étretat takes approximately 35 minutes each way and lasts around 4 hours total. Designed exclusively for 1 to 4 guests in a private sedan, it includes direct pier pick-up, flexible coastal photo stops, and guaranteed return before your ship's all-aboard time.",
+      image: "/images/excursions/etretat.jpg",
+      gridSpan: "lg:col-span-6",
+      highlights: [
+        "Direct pick-up right outside Le Havre Cruise Terminal",
+        "Falaise d'Aval, L'Aiguille (The Needle) & panoramic cliffside viewpoints",
+        "Chapelle Notre-Dame-de-la-Garde & Étretat seafront promenade",
+        "Optional lunch or coastal walk adjusted to your own pace",
+      ],
+      sampleTimeline: [
+        { time: "09:00", label: "Meet your private driver at Le Havre Cruise Terminal" },
+        { time: "09:40", label: "Arrive in Étretat — cliffside viewpoints & photo stops" },
+        { time: "11:15", label: "Free time in the coastal village & seafront promenade" },
+        { time: "13:00", label: "Drop-off at Le Havre Cruise Terminal well before all-aboard" },
+      ],
+      included: [
+        "Exclusive private sedan for 1 to 4 guests (price per vehicle, not per seat)",
+        "Direct pick-up and drop-off at Le Havre Cruise Port",
+        "Multilingual private driver, fuel, tolls, and parking",
+        "Bottled water and onboard smartphone chargers",
+      ],
+      excluded: [
+        "Meals, drinks, and personal expenses",
+        "Optional attraction tickets",
+        "Licensed tour guide inside monuments or museums (chauffeur-driven transport service)",
+      ],
+    },
+    {
+      slug: "honfleur",
+      category: "short",
+      title: "HONFLEUR",
+      subtitle: "The Charming Harbour",
+      badgeDuration: "Approx. 4 hours",
+      driveTimeFromPier: "~30 min via Normandy Bridge",
+      recommendedPortStay: "5+ hours port stay",
+      shortDesc:
+        "Enjoy the charm of this historic harbour, its picturesque streets and traditional architecture.",
+      answerBox:
+        "Honfleur is only a 30-minute drive from Le Havre Cruise Port across the iconic Pont de Normandie. This ~4-hour private sedan excursion for 1 to 4 guests lets you stroll around the 16th-century Vieux Bassin, cobblestone streets, and historic wooden Sainte-Catherine Church at your own rhythm.",
+      image: "/images/excursions/honfleur.jpg",
+      gridSpan: "lg:col-span-4",
+      highlights: [
+        "Scenic crossing over the Pont de Normandie cable-stayed bridge",
+        "The historic Vieux Bassin lined with narrow slate-roofed houses",
+        "Sainte-Catherine Church — France's largest wooden church",
+        "Art galleries, local cider boutiques & harbourfront cafés",
+      ],
+      sampleTimeline: [
+        { time: "09:00", label: "Pier pick-up at Le Havre Cruise Port" },
+        { time: "09:30", label: "Arrive in Honfleur — Vieux Bassin & old town stroll" },
+        { time: "11:00", label: "Local market, art galleries & seaside lunch stop option" },
+        { time: "13:00", label: "Comfortable return to your cruise ship" },
+      ],
+      included: [
+        "Exclusive private sedan for 1 to 4 guests",
+        "Direct pick-up and drop-off at Le Havre Cruise Port",
+        "Multilingual private driver, Normandy Bridge toll, fuel & parking",
+        "Flexible departure and stop timing",
+      ],
+      excluded: [
+        "Meals, tastings, and museum admission fees",
+        "Licensed interior tour guide services",
+      ],
+    },
+    {
+      slug: "dday-landing-beaches",
+      category: "full",
+      title: "D-DAY LANDING BEACHES",
+      subtitle: "A Journey Through History",
+      badgeDuration: "Approx. 8 hours",
+      driveTimeFromPier: "~1h45 each way",
+      recommendedPortStay: "9.5+ hours port stay",
+      shortDesc:
+        "Explore the historic landing sites, Pointe du Hoc, Omaha Beach and the American Cemetery.",
+      answerBox:
+        "A private D-Day Landing Beaches excursion from Le Havre Cruise Port lasts approximately 8 hours depending on selected sites. Travelling in a private sedan for 1 to 4 guests avoids crowded tour buses and lets you visit Omaha Beach, the Normandy American Cemetery in Colleville-sur-Mer, and Pointe du Hoc comfortably.",
+      image: "/images/excursions/dday-beaches.jpg",
+      gridSpan: "lg:col-span-4",
+      highlights: [
+        "Omaha Beach — pivotal American landing sector",
+        "Normandy American Cemetery & Memorial at Colleville-sur-Mer",
+        "Pointe du Hoc — dramatic cliffside Rangers battlefield",
+        "Customizable stops (Arromanches / Mulberry Harbour or Overlord Museum)",
+      ],
+      sampleTimeline: [
+        { time: "08:00", label: "Pier pick-up right outside Le Havre Cruise Terminal" },
+        { time: "09:45", label: "Pointe du Hoc cliffs & bunkers" },
+        { time: "11:15", label: "Omaha Beach & Normandy American Cemetery" },
+        { time: "14:15", label: "Optional Arromanches / Mulberry Harbour stop" },
+        { time: "16:30", label: "Return to Le Havre Cruise Port well before all-aboard" },
+      ],
+      included: [
+        "Exclusive private sedan for 1 to 4 guests",
+        "Direct pick-up and drop-off at Le Havre Cruise Terminal",
+        "Multilingual driver, fuel, highway tolls, and parking",
+        "Customizable route based on your sector preference",
+      ],
+      excluded: [
+        "Museum admission fees and meals",
+        "Official licensed historian/battlefield guide inside sites",
+      ],
+    },
+    {
+      slug: "mont-saint-michel",
+      category: "full",
+      title: "MONT-SAINT-MICHEL",
+      subtitle: "A Magical Destination",
+      badgeDuration: "Full-day · Ship schedule dependent",
+      driveTimeFromPier: "~2h30 each way",
+      recommendedPortStay: "11+ hours port stay",
+      shortDesc:
+        "Discover the iconic island village, its tidal bay and magnificent medieval abbey.",
+      answerBox:
+        "Mont-Saint-Michel is a full-day private shore excursion roughly 2 hours 30 minutes from Le Havre Cruise Port each way. Best suited for ships with an extended port stay, this private sedan trip for 1 to 4 guests maximizes your time on the island while guaranteeing a safe return buffer before departure.",
+      image: "/images/excursions/mont-saint-michel.jpg",
+      gridSpan: "lg:col-span-4",
+      highlights: [
+        "Direct private sedan transfer across Normandy countryside",
+        "Walk the medieval Grande Rue & ramparts overlooking the bay",
+        "Independent visit of the UNESCO-listed Abbey of Mont-Saint-Michel",
+        "Strict timing management tailored to your ship's all-aboard hour",
+      ],
+      sampleTimeline: [
+        { time: "07:45", label: "Early pier pick-up at Le Havre Cruise Port" },
+        { time: "10:15", label: "Arrival at Mont-Saint-Michel shuttle area" },
+        { time: "14:15", label: "Meet your driver for scenic return journey" },
+        { time: "17:00", label: "Drop-off at Le Havre Cruise Terminal with safety buffer" },
+      ],
+      included: [
+        "Exclusive private sedan for 1 to 4 guests",
+        "Direct Le Havre pier pick-up and return drop-off",
+        "Highway tolls, fuel, and Mont-Saint-Michel parking",
+        "Real-time port schedule coordination",
+      ],
+      excluded: [
+        "Abbey entry tickets and meals",
+        "Licensed interior monument guide",
+      ],
+    },
+  ] satisfies ExcursionItem[],
 
-  // --- Tarification ---
-  pricing: {
-    minPrice: 10,
-    baseRate: 2.0,
-    nightWeekendPremium: 1.15,
-
-    // Zones géographiques (rayon depuis le point de départ)
-    zones: {
-      local: { radius: 10, label: "Zone locale (0-10 km)" },
-      zone1: { radius: 20, surcharge: 10, label: "Zone 1 (10-20 km)" },
-      zone2: { radius: 30, surcharge: 15, label: "Zone 2 (20-30 km)" },
-      zone3: { radius: 50, surcharge: 20, label: "Zone 3 (30-50 km)" },
-      longDistance: {
-        radius: Infinity,
-        surcharge: 0,
-        label: "Longue distance (>50 km)",
-      },
-    },
-
-    // Forfaits fixes pour destinations populaires
-    forfaits: [
-      { match: "cdg", name: "CDG Roissy", price: 220, distance: 130 },
-      { match: "ory", name: "Orly", price: 210, distance: 120 },
-      { match: "beauvais", name: "Beauvais", price: 250, distance: 140 },
-      { match: "paris", name: "Paris Centre", price: 200, distance: 100 },
-      { match: "le havre", name: "Port du Havre", price: 50, distance: 45 },
-    ],
-  },
-
-  // --- Services ---
-  services: [
-    {
-      id: "local",
-      title: "Déplacements locaux",
-      desc: "Normandie, trajets quotidiens, rendez-vous personnels et professionnels.",
-      image:
-        "https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&q=80&w=1200",
-      icon: "car",
-    },
-    {
-      id: "airport",
-      title: "Gares & Aéroports",
-      desc: "Transferts vers CDG, Orly, Beauvais et toutes les gares SNCF.",
-      image:
-        "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&q=80&w=1200",
-      icon: "plane",
-    },
-    {
-      id: "port",
-      title: "Port & Croisières",
-      desc: "Prise en charge personnalisée aux ports du Havre ou de Rouen.",
-      image:
-        "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200",
-      icon: "ship",
-    },
-    {
-      id: "long",
-      title: "Longue distance",
-      desc: "Trajets directs vers Paris et toutes les grandes villes de France.",
-      image:
-        "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&q=80&w=1200",
-      icon: "map",
-    },
-    {
-      id: "pro",
-      title: "Mise à disposition",
-      desc: "Chauffeur privé à l'heure ou à la journée pour vos événements.",
-      image:
-        "https://images.unsplash.com/photo-1511527844068-006b95d162c2?auto=format&fit=crop&q=80&w=1200",
-      icon: "clock",
-    },
-  ],
-
-  // --- Entreprises / B2B ---
-  enterprise: [
-    {
-      icon: "building",
-      title: "Facturation Dédiée",
-      text: "Recevez une facture détaillée pour chaque trajet ou un récapitulatif mensuel.",
-    },
-    {
-      icon: "receipt",
-      title: "Paiement par Virement",
-      text: "Possibilité de paiement différé par virement bancaire pour les comptes réguliers.",
-    },
-    {
-      icon: "filetext",
-      title: "Suivi & RIB",
-      text: "RIB communiqué après validation. Gestion complète de vos bons de commande.",
-    },
-  ],
-
-  // 12. SEO Local - Pages Piliers (Villes, Aéroports, Gares)
-  // Liste des destinations stratégiques pour générer les pages dynamiques SEO (ex: /destinations/vtc-le-havre)
-  seoPages: [
-    { slug: "vtc-le-havre", name: "Le Havre", type: "city", description: "Votre chauffeur privé expert au Havre. Déplacements en Normandie avec luxe et ponctualité.", shortDescription: "Trajets privés depuis et vers la Cité Océane." },
-    { slug: "vtc-rouen", name: "Rouen", type: "city", description: "VTC Haut de Gamme à Rouen. Gagnez en sérénité pour vos trajets privés ou professionnels.", shortDescription: "Rejoignez Rouen avec confort et discrétion." },
-    { slug: "vtc-deauville", name: "Deauville", type: "city", description: "Service VIP à Deauville. Chauffeur privé pour vos événements, casinos et séjours.", shortDescription: "Le luxe à bord pour vos séjours sur la côte." },
-    { slug: "vtc-honfleur", name: "Honfleur", type: "city", description: "Transfert VTC depuis et vers Honfleur avec un confort exceptionnel et discrétion garantie.", shortDescription: "Votre excursion normande l'esprit léger." },
-    { slug: "vtc-etretat", name: "Étretat", type: "city", description: "Chauffeur privé vers les falaises d'Étretat. Un voyage touristique d'excellence.", shortDescription: "Découvrez les falaises sans stress de stationnement." },
-    { slug: "transfert-aeroport-cdg", name: "Aéroport Paris Charles de Gaulle (CDG)", type: "airport", description: "Transfert privé direct entre la Normandie et Roissy CDG.", shortDescription: "Liaisons directes pour vos vols." },
-    { slug: "transfert-aeroport-orly", name: "Aéroport Paris Orly (ORY)", type: "airport", description: "Trajet premium et serein vers ou depuis l'Aéroport d'Orly. Chauffeur VTC.", shortDescription: "Départs et retours sans navette encombrante." },
-    { slug: "transfert-aeroport-beauvais", name: "Aéroport Paris-Beauvais (BVA)", type: "airport", description: "Votre navette privée VIP pour l'Aéroport de Beauvais.", shortDescription: "Navette VTC exclusive et directe." }
-  ],
-};
-
-// LEGACY: Pour compatibilité avec l'ancien code
-export const THEME = CONFIG.theme;
-export const CONTENT = CONFIG.content;
+  translations: LOCALE_DICTIONARIES,
+} as const;
