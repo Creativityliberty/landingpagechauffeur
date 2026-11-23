@@ -218,11 +218,11 @@
       "additionalRequests": "Pause déjeuner, bagages/mobilité, horaires souhaités..."
     },
     "excursionOptions": [
-      { "value": "etretat-honfleur", "label": "Combiné Étretat + Honfleur (~7h)" },
-      { "value": "etretat", "label": "Étretat – Les Falaises (~4h)" },
-      { "value": "honfleur", "label": "Honfleur – Le Vieux Bassin (~4h)" },
-      { "value": "dday-landing-beaches", "label": "Plages du Débarquement (~8h)" },
-      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Journée complète)" },
+      { "value": "etretat-honfleur", "label": "Combiné Étretat + Honfleur" },
+      { "value": "etretat", "label": "Étretat – Les Falaises" },
+      { "value": "honfleur", "label": "Honfleur – Le Vieux Bassin" },
+      { "value": "dday-landing-beaches", "label": "Plages du Débarquement" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel" },
       { "value": "eiffel-tower", "label": "Paris · Tour Eiffel" },
       { "value": "custom", "label": "Itinéraire sur mesure" }
     ],
@@ -257,7 +257,7 @@
     "statusMessages": {
       "comfortable": "Fenêtre d'escale confortable avec plus de 60 min de marge de sécurité retour.",
       "tight": "Escale serrée pour ce circuit — nous vérifierons l'horaire exact et adapterons les arrêts.",
-      "insufficient": "Durée d'escale plus courte que recommandée pour cette destination. Privilégiez Étretat ou Honfleur (~4h).",
+      "insufficient": "Durée d'escale plus courte que recommandée pour cette destination. Privilégiez Étretat ou Honfleur.",
       "unknown": "Renseignez l'heure d'arrivée et l'heure limite à bord pour vérifier la compatibilité."
     },
     "disclaimer": "Toutes les demandes sont soumises à disponibilité et confirmation. Nous vous contacterons avec un devis personnalisé.",
@@ -289,7 +289,7 @@
       },
       {
         "q": "Peut-on combiner Étretat et Honfleur dans la même escale ?",
-        "a": "Oui, le combiné Étretat + Honfleur (~7h) est notre sortie la plus demandée depuis le terminal du Havre."
+        "a": "Oui, le combiné Étretat + Honfleur est notre sortie la plus demandée depuis le terminal du Havre, adaptée aux horaires de votre navire."
       },
       {
         "q": "Proposez-vous des visites guidées à l'intérieur des monuments ?",

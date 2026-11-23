@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check, Clock, Compass, ShieldCheck, X } from "lucide-react";
+import { ArrowLeft, Check, ShieldCheck, X } from "lucide-react";
 import { CONFIG } from "@/config";
 import { BookingSection, Footer, Navbar } from "@/ui";
 
@@ -125,12 +125,7 @@ export default async function ExcursionDetailPage({
               <div className="lg:col-span-6 space-y-6">
                 <div className="flex flex-wrap gap-2.5">
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#8C6823]/10 text-[#8C6823] text-xs font-bold border border-[#0B192C]/15">
-                    <Clock size={13} />
-                    {excursion.badgeDuration}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-[#334155] text-xs font-semibold border border-[#0B192C]/15">
-                    <Compass size={13} className="text-[#8C6823]" />
-                    {excursion.driveTimeFromPier}
+                    Le Havre Cruise Port · Sedan (1–4) & Van (5–8)
                   </span>
                 </div>
 
@@ -151,7 +146,7 @@ export default async function ExcursionDetailPage({
                 <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-[#334155]">
                   <span className="inline-flex items-center gap-1.5">
                     <ShieldCheck size={15} className="text-[#16A34A]" />
-                    Recommended port stay: {excursion.recommendedPortStay}
+                    Return timed to your ship&apos;s all-aboard schedule
                   </span>
                 </div>
               </div>
@@ -191,13 +186,13 @@ export default async function ExcursionDetailPage({
 
             <div className="p-8 rounded-3xl bg-white border border-[#0B192C]/12 space-y-5 shadow-sm">
               <h2 className="font-editorial text-3xl font-semibold">
-                Sample Port-Safe Timeline
+                Port-Safe Itinerary Flow
               </h2>
               <div className="space-y-4">
-                {excursion.sampleTimeline.map((step) => (
-                  <div key={step.time} className="flex items-start gap-4">
+                {excursion.sampleTimeline.map((step, idx) => (
+                  <div key={step.label} className="flex items-start gap-4">
                     <span className="px-3 py-1 rounded-full bg-[#C8A45D]/20 text-[#8C6823] text-xs font-bold shrink-0">
-                      {step.time}
+                      0{idx + 1}
                     </span>
                     <p className="text-sm sm:text-base text-[#334155]">
                       {step.label}

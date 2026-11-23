@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Contact Strip — Agenciex-Style Hairline Grid (WhatsApp ↗ | Phone ↗ | Email ↗)
+ * Contact Section — Frosted-Glass Bento Cards (WhatsApp | Phone | Email)
  */
 
 import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
@@ -18,35 +18,38 @@ export function ContactSection({ isDarkMode }: ContactSectionProps) {
 
   const contacts = [
     {
+      step: "01",
       icon: MessageCircle,
       title: t.contact.cards[0].title,
       subtitle: t.contact.cards[0].subtitle,
       value: CONFIG.contact.phoneInternational,
       link: `https://wa.me/${CONFIG.contact.whatsapp}`,
-      accent: "#16A34A",
+      iconBg: "bg-[#16A34A]/15 text-[#16A34A]",
     },
     {
+      step: "02",
       icon: Phone,
       title: t.contact.cards[1].title,
       subtitle: t.contact.cards[1].subtitle,
       value: CONFIG.contact.phoneInternational,
       link: `tel:${CONFIG.contact.phoneInternational.replace(/\s/g, "")}`,
-      accent: theme.accentText,
+      iconBg: "bg-[#0A1628] text-[#C8A45D]",
     },
     {
+      step: "03",
       icon: Mail,
       title: t.contact.cards[2].title,
       subtitle: t.contact.cards[2].subtitle,
       value: CONFIG.contact.email,
       link: `mailto:${CONFIG.contact.email}`,
-      accent: theme.accentText,
+      iconBg: "bg-[#C8A45D]/20 text-[#8C6823]",
     },
   ];
 
   return (
     <section
       id="contact"
-      className="py-16 md:py-24 border-t"
+      className="py-16 md:py-24 dot-grid border-t"
       style={{
         backgroundColor: theme.bg,
         color: theme.text,
@@ -54,15 +57,11 @@ export function ContactSection({ isDarkMode }: ContactSectionProps) {
       }}
     >
       <div className={CONFIG.theme.spacing.container}>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 md:mb-12">
+          <div className="max-w-2xl">
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 border"
-              style={{
-                backgroundColor: theme.accentBgSoft,
-                borderColor: theme.border,
-                color: theme.accentText,
-              }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 glass-card-light"
+              style={{ color: theme.accentText }}
             >
               {t.contact.eyebrow}
             </div>
@@ -72,54 +71,52 @@ export function ContactSection({ isDarkMode }: ContactSectionProps) {
               {t.contact.title}
             </h2>
           </div>
-          <p className="text-sm md:text-base max-w-md" style={{ color: theme.muted }}>
+          <p
+            className="text-sm md:text-base max-w-md leading-relaxed"
+            style={{ color: theme.muted }}
+          >
             {t.contact.description}
           </p>
         </div>
 
-        {/* Agenciex-Style Hairline Grid Strip */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-3 rounded-3xl border overflow-hidden divide-y lg:divide-y-0 lg:divide-x"
-          style={{
-            backgroundColor: theme.surface,
-            borderColor: theme.border,
-          }}
-        >
+        {/* Frosted-Glass 3-Card Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {contacts.map((contact) => (
             <a
               key={contact.title}
               href={contact.link}
               target={contact.link.startsWith("http") ? "_blank" : undefined}
               rel={contact.link.startsWith("http") ? "noreferrer" : undefined}
-              className="group p-7 sm:p-8 flex items-center justify-between gap-4 transition-colors hover:bg-[#C8A45D]/5"
-              style={{ borderColor: theme.border }}
+              className="group p-6 sm:p-7 rounded-3xl glass-card-light flex flex-col justify-between gap-6 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="min-w-0">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <contact.icon size={18} style={{ color: contact.accent }} />
-                  <h3 className="font-editorial text-2xl font-semibold">
-                    {contact.title}
-                  </h3>
+              <div className="flex items-center justify-between">
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center ${contact.iconBg}`}
+                >
+                  <contact.icon size={21} />
                 </div>
-                <p className="text-xs mb-1" style={{ color: theme.muted }}>
+                <span className="text-xs font-bold tracking-widest text-[#8C6823]/70">
+                  {contact.step}
+                </span>
+              </div>
+
+              <div className="min-w-0">
+                <h3 className="font-editorial text-2xl font-semibold text-[#0A1628] mb-1">
+                  {contact.title}
+                </h3>
+                <p className="text-xs text-[#64748B] mb-4">
                   {contact.subtitle}
                 </p>
-                <p
-                  className="text-sm font-semibold truncate"
-                  style={{ color: theme.accentText }}
-                >
-                  {contact.value}
-                </p>
+
+                <div className="pt-4 border-t border-[#0B192C]/10 flex items-center justify-between gap-3">
+                  <span className="text-sm font-bold text-[#8C6823] truncate">
+                    {contact.value}
+                  </span>
+                  <span className="w-9 h-9 rounded-full bg-[#0A1628] text-white group-hover:bg-[#C8A45D] group-hover:text-[#06101E] flex items-center justify-center shrink-0 transition-colors duration-300">
+                    <ArrowUpRight size={16} />
+                  </span>
+                </div>
               </div>
-              <span
-                className="w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                style={{
-                  borderColor: theme.border,
-                  color: theme.accentText,
-                }}
-              >
-                <ArrowUpRight size={17} />
-              </span>
             </a>
           ))}
         </div>

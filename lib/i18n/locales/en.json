@@ -218,11 +218,11 @@
       "additionalRequests": "Lunch stop ideas, luggage/mobility needs, custom timing..."
     },
     "excursionOptions": [
-      { "value": "etretat-honfleur", "label": "Étretat + Honfleur Combo (~7h)" },
-      { "value": "etretat", "label": "Étretat – The Famous Cliffs (~4h)" },
-      { "value": "honfleur", "label": "Honfleur – The Charming Harbour (~4h)" },
-      { "value": "dday-landing-beaches", "label": "D-Day Landing Beaches (~8h)" },
-      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Full day)" },
+      { "value": "etretat-honfleur", "label": "Étretat + Honfleur Combo" },
+      { "value": "etretat", "label": "Étretat – The Famous Cliffs" },
+      { "value": "honfleur", "label": "Honfleur – The Charming Harbour" },
+      { "value": "dday-landing-beaches", "label": "D-Day Landing Beaches" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel" },
       { "value": "eiffel-tower", "label": "Paris · Eiffel Tower" },
       { "value": "custom", "label": "Custom itinerary" }
     ],
@@ -257,7 +257,7 @@
     "statusMessages": {
       "comfortable": "Comfortable port window with a 60+ min all-aboard safety buffer.",
       "tight": "Tight port window for this route—we will verify exact timing and adjust stops to guarantee timely return.",
-      "insufficient": "Port stay appears shorter than recommended for this destination. Consider Étretat or Honfleur (~4h).",
+      "insufficient": "Port stay appears shorter than recommended for this destination. Consider Étretat or Honfleur.",
       "unknown": "Enter your ship arrival and all-aboard times to verify excursion compatibility."
     },
     "disclaimer": "Please note that all bookings are subject to availability and confirmation. We will contact you with a personalized quotation.",
@@ -289,7 +289,7 @@
       },
       {
         "q": "Can we combine Étretat and Honfleur in one excursion?",
-        "a": "Yes! Étretat + Honfleur (~7h) is our most requested combination because both towns are within 30–35 minutes of Le Havre Cruise Terminal."
+        "a": "Yes! Étretat + Honfleur is our most requested combination from Le Havre Cruise Terminal, tailored seamlessly to your ship's schedule."
       },
       {
         "q": "Do you provide guided tours inside monuments and museums?",

@@ -61,9 +61,8 @@ export default function CruisePortGuidePage() {
               <thead>
                 <tr className="border-b border-[#0B192C]/10 text-xs uppercase tracking-wider text-[#8C6823]">
                   <th className="p-5">Destination</th>
-                  <th className="p-5">Drive from Le Havre Pier</th>
-                  <th className="p-5">Indicative Duration</th>
-                  <th className="p-5">Recommended Port Stay</th>
+                  <th className="p-5">Departure</th>
+                  <th className="p-5">Schedule</th>
                   <th className="p-5">Vehicle</th>
                 </tr>
               </thead>
@@ -78,13 +77,10 @@ export default function CruisePortGuidePage() {
                         {exc.title} – {exc.subtitle}
                       </Link>
                     </td>
-                    <td className="p-5 text-[#334155]">{exc.driveTimeFromPier}</td>
-                    <td className="p-5 text-[#334155]">{exc.badgeDuration}</td>
-                    <td className="p-5 text-[#334155]">
-                      {exc.recommendedPortStay}
-                    </td>
+                    <td className="p-5 text-[#334155]">Le Havre Cruise Terminal</td>
+                    <td className="p-5 text-[#334155]">Tailored to ship schedule</td>
                     <td className="p-5 text-[#8C6823] font-semibold">
-                      Private Sedan (1–4)
+                      Private Sedan (1–4) & Van (5–8)
                     </td>
                   </tr>
                 ))}

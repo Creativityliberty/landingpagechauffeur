@@ -47,7 +47,7 @@ export function BookingSection({
   const [phoneOrWhatsapp, setPhoneOrWhatsapp] = useState("");
   const [cruiseShipName, setCruiseShipName] = useState("");
   const [arrivalDate, setArrivalDate] = useState("");
-  const [shipArrivalTime, setShipArrivalTime] = useState("08:00");
+  const [shipArrivalTime, setShipArrivalTime] = useState("06:00");
   const [allAboardTime, setAllAboardTime] = useState("18:00");
   const [preferredExcursion, setPreferredExcursion] = useState<ExcursionSlug>(
     initialExcursion || selectedExcursion || "etretat-honfleur",

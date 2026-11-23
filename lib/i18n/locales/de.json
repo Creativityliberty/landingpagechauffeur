@@ -218,11 +218,11 @@
       "additionalRequests": "Mittagspause, Gepäck oder besondere Wünsche..."
     },
     "excursionOptions": [
-      { "value": "etretat-honfleur", "label": "Kombination Étretat + Honfleur (~7 Std.)" },
-      { "value": "etretat", "label": "Étretat – Die berühmten Klippen (~4 Std.)" },
-      { "value": "honfleur", "label": "Honfleur – Der malerische Hafen (~4 Std.)" },
-      { "value": "dday-landing-beaches", "label": "D-Day Landungsstrände (~8 Std.)" },
-      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel (Ganztags)" },
+      { "value": "etretat-honfleur", "label": "Kombination Étretat + Honfleur" },
+      { "value": "etretat", "label": "Étretat – Die berühmten Klippen" },
+      { "value": "honfleur", "label": "Honfleur – Der malerische Hafen" },
+      { "value": "dday-landing-beaches", "label": "D-Day Landungsstrände" },
+      { "value": "mont-saint-michel", "label": "Mont-Saint-Michel" },
       { "value": "eiffel-tower", "label": "Paris · Eiffelturm" },
       { "value": "custom", "label": "Individuelle Route" }
     ],
@@ -257,7 +257,7 @@
     "statusMessages": {
       "comfortable": "Komfortables Zeitfenster mit mindestens 60 Min. Sicherheitspuffer.",
       "tight": "Knappes Zeitfenster — wir prüfen die genauen Zeiten und passen Stopps an.",
-      "insufficient": "Die Hafenzeit erscheint zu kurz für dieses Ziel. Empfehlung: Étretat oder Honfleur (~4 Std.).",
+      "insufficient": "Die Hafenzeit erscheint zu kurz für dieses Ziel. Empfehlung: Étretat oder Honfleur.",
       "unknown": "Zeiten eingeben, um die Machbarkeit direkt zu prüfen."
     },
     "disclaimer": "Alle Anfragen erfolgen vorbehaltlich Verfügbarkeit und Bestätigung. Sie erhalten ein individuelles Angebot.",
@@ -289,7 +289,7 @@
       },
       {
         "q": "Lassen sich Étretat und Honfleur kombinieren?",
-        "a": "Ja, unsere Kombination Étretat + Honfleur (~7 Std.) ist die beliebteste Option ab Le Havre."
+        "a": "Ja, unsere Kombination Étretat + Honfleur ist die beliebteste Option ab Le Havre – flexibel auf Ihre Liegezeit abgestimmt."
       },
       {
         "q": "Sind Innenführungen in Denkmälern enthalten?",
