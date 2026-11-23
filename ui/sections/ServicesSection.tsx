@@ -148,13 +148,13 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                         </p>
                       </div>
                       <span
-                        className={`text-xs font-bold px-3 py-1 rounded-full shrink-0 ${
+                        className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform ${
                           isActive
                             ? "bg-[#C8A45D] text-[#06101E]"
-                            : "bg-white/40 text-[#06101E]"
+                            : "bg-white/45 text-[#06101E]"
                         }`}
                       >
-                        {copy.badgeDuration}
+                        <ArrowUpRight size={15} />
                       </span>
                     </button>
                   );
