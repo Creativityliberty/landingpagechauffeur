@@ -113,7 +113,7 @@ export const CONFIG = {
       shortDesc:
         "The dramatic white chalk cliffs of Étretat in the morning, followed by lunch and free time around Honfleur's historic Old Harbour.",
       answerBox:
-        "The Étretat + Honfleur combined private shore excursion from Le Havre Cruise Port lasts approximately 7 hours. Travelling in an exclusive sedan for 1 to 4 guests, you explore Étretat's white cliffs in the morning before crossing the Normandy Bridge for lunch and free time in Honfleur's Vieux Bassin.",
+        "The Étretat + Honfleur combined private shore excursion from Le Havre Cruise Port is tailored to your ship's schedule. Travelling in an exclusive Sedan (1–4) or Van (5–8), you explore Étretat's white cliffs before crossing the Normandy Bridge for lunch and free time in Honfleur's Vieux Bassin.",
       image: "/images/excursions/etretat.jpg",
       gridSpan: "lg:col-span-6",
       highlights: [
@@ -150,7 +150,7 @@ export const CONFIG = {
       shortDesc:
         "Discover the famous white cliffs, natural arches and spectacular coastal scenery of Normandy.",
       answerBox:
-        "A private shore excursion from Le Havre Cruise Port to Étretat takes approximately 35 minutes each way and lasts around 4 hours total. Designed exclusively for 1 to 4 guests in a private sedan, it includes direct pier pick-up, flexible coastal photo stops, and guaranteed return before your ship's all-aboard time.",
+        "A private shore excursion from Le Havre Cruise Port to Étretat is designed exclusively for 1 to 8 guests (Sedan 1–4 or Van 5–8), including direct pier pick-up, flexible coastal photo stops, and guaranteed return before your ship's all-aboard time.",
       image: "/images/excursions/etretat.jpg",
       gridSpan: "lg:col-span-6",
       highlights: [
@@ -188,7 +188,7 @@ export const CONFIG = {
       shortDesc:
         "Enjoy the charm of this historic harbour, its picturesque streets and traditional architecture.",
       answerBox:
-        "Honfleur is only a 30-minute drive from Le Havre Cruise Port across the iconic Pont de Normandie. This ~4-hour private sedan excursion for 1 to 4 guests lets you stroll around the 16th-century Vieux Bassin, cobblestone streets, and historic wooden Sainte-Catherine Church at your own rhythm.",
+        "Across the iconic Pont de Normandie from Le Havre Cruise Port, this private Sedan (1–4) or Van (5–8) excursion lets you stroll around Honfleur's 16th-century Vieux Bassin, cobblestone streets, and historic wooden Sainte-Catherine Church at your own rhythm.",
       image: "/images/excursions/honfleur.jpg",
       gridSpan: "lg:col-span-4",
       highlights: [
@@ -225,7 +225,7 @@ export const CONFIG = {
       shortDesc:
         "Explore the historic landing sites, Pointe du Hoc, Omaha Beach and the American Cemetery.",
       answerBox:
-        "A private D-Day Landing Beaches excursion from Le Havre Cruise Port lasts approximately 8 hours depending on selected sites. Travelling in a private sedan for 1 to 4 guests avoids crowded tour buses and lets you visit Omaha Beach, the Normandy American Cemetery in Colleville-sur-Mer, and Pointe du Hoc comfortably.",
+        "A private D-Day Landing Beaches excursion from Le Havre Cruise Port is tailored to your selected historic sites and ship schedule. Travelling in a private Sedan (1–4) or Van (5–8) avoids crowded tour buses and lets you visit Omaha Beach, the Normandy American Cemetery in Colleville-sur-Mer, and Pointe du Hoc comfortably.",
       image: "/images/excursions/dday-beaches.jpg",
       gridSpan: "lg:col-span-4",
       highlights: [
@@ -263,7 +263,7 @@ export const CONFIG = {
       shortDesc:
         "Discover the iconic island village, its tidal bay and magnificent medieval abbey.",
       answerBox:
-        "Mont-Saint-Michel is a full-day private shore excursion roughly 2 hours 30 minutes from Le Havre Cruise Port each way. Best suited for ships with an extended port stay, this private sedan trip for 1 to 4 guests maximizes your time on the island while guaranteeing a safe return buffer before departure.",
+        "Mont-Saint-Michel is a private shore excursion from Le Havre Cruise Port tailored to ships with a suitable port stay. Travelling in an exclusive Sedan (1–4) or Van (5–8) maximizes your time on the island while guaranteeing a safe return buffer before departure.",
       image: "/images/excursions/mont-saint-michel.jpg",
       gridSpan: "lg:col-span-4",
       highlights: [
