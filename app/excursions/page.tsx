@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Clock, Compass } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { CONFIG } from "@/config";
 import { Footer, Navbar } from "@/ui";
 
@@ -70,16 +70,9 @@ export default function ExcursionsIndexPage() {
                     />
                   </div>
                   <div className="p-6 space-y-3">
-                    <div className="flex items-center justify-between text-xs font-semibold text-[#8C6823]">
-                      <span className="inline-flex items-center gap-1">
-                        <Clock size={13} />
-                        {exc.badgeDuration}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-[#475569]">
-                        <Compass size={13} className="text-[#8C6823]" />
-                        {exc.driveTimeFromPier}
-                      </span>
-                    </div>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#8C6823]">
+                      {exc.subtitle}
+                    </p>
                     <h2 className="font-editorial text-2xl font-semibold">
                       {exc.title}
                     </h2>

@@ -9,7 +9,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, Compass, Info } from "lucide-react";
+import { ArrowUpRight, Info } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
 import type { ExcursionSlug } from "@/core/domain/excursion-request";
@@ -195,7 +195,7 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                         {t.excursionsSection.stageDriveLabel}
                       </p>
                       <p className="text-xs font-bold text-white mt-0.5">
-                        {activeCopy.driveTimeFromPier}
+                        {t.brandPortLabel}
                       </p>
                     </div>
                     <div>
@@ -270,34 +270,16 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
                       className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#06101E]/70 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-photo-overlay text-xs font-semibold text-[#F8FAFC]">
-                        <Clock size={13} className="text-[#C8A45D]" />
-                        {cardCopy.badgeDuration}
-                      </span>
-                    </div>
                   </div>
 
                   <div className="p-6 flex flex-col flex-1 justify-between gap-5">
                     <div>
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <p
-                          className="text-xs font-bold uppercase tracking-[0.16em]"
-                          style={{ color: theme.accentText }}
-                        >
-                          {cardCopy.subtitle}
-                        </p>
-                        <span
-                          className="inline-flex items-center gap-1 text-xs font-medium"
-                          style={{ color: theme.muted }}
-                        >
-                          <Compass
-                            size={13}
-                            style={{ color: theme.accentText }}
-                          />
-                          {cardCopy.driveTimeFromPier}
-                        </span>
-                      </div>
+                      <p
+                        className="text-xs font-bold uppercase tracking-[0.16em] mb-2"
+                        style={{ color: theme.accentText }}
+                      >
+                        {cardCopy.subtitle}
+                      </p>
 
                       <h3 className="font-editorial text-2xl sm:text-3xl font-semibold tracking-tight mb-2.5">
                         {cardCopy.title}
