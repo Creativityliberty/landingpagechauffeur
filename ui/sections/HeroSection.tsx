@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { CONFIG } from "@/config";
 import { useLanguage } from "@/lib/i18n";
 import { MagneticGlowButton } from "@/ui/components/MagneticGlowButton";
@@ -133,22 +133,8 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
             </p>
           </div>
 
-          {/* Right: Guarantee Badge + Interactive Scene Switcher */}
+          {/* Right: Interactive Scene Switcher */}
           <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-4">
-            <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl glass-photo-overlay shadow-2xl">
-              <div className="w-9 h-9 rounded-full bg-[#22C55E]/20 border border-[#22C55E]/45 flex items-center justify-center text-[#4ADE80] shrink-0">
-                <ShieldCheck size={18} strokeWidth={1.75} />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-white leading-tight">
-                  {t.hero.badgeTopTitle}
-                </p>
-                <p className="text-[11px] text-slate-200 leading-tight mt-0.5">
-                  {t.hero.badgeTopSub}
-                </p>
-              </div>
-            </div>
-
             {/* Interactive Destination Scene Pills */}
             <div className="flex flex-wrap lg:flex-nowrap lg:justify-end gap-1.5 p-1.5 rounded-2xl lg:rounded-full glass-photo-overlay">
               {t.hero.scenes.map((scene, idx) => (

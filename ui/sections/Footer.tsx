@@ -191,7 +191,15 @@ export function Footer({ isDarkMode }: FooterProps) {
             </p>
             <p>
               {t.footer.operatedBy} {CONFIG.brand.legalOperator} (SIRET{" "}
-              {CONFIG.brand.siret})
+              {CONFIG.brand.siret}) · {t.footer.builtWith}{" "}
+              <a
+                href="https://www.numtemaagency.com"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-[#C8A45D] hover:underline underline-offset-4"
+              >
+                Nümtema AGENCY
+              </a>
             </p>
           </div>
         </div>
