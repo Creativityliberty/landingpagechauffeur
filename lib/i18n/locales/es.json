@@ -143,6 +143,15 @@
         "titleBold": "regreso puntual.",
         "desc": "Encuentro directo fuera de la terminal de Le Havre con un margen mínimo de 60 minutos antes del embarque.",
         "tag": "Escala Segura"
+      },
+      {
+        "step": "05",
+        "icon": "sparkles",
+        "title": "Tarifa por Vehículo",
+        "titleMuted": "Precio transparente,",
+        "titleBold": "nunca por plaza.",
+        "desc": "Reserva el Sedán (1–4) o la Van (5–8) completa para su grupo con combustible, peajes y aparcamiento incluidos.",
+        "tag": "Presupuesto Fijo"
       }
     ]
   },

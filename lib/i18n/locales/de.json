@@ -143,6 +143,15 @@
         "titleBold": "pünktlich zurück.",
         "desc": "Empfang direkt am Ausgang des Kreuzfahrtterminals mit mindestens 60 Minuten Sicherheitspuffer vor Abfahrt.",
         "tag": "All-Aboard Sicher"
+      },
+      {
+        "step": "05",
+        "icon": "sparkles",
+        "title": "Preis pro Fahrzeug",
+        "titleMuted": "Klare Kalkulation,",
+        "titleBold": "nie pro Sitzplatz.",
+        "desc": "Sie buchen die gesamte Limousine (1–4) oder den Van (5–8) inklusive Kraftstoff, Maut und Parkgebühren.",
+        "tag": "Festpreis pro Fahrzeug"
       }
     ]
   },

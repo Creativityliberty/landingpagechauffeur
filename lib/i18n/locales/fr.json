@@ -143,6 +143,15 @@
         "titleBold": "retour à l'heure.",
         "desc": "Accueil nominatif à la sortie du terminal avec une marge de sécurité de 60+ minutes avant l'heure limite à bord.",
         "tag": "Garantie Escale"
+      },
+      {
+        "step": "05",
+        "icon": "sparkles",
+        "title": "Tarif par Véhicule",
+        "titleMuted": "Prix transparent,",
+        "titleBold": "jamais à la place.",
+        "desc": "Vous réservez la Berline (1–4) ou le Van (5–8) complet pour votre groupe, carburant, péages et stationnement inclus.",
+        "tag": "Devis Véhicule Fixe"
       }
     ]
   },

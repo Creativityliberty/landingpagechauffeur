@@ -143,6 +143,15 @@
         "titleBold": "on-time return.",
         "desc": "Direct greeting outside Le Havre Cruise Terminal with a 60+ minute buffer built in before your ship's all-aboard time.",
         "tag": "All-Aboard Safe"
+      },
+      {
+        "step": "05",
+        "icon": "sparkles",
+        "title": "Per-Vehicle Rate",
+        "titleMuted": "Transparent pricing,",
+        "titleBold": "never per seat.",
+        "desc": "You reserve the entire Sedan (1–4) or Van (5–8) for your party with fuel, highway tolls, and parking included upfront.",
+        "tag": "Fixed Vehicle Quote"
       }
     ]
   },
