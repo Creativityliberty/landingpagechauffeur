@@ -75,7 +75,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
       <div className={`${CONFIG.theme.spacing.container} relative z-10 w-full`}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           {/* Left: Concise 4-Block Editorial Copy */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="lg:col-span-8 flex flex-col items-start text-left">
             {/* 1. Eyebrow */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#06101E]/75 border border-[#C8A45D]/40 text-[#C8A45D] text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D]" />
@@ -83,7 +83,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
             </div>
 
             {/* 2. Split-Weight Display H1 */}
-            <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[5rem] tracking-tight leading-[0.94] text-white mb-5 drop-shadow-sm">
+            <h1 className="font-editorial text-4xl sm:text-5xl lg:text-[4.25rem] xl:text-[4.75rem] tracking-tight leading-[0.96] text-white mb-5 drop-shadow-sm text-balance">
               <span className="font-normal block">{t.hero.titleLead}</span>
               <span className="font-bold italic text-[#E1C27A] block">
                 {t.hero.titleAccent}
@@ -91,7 +91,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
             </h1>
 
             {/* 3. Single Crisp Sentence */}
-            <p className="text-base sm:text-xl text-slate-100/95 leading-relaxed max-w-2xl mb-8 font-medium">
+            <p className="text-base sm:text-xl text-slate-100/95 leading-relaxed max-w-2xl mb-8 font-medium text-pretty">
               {t.hero.description}
             </p>
 
@@ -134,7 +134,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
           </div>
 
           {/* Right: Interactive Scene Switcher */}
-          <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-4">
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end gap-4">
             {/* Interactive Destination Scene Pills */}
             <div className="flex flex-wrap lg:flex-nowrap lg:justify-end gap-1.5 p-1.5 rounded-2xl lg:rounded-full glass-photo-overlay">
               {t.hero.scenes.map((scene, idx) => (

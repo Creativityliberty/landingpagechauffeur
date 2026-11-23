@@ -39,6 +39,17 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  h1,
+  h2,
+  h3,
+  .font-editorial {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
 }
 
 .font-editorial {
