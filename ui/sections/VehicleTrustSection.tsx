@@ -2,7 +2,7 @@
 
 /**
  * Vehicle & Port Safety Trust Section
- * Photo caption uses .glass-photo-overlay (always dark navy + white text in both modes!)
+ * Elevated Bento + Frosted Glassmorphism Layout
  */
 
 import Image from "next/image";
@@ -22,64 +22,56 @@ export function VehicleTrustSection({ isDarkMode }: VehicleTrustSectionProps) {
   return (
     <section
       id="vehicle"
-      className={CONFIG.theme.spacing.section}
+      className={`${CONFIG.theme.spacing.section} dot-grid`}
       style={{ backgroundColor: theme.surface2, color: theme.text }}
     >
       <div className={CONFIG.theme.spacing.container}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left: Real Sedan Visual in Le Havre */}
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease: CONFIG.theme.animations.ease }}
-            className="lg:col-span-6 p-2 rounded-[2.25rem] ring-1"
-            style={{
-              backgroundColor: isDarkMode
-                ? "rgba(255,255,255,0.03)"
-                : "rgba(11,25,44,0.05)",
-              borderColor: theme.border,
-            }}
-          >
-            <div className="relative rounded-[calc(2.25rem-0.5rem)] overflow-hidden aspect-[4/3.5] bg-[#06101E]">
-              <Image
-                src="/hero_bg.png"
-                alt="Executive black sedan in Le Havre for private cruise shore excursions"
-                fill
-                sizes="(max-width: 1024px) 100vw, 48vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06101E]/85 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 p-5 rounded-2xl glass-photo-overlay shadow-xl">
-                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.22em] text-[#C8A45D] mb-1">
-                  {t.vehicleTrust.vehicleBadge}
-                </span>
-                <p className="font-editorial text-xl sm:text-2xl font-semibold text-white">
-                  {t.vehicleTrust.vehicleTitle}
-                </p>
-              </div>
+        {/* Top Frosted-Glass Bento Showcase */}
+        <motion.div
+          initial={{ opacity: 1, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, ease: CONFIG.theme.animations.ease }}
+          className="rounded-[2.25rem] glass-card-light p-3 sm:p-4 lg:p-5 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center"
+        >
+          {/* Left: Real Vehicle Visual with Frosted Photo Overlay */}
+          <div className="lg:col-span-6 relative rounded-[1.75rem] overflow-hidden aspect-[4/3.1] bg-[#06101E] shadow-lg">
+            <Image
+              src="/hero_bg.png"
+              alt="Private sedan and spacious van in Le Havre for cruise shore excursions"
+              fill
+              sizes="(max-width: 1024px) 100vw, 48vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06101E]/85 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 p-4 sm:p-5 rounded-2xl glass-photo-overlay shadow-xl">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-[0.22em] text-[#C8A45D] mb-1">
+                {t.vehicleTrust.vehicleBadge}
+              </span>
+              <p className="font-editorial text-lg sm:text-2xl font-semibold text-white leading-snug">
+                {t.vehicleTrust.vehicleTitle}
+              </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right: Specs & 3 Trust Pillars */}
-          <div className="lg:col-span-6 space-y-7">
+          {/* Right: Editorial Copy + 2x2 Frosted Spec Pills */}
+          <div className="lg:col-span-6 px-2 sm:px-3 py-2 space-y-6">
             <div>
               <div
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 border"
-                style={{
-                  backgroundColor: theme.accentBgSoft,
-                  borderColor: theme.border,
-                  color: theme.accentText,
-                }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.22em] mb-4 glass-card-light"
+                style={{ color: theme.accentText }}
               >
                 {t.vehicleTrust.eyebrow}
               </div>
               <h2
-                className={`font-editorial ${CONFIG.theme.typography.h2} font-semibold tracking-tight leading-[1.04] mb-4`}
+                className={`font-editorial ${CONFIG.theme.typography.h2} font-semibold tracking-tight leading-[1.03] mb-3`}
               >
                 {t.vehicleTrust.title}
               </h2>
-              <p className="text-base md:text-lg" style={{ color: theme.muted }}>
+              <p
+                className="text-sm sm:text-base leading-relaxed"
+                style={{ color: theme.muted }}
+              >
                 {t.vehicleTrust.description}
               </p>
             </div>
@@ -88,55 +80,51 @@ export function VehicleTrustSection({ isDarkMode }: VehicleTrustSectionProps) {
               {t.vehicleTrust.vehicleSpecs.map((spec) => (
                 <div
                   key={spec}
-                  className="flex items-center gap-2.5 px-4 py-3 rounded-xl border text-sm font-medium"
-                  style={{
-                    borderColor: theme.border,
-                    backgroundColor: theme.surface,
-                  }}
+                  className="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white/85 border border-[#0B192C]/10 shadow-sm text-sm font-medium text-[#0A1628]"
                 >
-                  <Check
-                    size={16}
-                    className="shrink-0"
-                    style={{ color: theme.accentText }}
-                  />
+                  <span className="w-6 h-6 rounded-full bg-[#C8A45D]/20 text-[#8C6823] flex items-center justify-center shrink-0">
+                    <Check size={14} strokeWidth={2.4} />
+                  </span>
                   <span>{spec}</span>
                 </div>
               ))}
             </div>
-
-            <div className="space-y-4 pt-1">
-              {t.vehicleTrust.pillars.map((pillar) => (
-                <div
-                  key={pillar.title}
-                  className="p-5 rounded-2xl border flex items-start gap-4"
-                  style={{
-                    borderColor: theme.border,
-                    backgroundColor: theme.surface,
-                  }}
-                >
-                  <div
-                    className="w-10 h-10 rounded-full border flex items-center justify-center shrink-0 mt-0.5"
-                    style={{
-                      backgroundColor: theme.accentBgSoft,
-                      borderColor: theme.border,
-                      color: theme.accentText,
-                    }}
-                  >
-                    <ShieldCheck size={18} strokeWidth={1.6} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base mb-1">{pillar.title}</h3>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: theme.muted }}
-                    >
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+        </motion.div>
+
+        {/* Bottom 3-Column Frosted Glass Trust Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
+          {t.vehicleTrust.pillars.map((pillar, idx) => (
+            <motion.div
+              key={pillar.title}
+              initial={{ opacity: 1, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: idx * 0.06,
+                ease: CONFIG.theme.animations.ease,
+              }}
+              className="p-6 sm:p-7 rounded-3xl glass-card-light flex flex-col justify-between gap-5 hover:-translate-y-1 transition-transform duration-300"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-editorial text-2xl font-bold text-[#8C6823]">
+                  0{idx + 1}
+                </span>
+                <div className="w-10 h-10 rounded-2xl bg-[#0A1628] text-[#C8A45D] flex items-center justify-center shadow-sm">
+                  <ShieldCheck size={18} strokeWidth={1.7} />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-editorial text-xl font-semibold text-[#0A1628] mb-2">
+                  {pillar.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#475569]">
+                  {pillar.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
