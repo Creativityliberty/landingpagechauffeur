@@ -13,28 +13,25 @@
     "themeDark": "Sombre"
   },
   "hero": {
-    "eyebrow": "Terminal Croisière du Havre · Berline Privée (1–4 Passagers)",
+    "eyebrow": "Port du Havre · Berline & Van Privés (1–8 Pers.)",
     "titleLead": "Découvrez la Normandie,",
     "titleAccent": "à Votre Rythme.",
-    "subtitle": "Excursions Privées depuis le Port Croisière du Havre",
-    "description": "Profitez pleinement de votre escale avec un chauffeur privé et une berline confortable réservée exclusivement à votre groupe : Étretat, Honfleur, Mont-Saint-Michel et les Plages du Débarquement — retour garanti à temps au navire.",
-    "bullets": [
-      "Berline exclusive pour 1 à 4 passagers",
-      "Accueil et retour au quai du Havre",
-      "Tarif par véhicule, jamais à la place",
-      "Communication multilingue"
-    ],
-    "ctaPrimary": "RÉSERVER VOTRE EXCURSION PRIVÉE",
+    "description": "Excursions privées depuis votre terminal croisière vers Étretat, Honfleur, les Plages du Débarquement et le Mont-Saint-Michel. Retour garanti à l'heure.",
+    "ctaPrimary": "RÉSERVER VOTRE EXCURSION",
     "ctaSecondary": "Voir les Excursions",
-    "microCaption": "Chauffeur privé (hors guide intérieur) · Liberté totale · Retour avant embarquement",
+    "compactTrust": "Accueil quai · Prix par véhicule · Multilingue · Retour garanti",
     "badgeTopTitle": "Sécurité Retour Navire",
     "badgeTopSub": "Marge de 60+ min avant embarquement",
-    "badgeBottomTitle": "Berline Privée Exclusive",
-    "badgeBottomSub": "1–4 passagers · Tarif par voiture, jamais partagé"
+    "scenes": [
+      { "id": "etretat", "label": "Étretat" },
+      { "id": "honfleur", "label": "Honfleur" },
+      { "id": "dday", "label": "Plages D-Day" },
+      { "id": "msm", "label": "Mont-Saint-Michel" }
+    ]
   },
   "marquee": [
     "Port Croisière du Havre",
-    "Berline Privée · 1–4 Passagers",
+    "Berline (1–4) & Van (5–8) Privés",
     "Étretat + Honfleur",
     "Falaises d'Étretat",
     "Port d'Honfleur",
@@ -54,13 +51,13 @@
     "eyebrow": "Nos Excursions Phares",
     "titleLead": "Explorer la Normandie",
     "titleAccent": "dès la Sortie du Navire.",
-    "description": "Comparez nos circuits depuis le Terminal Croisière du Havre. Chaque sortie est réservée exclusivement à votre groupe de 1 à 4 passagers.",
+    "description": "Comparez nos circuits depuis le Terminal Croisière du Havre. Réservés exclusivement à votre groupe de 1 à 8 passagers (Berline 1–4 ou Van 5–8).",
     "glanceTitle": "Aperçu Interactif des Circuits",
     "filterAll": "Tous les circuits",
     "filterShort": "Demi-journée (~4h)",
     "filterFull": "Journée complète (7–10h)",
     "stageStatLabel": "Capacité Véhicule",
-    "stageStatValue": "1–4 Passagers · Berline Privée",
+    "stageStatValue": "1–8 Pers. · Berline ou Van",
     "stageDriveLabel": "Depuis le Port du Havre",
     "selectCta": "Choisir cette excursion",
     "detailsCta": "Programme & Détails",
@@ -109,7 +106,7 @@
     "titleAccent": "calée sur votre escale.",
     "comparisonTitle": "Bus Croisière vs. CARINE NORMANDY PRIVATE",
     "comparisonShip": "Autocar 50 places · Prix par personne · Horaires collectifs imposés",
-    "comparisonPrivate": "Berline Privée (1–4 pers.) · Prix par véhicule · À votre propre rythme",
+    "comparisonPrivate": "Berline (1–4) ou Van (5–8) · Prix par véhicule · À votre propre rythme",
     "items": [
       {
         "step": "01",
@@ -117,8 +114,8 @@
         "title": "Expérience 100% Privée",
         "titleMuted": "Expérience privée,",
         "titleBold": "rien que pour vous.",
-        "desc": "Une berline confortable réservée uniquement à votre groupe de 1 à 4 passagers, jamais partagée.",
-        "tag": "1–4 Passagers"
+        "desc": "Berline confortable (1–4 pers.) ou Van spacieux (5–8 pers.) réservé uniquement à votre groupe, jamais partagé.",
+        "tag": "1–8 Passagers"
       },
       {
         "step": "02",
@@ -151,20 +148,20 @@
   },
   "vehicleTrust": {
     "eyebrow": "Confiance & Transparence",
-    "title": "Votre Berline Privée & Sécurité d'Escale",
-    "description": "Pour une escale sereine dans un port étranger, la clarté sur le véhicule, le tarif et les horaires est essentielle.",
-    "vehicleBadge": "Confort Berline · 1–4 Passagers",
-    "vehicleTitle": "Berline Privée Réservée Exclusivement à Votre Groupe",
+    "title": "Berline Privée (1–4) & Van Privé (5–8)",
+    "description": "Pour une escale sereine dans un port étranger, choisissez le véhicule adapté à la taille de votre famille ou groupe.",
+    "vehicleBadge": "Berline 1–4 Pers. · Van 5–8 Pers.",
+    "vehicleTitle": "Véhicule Exclusif Réservé Uniquement à Votre Groupe",
     "vehicleSpecs": [
-      "1 à 4 passagers + coffre spacieux",
-      "Climatisation & confort haut de gamme",
-      "Eau fraîche & chargeurs USB à bord",
+      "Berline confort (1 à 4 passagers)",
+      "Van spacieux (5 à 8 passagers)",
+      "Climatisation, eau fraîche & chargeurs USB",
       "Accueil nominatif à la sortie du terminal"
     ],
     "pillars": [
       {
         "title": "Tarification claire par véhicule",
-        "desc": "Vous réservez la berline entière pour votre groupe (1 à 4 pers.), et non une place individuelle en autocar. Chaque devis est personnalisé."
+        "desc": "Vous réservez le véhicule entier — Berline (1–4) ou Van (5–8) — et non une place individuelle en autocar. Chaque devis est personnalisé."
       },
       {
         "title": "Marge de sécurité retour à bord",
@@ -193,7 +190,7 @@
       "shipArrivalTime": "Heure d'arrivée du navire",
       "allAboardTime": "Heure limite de retour à bord",
       "preferredExcursion": "Excursion souhaitée",
-      "guestsCount": "Nombre de passagers (1–4)",
+      "guestsCount": "Nombre de passagers (1–8)",
       "preferredLanguage": "Langue préférée",
       "additionalRequests": "Demandes complémentaires"
     },
@@ -202,7 +199,7 @@
       "email": "claire@example.com",
       "phoneOrWhatsapp": "+33 6 12 34 56 78",
       "cruiseShipName": "ex. MSC Virtuosa, Queen Mary 2...",
-      "additionalRequests": "Pause déjeuner, besoins d'accessibilité, horaires souhaités..."
+      "additionalRequests": "Pause déjeuner, bagages/mobilité, horaires souhaités..."
     },
     "excursionOptions": [
       { "value": "etretat-honfleur", "label": "Combiné Étretat + Honfleur (~7h)" },
@@ -216,7 +213,11 @@
       { "value": 1, "label": "1 passager (Berline privée)" },
       { "value": 2, "label": "2 passagers (Berline privée)" },
       { "value": 3, "label": "3 passagers (Berline privée)" },
-      { "value": 4, "label": "4 passagers (Berline privée)" }
+      { "value": 4, "label": "4 passagers (Berline privée)" },
+      { "value": 5, "label": "5 passagers (Van privé)" },
+      { "value": 6, "label": "6 passagers (Van privé)" },
+      { "value": 7, "label": "7 passagers (Van privé)" },
+      { "value": 8, "label": "8 passagers (Van privé)" }
     ],
     "languageOptions": [
       { "value": "English", "label": "Anglais" },
@@ -232,6 +233,7 @@
       "excursion": "Excursion",
       "vehicle": "Véhicule",
       "privateSedan": "Berline Privée",
+      "privateVan": "Van Privé",
       "guestSingular": "passager",
       "guestPlural": "passagers"
     },
@@ -262,7 +264,11 @@
       },
       {
         "q": "Le tarif est-il par personne ou par véhicule ?",
-        "a": "Le devis est établi pour le véhicule privatif complet (1 à 4 passagers), jamais à la place."
+        "a": "Le devis est établi pour le véhicule privatif complet — Berline (1–4 pers.) ou Van (5–8 pers.) — jamais à la place."
+      },
+      {
+        "q": "Peut-on réserver pour un groupe ou une famille de 5 à 8 personnes ?",
+        "a": "Oui ! Pour 5 à 8 passagers, nous mettons à disposition un Van privé confortable pour voyager tous ensemble."
       },
       {
         "q": "Peut-on combiner Étretat et Honfleur dans la même escale ?",
@@ -271,10 +277,6 @@
       {
         "q": "Proposez-vous des visites guidées à l'intérieur des monuments ?",
         "a": "Notre activité est exclusivement du transport privé avec chauffeur multilingue ; les visites guidées intérieures agréées ne sont pas incluses."
-      },
-      {
-        "q": "Que se passe-t-il si le navire a du retard ?",
-        "a": "Nous suivons l'arrivée réelle du navire et ajustons l'heure de prise en charge."
       }
     ]
   },
@@ -289,7 +291,7 @@
     ]
   },
   "footer": {
-    "description": "Excursions privées avec chauffeur (1–4 passagers) au départ direct du terminal croisière du Havre vers la Normandie.",
+    "description": "Excursions privées avec chauffeur en Berline (1–4 pers.) ou Van (5–8 pers.) au départ direct du terminal croisière du Havre.",
     "location": "Le Havre, Normandie, France",
     "excursionsHeading": "Excursions Croisières",
     "infoHeading": "Informations",
@@ -304,17 +306,17 @@
     "buttonAria": "Ouvrir le Concierge Croisière",
     "tooltip": "Concierge Croisière",
     "menuTitle": "Assistance Port du Havre",
-    "menuSubtitle": "Excursions Privées · 1–4 Passagers",
+    "menuSubtitle": "Excursions Privées · 1–8 Passagers",
     "aiTitle": "Concierge IA Croisières",
     "aiSubtitle": "Aide au choix & horaires d'escale",
     "callTitle": "Appel Direct",
     "emailTitle": "E-mail",
     "chatTitle": "Concierge Croisière",
     "chatSubtitle": "Assistant Multilingue · Port du Havre",
-    "chatGreeting": "Bonjour ! Je suis votre concierge **CARINE NORMANDY PRIVATE**. \n\nIndiquez-moi les horaires d'escale de votre paquebot pour vous conseiller entre **Étretat + Honfleur, Étretat, Honfleur, le Mont-Saint-Michel ou les Plages du Débarquement**.",
+    "chatGreeting": "Bonjour ! Je suis votre concierge **CARINE NORMANDY PRIVATE**. \n\nIndiquez-moi les horaires de votre navire et le nombre de passagers (Berline 1–4 ou Van 5–8) pour vous conseiller entre **Étretat + Honfleur, Étretat, Honfleur, le Mont-Saint-Michel ou les Plages du Débarquement**.",
     "chatSuggestions": [
+      "Avez-vous un Van pour 6–8 personnes ?",
       "Peut-on combiner Étretat & Honfleur ?",
-      "Durée pour les Plages du Débarquement ?",
       "Où se trouve le point de rendez-vous au Havre ?"
     ],
     "chatPlaceholder": "Posez votre question sur votre escale..."

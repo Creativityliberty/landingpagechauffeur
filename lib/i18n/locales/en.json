@@ -13,28 +13,25 @@
     "themeDark": "Dark"
   },
   "hero": {
-    "eyebrow": "Le Havre Cruise Terminal · Exclusive Sedan (1–4 Guests)",
+    "eyebrow": "Le Havre Cruise Port · Private Sedan & Van (1–8 Guests)",
     "titleLead": "Discover Normandy,",
     "titleAccent": "Your Way.",
-    "subtitle": "Private Shore Excursions from Le Havre Cruise Port",
-    "description": "Make the most of your time in Normandy with a private driver and a comfortable sedan exclusively for your group. Visit Étretat, Honfleur, Mont-Saint-Michel and the D-Day landing beaches—back at your ship on time.",
-    "bullets": [
-      "Exclusive sedan for 1 to 4 guests",
-      "Pier pick-up & drop-off at Le Havre",
-      "Price per vehicle, never per seat",
-      "Multilingual communication"
-    ],
+    "description": "Private shore excursions from Le Havre Cruise Terminal to Étretat, Honfleur, D-Day Beaches & Mont-Saint-Michel. Back to your ship on time.",
     "ctaPrimary": "BOOK YOUR PRIVATE EXCURSION",
     "ctaSecondary": "Explore Excursions",
-    "microCaption": "Drivers, not guides · Explore freely at your own pace · Back before all-aboard",
+    "compactTrust": "Pier pick-up · Price per vehicle · Multilingual · Back on time",
     "badgeTopTitle": "All-Aboard Safe Guarantee",
     "badgeTopSub": "60+ min return buffer built in",
-    "badgeBottomTitle": "Exclusive Private Sedan",
-    "badgeBottomSub": "1–4 guests · Price per car, never shared"
+    "scenes": [
+      { "id": "etretat", "label": "Étretat Cliffs" },
+      { "id": "honfleur", "label": "Honfleur Harbour" },
+      { "id": "dday", "label": "D-Day Beaches" },
+      { "id": "msm", "label": "Mont-Saint-Michel" }
+    ]
   },
   "marquee": [
     "Le Havre Cruise Port",
-    "Private Sedan · 1–4 Guests",
+    "Private Sedan (1–4) & Van (5–8)",
     "Étretat + Honfleur",
     "Étretat Cliffs",
     "Honfleur Harbour",
@@ -54,13 +51,13 @@
     "eyebrow": "Curated Shore Excursions",
     "titleLead": "Explore Normandy",
     "titleAccent": "from the Pier.",
-    "description": "Compare our signature Normandy routes from Le Havre Cruise Port. Every trip is reserved exclusively for your group of 1 to 4 guests.",
+    "description": "Compare our signature Normandy routes from Le Havre Cruise Port. Reserved exclusively for your group of 1 to 8 guests (Sedan 1–4 or Van 5–8).",
     "glanceTitle": "Interactive Excursion Preview",
     "filterAll": "All Routes",
     "filterShort": "Half-Day (~4h)",
     "filterFull": "Full-Day (7–10h)",
     "stageStatLabel": "Vehicle Capacity",
-    "stageStatValue": "1–4 Guests · Private Car",
+    "stageStatValue": "1–8 Guests · Sedan or Van",
     "stageDriveLabel": "From Le Havre Pier",
     "selectCta": "Select This Excursion",
     "detailsCta": "Itinerary & Guide",
@@ -109,7 +106,7 @@
     "titleAccent": "engineered for ship time.",
     "comparisonTitle": "Cruise Ship Coach vs. CARINE NORMANDY PRIVATE",
     "comparisonShip": "50-Seat Ship Coach · Priced per person · Fixed crowd schedule",
-    "comparisonPrivate": "Private Sedan (1–4 guests) · Priced per car · Tailored to your pace",
+    "comparisonPrivate": "Private Sedan (1–4) or Van (5–8) · Priced per car · Your own pace",
     "items": [
       {
         "step": "01",
@@ -117,8 +114,8 @@
         "title": "Private Experience",
         "titleMuted": "Private experience,",
         "titleBold": "exclusively yours.",
-        "desc": "Enjoy an executive sedan reserved solely for your group of 1 to 4 guests—never shared with strangers.",
-        "tag": "1–4 Guests Only"
+        "desc": "Enjoy an executive sedan (1–4 guests) or spacious van (5–8 guests) reserved solely for your group—never shared with strangers.",
+        "tag": "1–8 Guests"
       },
       {
         "step": "02",
@@ -151,20 +148,20 @@
   },
   "vehicleTrust": {
     "eyebrow": "Trust, Safety & Transparency",
-    "title": "Your Private Sedan & Port Safety Commitment",
-    "description": "When stepping off a cruise ship in a foreign port, reliability matters most. Here is exactly what you book with us.",
-    "vehicleBadge": "Executive Comfort · 1–4 Guests",
-    "vehicleTitle": "Private Sedan Reserved Exclusively for Your Party",
+    "title": "Private Sedan (1–4) & Private Van (5–8)",
+    "description": "When stepping off a cruise ship in a foreign port, reliability matters most. Choose the vehicle adapted to your party size.",
+    "vehicleBadge": "Sedan 1–4 Guests · Van 5–8 Guests",
+    "vehicleTitle": "Private Vehicle Reserved Exclusively for Your Party",
     "vehicleSpecs": [
-      "Up to 4 passengers + trunk space",
-      "Air-conditioned executive cabin",
-      "Bottled water & USB charging",
+      "Executive Sedan (1–4 guests)",
+      "Spacious Private Van (5–8 guests)",
+      "Air-conditioned, water & USB charging",
       "Direct pier meeting with name sign"
     ],
     "pillars": [
       {
         "title": "Per-Vehicle Pricing Clarity",
-        "desc": "You book the entire private vehicle for your group of 1 to 4 guests—never a per-seat shared bus ticket. Every quote is personalized upfront."
+        "desc": "You book the entire private Sedan (1–4) or Van (5–8) for your group—never a per-seat shared bus ticket. Every quote is personalized upfront."
       },
       {
         "title": "All-Aboard Schedule Security",
@@ -193,7 +190,7 @@
       "shipArrivalTime": "Ship arrival time",
       "allAboardTime": "All aboard time (latest boarding time)",
       "preferredExcursion": "Preferred excursion",
-      "guestsCount": "Number of guests (1–4)",
+      "guestsCount": "Number of guests (1–8)",
       "preferredLanguage": "Preferred language",
       "additionalRequests": "Additional requests"
     },
@@ -202,7 +199,7 @@
       "email": "sarah@example.com",
       "phoneOrWhatsapp": "+1 555 019 2834",
       "cruiseShipName": "e.g. MSC Virtuosa, Norwegian Star...",
-      "additionalRequests": "Lunch stop ideas, mobility needs, custom timing..."
+      "additionalRequests": "Lunch stop ideas, luggage/mobility needs, custom timing..."
     },
     "excursionOptions": [
       { "value": "etretat-honfleur", "label": "Étretat + Honfleur Combo (~7h)" },
@@ -216,7 +213,11 @@
       { "value": 1, "label": "1 guest (Private Sedan)" },
       { "value": 2, "label": "2 guests (Private Sedan)" },
       { "value": 3, "label": "3 guests (Private Sedan)" },
-      { "value": 4, "label": "4 guests (Private Sedan)" }
+      { "value": 4, "label": "4 guests (Private Sedan)" },
+      { "value": 5, "label": "5 guests (Private Van)" },
+      { "value": 6, "label": "6 guests (Private Van)" },
+      { "value": 7, "label": "7 guests (Private Van)" },
+      { "value": 8, "label": "8 guests (Private Van)" }
     ],
     "languageOptions": [
       { "value": "English", "label": "English" },
@@ -232,6 +233,7 @@
       "excursion": "Excursion",
       "vehicle": "Vehicle",
       "privateSedan": "Private Sedan",
+      "privateVan": "Private Van",
       "guestSingular": "guest",
       "guestPlural": "guests"
     },
@@ -262,7 +264,11 @@
       },
       {
         "q": "Is the price per person or per vehicle?",
-        "a": "Every quotation is per private vehicle for your exclusive group of 1 to 4 guests—never per seat. You never share the car with strangers."
+        "a": "Every quotation is per private vehicle—Sedan (1–4 guests) or Van (5–8 guests)—never per seat. You never share the vehicle with strangers."
+      },
+      {
+        "q": "Can we book for a family or group of 5 to 8 guests?",
+        "a": "Yes! For 5 to 8 guests, we provide a comfortable private Van so your entire family or group travels together from the cruise terminal."
       },
       {
         "q": "Can we combine Étretat and Honfleur in one excursion?",
@@ -271,10 +277,6 @@
       {
         "q": "Do you provide guided tours inside monuments and museums?",
         "a": "We provide private chauffeur-driven transportation with multilingual communication. You explore monuments freely at your own pace; official interior monument guides are not included."
-      },
-      {
-        "q": "What if our cruise ship is delayed or skips Le Havre?",
-        "a": "We monitor ship arrivals closely. If your arrival time shifts slightly, we adapt pick-up accordingly. Please review our booking terms regarding weather or port-call cancellations."
       }
     ]
   },
@@ -289,7 +291,7 @@
     ]
   },
   "footer": {
-    "description": "Private chauffeur-driven shore excursions for 1 to 4 cruise passengers departing directly from Le Havre Cruise Port across Normandy.",
+    "description": "Private chauffeur-driven shore excursions by Sedan (1–4 guests) or Van (5–8 guests) departing directly from Le Havre Cruise Port across Normandy.",
     "location": "Le Havre, Normandy, France",
     "excursionsHeading": "Shore Excursions",
     "infoHeading": "Information",
@@ -304,17 +306,17 @@
     "buttonAria": "Open Cruise Concierge",
     "tooltip": "Cruise Concierge",
     "menuTitle": "Cruise Port Assistance",
-    "menuSubtitle": "Le Havre Shore Excursions · 1–4 Guests",
+    "menuSubtitle": "Le Havre Excursions · 1–8 Guests",
     "aiTitle": "AI Cruise Concierge",
     "aiSubtitle": "Ask about port timing & itineraries",
     "callTitle": "Call Direct",
     "emailTitle": "Email",
     "chatTitle": "Cruise Concierge",
     "chatSubtitle": "Multilingual Assistant · Le Havre Port",
-    "chatGreeting": "Welcome! I am your **CARINE NORMANDY PRIVATE** concierge. \n\nTell me your cruise ship's arrival & all-aboard times, and I can help you choose between **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel, or the D-Day Beaches** (private sedan, 1–4 guests).",
+    "chatGreeting": "Welcome! I am your **CARINE NORMANDY PRIVATE** concierge. \n\nTell me your cruise ship's arrival & all-aboard times and group size (Sedan 1–4 or Van 5–8), and I will help you choose between **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel, or the D-Day Beaches**.",
     "chatSuggestions": [
+      "Can we book a Van for 6–8 guests?",
       "Can we combine Étretat & Honfleur?",
-      "How long is the D-Day Beaches tour?",
       "Where does the driver meet us at Le Havre?"
     ],
     "chatPlaceholder": "Ask about your ship schedule or excursion..."

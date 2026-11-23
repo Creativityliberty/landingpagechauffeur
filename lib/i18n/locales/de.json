@@ -13,28 +13,25 @@
     "themeDark": "Dunkel"
   },
   "hero": {
-    "eyebrow": "Kreuzfahrthafen Le Havre · Privat-Limousine (1–4 Gäste)",
+    "eyebrow": "Hafen Le Havre · Privat-Limousine & Van (1–8 Gäste)",
     "titleLead": "Entdecken Sie die Normandie,",
     "titleAccent": "in Ihrem Tempo.",
-    "subtitle": "Private Landausflüge ab dem Kreuzfahrthafen Le Havre",
-    "description": "Nutzen Sie Ihren Landgang optimal mit einem privaten Fahrer und einer komfortablen Limousine exklusiv für Ihre Gruppe: Étretat, Honfleur, Mont-Saint-Michel und die D-Day-Strände — pünktlich zurück am Schiff.",
-    "bullets": [
-      "Exklusive Limousine für 1 bis 4 Gäste",
-      "Abholung & Rückkehr am Terminal Le Havre",
-      "Preis pro Fahrzeug, nicht pro Person",
-      "Mehrsprachige Kommunikation"
-    ],
+    "description": "Private Landausflüge ab dem Kreuzfahrtterminal Le Havre nach Étretat, Honfleur, zu den D-Day-Stränden und zum Mont-Saint-Michel. Pünktlich zurück am Schiff.",
     "ctaPrimary": "PRIVATEN AUSFLUG ANFRAGEN",
     "ctaSecondary": "Ausflüge ansehen",
-    "microCaption": "Privater Fahrer (kein Innenführer) · Volle Freiheit · Pünktlich zurück",
+    "compactTrust": "Terminal-Abholung · Fahrzeugpreis · Mehrsprachig · Pünktlich zurück",
     "badgeTopTitle": "Pünktlich Zurück an Bord",
     "badgeTopSub": "60+ Min. Sicherheitspuffer inklusive",
-    "badgeBottomTitle": "Exklusive Privat-Limousine",
-    "badgeBottomSub": "1–4 Gäste · Preis pro Auto, keine Gruppe"
+    "scenes": [
+      { "id": "etretat", "label": "Étretat" },
+      { "id": "honfleur", "label": "Honfleur" },
+      { "id": "dday", "label": "D-Day-Strände" },
+      { "id": "msm", "label": "Mont-Saint-Michel" }
+    ]
   },
   "marquee": [
     "Kreuzfahrthafen Le Havre",
-    "Privat-Limousine · 1–4 Gäste",
+    "Limousine (1–4) & Van (5–8) Privat",
     "Étretat + Honfleur",
     "Kreidefelsen von Étretat",
     "Hafen von Honfleur",
@@ -54,13 +51,13 @@
     "eyebrow": "Ausgewählte Landausflüge",
     "titleLead": "Die Normandie Erleben",
     "titleAccent": "direkt ab Hafen.",
-    "description": "Vergleichen Sie unsere beliebtesten Routen ab dem Kreuzfahrthafen Le Havre. Jede Fahrt ist exklusiv für Ihre Gruppe (1–4 Gäste).",
+    "description": "Vergleichen Sie unsere beliebtesten Routen ab dem Kreuzfahrthafen Le Havre. Exklusiv für Ihre Gruppe von 1 bis 8 Gästen (Limousine 1–4 oder Van 5–8).",
     "glanceTitle": "Interaktive Ausflugsvorschau",
     "filterAll": "Alle Routen",
     "filterShort": "Halbtags (~4 Std.)",
     "filterFull": "Ganztags (7–10 Std.)",
     "stageStatLabel": "Fahrzeugkapazität",
-    "stageStatValue": "1–4 Gäste · Privatwagen",
+    "stageStatValue": "1–8 Gäste · Limousine oder Van",
     "stageDriveLabel": "Ab Hafen Le Havre",
     "selectCta": "Ausflug wählen",
     "detailsCta": "Route & Details",
@@ -109,7 +106,7 @@
     "titleAccent": "abgestimmt auf Ihr Schiff.",
     "comparisonTitle": "Schiffsbus vs. CARINE NORMANDY PRIVATE",
     "comparisonShip": "50-Sitzer Reisebus · Preis pro Gast · Fester Gruppenplan",
-    "comparisonPrivate": "Privat-Limousine (1–4 Gäste) · Fahrzeugpreis · Eigenes Tempo",
+    "comparisonPrivate": "Limousine (1–4) oder Van (5–8) · Fahrzeugpreis · Eigenes Tempo",
     "items": [
       {
         "step": "01",
@@ -117,8 +114,8 @@
         "title": "Privates Erlebnis",
         "titleMuted": "Privates Erlebnis,",
         "titleBold": "nur für Sie.",
-        "desc": "Exklusives Fahrzeug nur für Ihre Gruppe mit 1 bis 4 Gästen — keine fremden Mitreisenden.",
-        "tag": "1–4 Gäste"
+        "desc": "Exklusive Limousine (1–4 Gäste) oder geräumiger Van (5–8 Gäste) nur für Ihre Gruppe — keine fremden Mitreisenden.",
+        "tag": "1–8 Gäste"
       },
       {
         "step": "02",
@@ -151,20 +148,20 @@
   },
   "vehicleTrust": {
     "eyebrow": "Sicherheit & Transparenz",
-    "title": "Ihre Privat-Limousine & Pünktlichkeitsgarantie",
-    "description": "Klare Rahmenbedingungen für einen entspannten Landgang.",
-    "vehicleBadge": "Komfort-Limousine · 1–4 Gäste",
+    "title": "Privat-Limousine (1–4) & Privat-Van (5–8)",
+    "description": "Wählen Sie das passende Privatfahrzeug für Ihre Familie oder Gruppe.",
+    "vehicleBadge": "Limousine 1–4 Gäste · Van 5–8 Gäste",
     "vehicleTitle": "Exklusives Fahrzeug für Ihre Gruppe",
     "vehicleSpecs": [
-      "1 bis 4 Gäste + geräumiger Kofferraum",
-      "Klimatisierter Komfort",
-      "Kostenloses Wasser & USB-Ladeanschlüsse",
+      "Komfort-Limousine (1 bis 4 Gäste)",
+      "Geräumiger Privat-Van (5 bis 8 Gäste)",
+      "Klimaanlage, Wasser & USB-Ladeanschlüsse",
       "Abholung mit Namensschild am Terminal"
     ],
     "pillars": [
       {
         "title": "Fahrzeugpreis statt Pro-Kopf-Ticket",
-        "desc": "Sie buchen das gesamte Fahrzeug für Ihre Gruppe (1–4 Pers.) auf Basis eines individuellen Angebots."
+        "desc": "Sie buchen das gesamte Fahrzeug — Limousine (1–4) oder Van (5–8) — für Ihre Gruppe auf Basis eines individuellen Angebots."
       },
       {
         "title": "All-Aboard-Zeitpuffer",
@@ -193,7 +190,7 @@
       "shipArrivalTime": "Ankunftszeit des Schiffes",
       "allAboardTime": "Späteste Rückkehr an Bord",
       "preferredExcursion": "Gewünschter Ausflug",
-      "guestsCount": "Anzahl der Gäste (1–4)",
+      "guestsCount": "Anzahl der Gäste (1–8)",
       "preferredLanguage": "Bevorzugte Sprache",
       "additionalRequests": "Zusätzliche Wünsche"
     },
@@ -202,7 +199,7 @@
       "email": "thomas@example.com",
       "phoneOrWhatsapp": "+49 170 0000000",
       "cruiseShipName": "z. B. AIDA, Mein Schiff, MSC...",
-      "additionalRequests": "Mittagspause, besondere Wünsche..."
+      "additionalRequests": "Mittagspause, Gepäck oder besondere Wünsche..."
     },
     "excursionOptions": [
       { "value": "etretat-honfleur", "label": "Kombination Étretat + Honfleur (~7 Std.)" },
@@ -216,7 +213,11 @@
       { "value": 1, "label": "1 Gast (Privat-Limousine)" },
       { "value": 2, "label": "2 Gäste (Privat-Limousine)" },
       { "value": 3, "label": "3 Gäste (Privat-Limousine)" },
-      { "value": 4, "label": "4 Gäste (Privat-Limousine)" }
+      { "value": 4, "label": "4 Gäste (Privat-Limousine)" },
+      { "value": 5, "label": "5 Gäste (Privat-Van)" },
+      { "value": 6, "label": "6 Gäste (Privat-Van)" },
+      { "value": 7, "label": "7 Gäste (Privat-Van)" },
+      { "value": 8, "label": "8 Gäste (Privat-Van)" }
     ],
     "languageOptions": [
       { "value": "English", "label": "Englisch" },
@@ -232,6 +233,7 @@
       "excursion": "Ausflug",
       "vehicle": "Fahrzeug",
       "privateSedan": "Privat-Limousine",
+      "privateVan": "Privat-Van",
       "guestSingular": "Gast",
       "guestPlural": "Gäste"
     },
@@ -262,7 +264,11 @@
       },
       {
         "q": "Gilt der Preis pro Person oder pro Fahrzeug?",
-        "a": "Immer pro Privatfahrzeug für Ihre gesamte Gruppe (1–4 Gäste)."
+        "a": "Immer pro Privatfahrzeug — Limousine (1–4 Gäste) oder Van (5–8 Gäste)."
+      },
+      {
+        "q": "Bieten Sie auch ein Fahrzeug für 5 bis 8 Personen an?",
+        "a": "Ja, für Gruppen und Familien von 5 bis 8 Gästen steht ein geräumiger Privat-Van bereit."
       },
       {
         "q": "Lassen sich Étretat und Honfleur kombinieren?",
@@ -285,7 +291,7 @@
     ]
   },
   "footer": {
-    "description": "Private Chauffeur-Landausflüge (1–4 Gäste) direkt ab dem Kreuzfahrthafen Le Havre in die Normandie.",
+    "description": "Private Chauffeur-Landausflüge per Limousine (1–4 Gäste) oder Van (5–8 Gäste) direkt ab dem Kreuzfahrthafen Le Havre.",
     "location": "Le Havre, Normandie, Frankreich",
     "excursionsHeading": "Landausflüge",
     "infoHeading": "Informationen",
@@ -300,17 +306,17 @@
     "buttonAria": "Kreuzfahrt-Concierge öffnen",
     "tooltip": "Kreuzfahrt-Hilfe",
     "menuTitle": "Hafen-Assistent Le Havre",
-    "menuSubtitle": "Private Ausflüge · 1–4 Gäste",
+    "menuSubtitle": "Private Ausflüge · 1–8 Gäste",
     "aiTitle": "KI-Ausflugsberater",
     "aiSubtitle": "Fragen zu Liegezeiten & Routen",
     "callTitle": "Direktanruf",
     "emailTitle": "E-Mail",
     "chatTitle": "Kreuzfahrt-Concierge",
     "chatSubtitle": "Mehrsprachiger Assistent · Le Havre",
-    "chatGreeting": "Willkommen! Ich bin Ihr Concierge von **CARINE NORMANDY PRIVATE**. \n\nNennen Sie mir Ihre Liegezeiten in Le Havre, und ich helfe Ihnen bei der Auswahl zwischen **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel oder den D-Day-Stränden**.",
+    "chatGreeting": "Willkommen! Ich bin Ihr Concierge von **CARINE NORMANDY PRIVATE**. \n\nNennen Sie mir Ihre Liegezeiten und Gruppengröße (Limousine 1–4 oder Van 5–8), und ich helfe Ihnen bei der Auswahl zwischen **Étretat + Honfleur, Étretat, Honfleur, Mont-Saint-Michel oder den D-Day-Stränden**.",
     "chatSuggestions": [
+      "Haben Sie einen Van für 6–8 Gäste?",
       "Étretat & Honfleur kombinieren?",
-      "Dauer der D-Day-Strände Tour?",
       "Wo ist der Treffpunkt im Hafen?"
     ],
     "chatPlaceholder": "Frage zu Schiffszeiten oder Ausflug..."

@@ -11,7 +11,11 @@ export type ExcursionSlug =
   | "dday-landing-beaches"
   | "custom";
 
-export type GuestCount = 1 | 2 | 3 | 4;
+export type GuestCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+export function getVehicleCategory(guestsCount: GuestCount): "sedan" | "van" {
+  return guestsCount <= 4 ? "sedan" : "van";
+}
 
 export type PreferredLanguage =
   | "English"
@@ -153,8 +157,8 @@ export class ExcursionRequest {
     if (!input.arrivalDate.trim()) {
       throw new Error("Date of arrival in Le Havre is required.");
     }
-    if (input.guestsCount < 1 || input.guestsCount > 4) {
-      throw new Error("Private sedan capacity is 1 to 4 guests.");
+    if (input.guestsCount < 1 || input.guestsCount > 8) {
+      throw new Error("Capacity is 1 to 8 guests (Sedan 1–4 or Van 5–8).");
     }
 
     return new ExcursionRequest({

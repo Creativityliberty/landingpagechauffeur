@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: `%s | ${CONFIG.brand.name}`,
   },
   description:
-    "Private sedan shore excursions (1–4 guests) from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel & D-Day Landing Beaches. Multilingual driver, direct pier pick-up, guaranteed return before all-aboard.",
+    "Private sedan (1–4 guests) & private van (5–8 guests) shore excursions from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel & D-Day Landing Beaches. Multilingual driver, direct pier pick-up, back before all-aboard.",
   keywords: [
     "Le Havre cruise port private excursions",
     "private shore excursions Normandy",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Honfleur private tour from Le Havre",
     "Mont-Saint-Michel from Le Havre cruise port",
     "D-Day beaches private tour from Le Havre",
-    "1-4 guests private sedan Normandy",
+    "1-8 guests private sedan van Normandy",
   ],
   alternates: {
     canonical: "/",
@@ -63,7 +63,7 @@ export default function RootLayout({
     name: CONFIG.brand.name,
     legalName: CONFIG.brand.legalOperator,
     description:
-      "Private chauffeur-driven shore excursions in a comfortable sedan (1–4 guests) departing directly from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel, and the D-Day Landing Beaches.",
+      "Private chauffeur-driven shore excursions by executive sedan (1–4 guests) or private van (5–8 guests) departing directly from Le Havre Cruise Port to Étretat, Honfleur, Mont-Saint-Michel, and the D-Day Landing Beaches.",
     url: baseUrl,
     telephone: CONFIG.contact.phoneInternational,
     email: CONFIG.contact.email,

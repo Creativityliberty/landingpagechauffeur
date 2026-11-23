@@ -9,23 +9,23 @@ const LOCALIZED_META: Record<
 > = {
   fr: {
     title:
-      "Excursions Privées depuis le Port du Havre (1–4 Passagers) | CARINE NORMANDY PRIVATE",
+      "Excursions Privées depuis le Port du Havre (1–8 Passagers) | CARINE NORMANDY PRIVATE",
     description:
-      "Excursions privées en berline avec chauffeur (1–4 passagers) au départ du terminal croisière du Havre : Étretat, Honfleur, Plages du Débarquement et Mont-Saint-Michel. Retour garanti à l'heure.",
+      "Excursions privées en berline (1–4 pers.) ou van (5–8 pers.) avec chauffeur au départ du terminal croisière du Havre : Étretat, Honfleur, Plages du Débarquement et Mont-Saint-Michel.",
     ogLocale: "fr_FR",
   },
   es: {
     title:
-      "Excursiones Privadas desde el Puerto de Le Havre (1–4 Pasajeros) | CARINE NORMANDY PRIVATE",
+      "Excursiones Privadas desde el Puerto de Le Havre (1–8 Pasajeros) | CARINE NORMANDY PRIVATE",
     description:
-      "Excursiones privadas en sedán con conductor (1–4 pasajeros) desde la terminal de cruceros de Le Havre: Étretat, Honfleur, Playas del Día D y Mont-Saint-Michel.",
+      "Excursiones privadas en sedán (1–4 pers.) o minivan (5–8 pers.) con conductor desde la terminal de cruceros de Le Havre: Étretat, Honfleur, Playas del Día D y Mont-Saint-Michel.",
     ogLocale: "es_ES",
   },
   de: {
     title:
-      "Private Landausflüge ab Hafen Le Havre (1–4 Gäste) | CARINE NORMANDY PRIVATE",
+      "Private Landausflüge ab Hafen Le Havre (1–8 Gäste) | CARINE NORMANDY PRIVATE",
     description:
-      "Private Limousinen-Landausflüge mit Fahrer (1–4 Gäste) direkt ab dem Kreuzfahrtterminal Le Havre nach Étretat, Honfleur, zu den D-Day-Stränden und zum Mont-Saint-Michel.",
+      "Private Limousinen- (1–4 Gäste) und Van-Landausflüge (5–8 Gäste) mit Fahrer direkt ab dem Kreuzfahrtterminal Le Havre nach Étretat, Honfleur, D-Day und Mont-Saint-Michel.",
     ogLocale: "de_DE",
   },
 };

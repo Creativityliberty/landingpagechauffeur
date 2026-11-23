@@ -22,6 +22,7 @@ import { useLanguage } from "@/lib/i18n";
 import {
   assessCruiseSchedule,
   ExcursionSlug,
+  getVehicleCategory,
   GuestCount,
   PreferredLanguage,
 } from "@/core/domain/excursion-request";
@@ -95,7 +96,7 @@ export function BookingSection({
         `- Arrival Date: ${arrivalDate || "Not specified"}\n` +
         `- Ship Arrival: ${shipArrivalTime} | All Aboard: ${allAboardTime}\n` +
         `- Excursion: ${selectedExcursionLabel}\n` +
-        `- Guests: ${guestsCount} (Private Sedan)\n` +
+        `- Guests: ${guestsCount} (${getVehicleCategory(guestsCount) === "sedan" ? "Private Sedan" : "Private Van"})\n` +
         `- Preferred Language: ${preferredLanguage}\n` +
         (additionalRequests ? `- Notes: ${additionalRequests}\n` : "") +
         `\nPlease let me know availability and a personalized quotation.`,
@@ -646,7 +647,10 @@ export function BookingSection({
                       {t.booking.summaryLabels.vehicle}
                     </span>
                     <span className="font-semibold text-right">
-                      {t.booking.summaryLabels.privateSedan} ({guestsCount}{" "}
+                      {getVehicleCategory(guestsCount) === "sedan"
+                        ? t.booking.summaryLabels.privateSedan
+                        : t.booking.summaryLabels.privateVan}{" "}
+                      ({guestsCount}{" "}
                       {guestsCount === 1
                         ? t.booking.summaryLabels.guestSingular
                         : t.booking.summaryLabels.guestPlural}
