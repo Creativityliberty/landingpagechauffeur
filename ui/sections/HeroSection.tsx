@@ -74,7 +74,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
       <div className={`${CONFIG.theme.spacing.container} relative z-10 w-full`}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           {/* Left: Concise 4-Block Editorial Copy */}
-          <div className="lg:col-span-8 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* 1. Eyebrow */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#06101E]/75 border border-[#C8A45D]/40 text-[#C8A45D] text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8A45D]" />
@@ -132,7 +132,7 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
           </div>
 
           {/* Right: Guarantee Badge + Interactive Scene Switcher */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end gap-4">
+          <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-4">
             <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl glass-photo-overlay shadow-2xl">
               <div className="w-9 h-9 rounded-full bg-[#22C55E]/20 border border-[#22C55E]/45 flex items-center justify-center text-[#4ADE80] shrink-0">
                 <ShieldCheck size={18} strokeWidth={1.75} />
@@ -148,13 +148,13 @@ export function HeroSection({ isDarkMode: _isDarkMode }: HeroSectionProps) {
             </div>
 
             {/* Interactive Destination Scene Pills */}
-            <div className="flex flex-wrap lg:justify-end gap-1.5 p-1.5 rounded-full glass-photo-overlay">
+            <div className="flex flex-wrap lg:flex-nowrap lg:justify-end gap-1.5 p-1.5 rounded-2xl lg:rounded-full glass-photo-overlay">
               {t.hero.scenes.map((scene, idx) => (
                 <button
                   key={scene.id}
                   type="button"
                   onClick={() => setActiveSceneIndex(idx)}
-                  className={`px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
                     idx === activeSceneIndex
                       ? "bg-[#C8A45D] text-[#06101E]"
                       : "text-white/80 hover:text-white"
