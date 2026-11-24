@@ -535,15 +535,74 @@ export function BookingSection({
               )}
 
               {submittedRequestId && (
-                <div className="p-5 rounded-2xl bg-[#16A34A]/10 border border-[#16A34A]/30 space-y-2">
-                  <div className="flex items-center gap-2 text-[#16A34A] font-bold">
-                    <CheckCircle2 size={18} />
-                    <span>{t.booking.successTitle}</span>
+                <motion.div
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative rounded-3xl bg-[#0A1628] text-white p-6 sm:p-7 border border-[#C8A45D]/45 shadow-[0_24px_60px_rgba(10,22,40,0.28)] dot-grid-navy overflow-hidden space-y-5"
+                >
+                  {/* Top Header: Animated Seal + Title + Reference ID */}
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div className="flex items-center gap-3.5">
+                      <motion.div
+                        initial={{ scale: 0.6, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.12, type: "spring", stiffness: 260, damping: 18 }}
+                        className="w-12 h-12 rounded-2xl bg-[#16A34A]/20 border border-[#4ADE80]/45 flex items-center justify-center text-[#4ADE80] shrink-0 shadow-[0_0_24px_rgba(74,222,128,0.25)]"
+                      >
+                        <CheckCircle2 size={22} />
+                      </motion.div>
+                      <div>
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-[0.22em] text-[#C8A45D] mb-0.5">
+                          CARINE NORMANDY PRIVATE
+                        </span>
+                        <h3 className="font-editorial text-2xl sm:text-3xl font-semibold tracking-tight text-white leading-none">
+                          {t.booking.successTitle}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono font-semibold text-[#C8A45D]">
+                      #{submittedRequestId.slice(0, 8).toUpperCase()}
+                    </span>
                   </div>
-                  <p className="text-sm" style={{ color: theme.muted }}>
+
+                  {/* Confirmation Message */}
+                  <p className="text-sm sm:text-[15px] leading-relaxed text-slate-200">
                     {t.booking.successBody}
                   </p>
-                </div>
+
+                  {/* Boarding-Pass Mini Recap */}
+                  <div className="pt-4 border-t border-dashed border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      <span className="block text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">
+                        {t.booking.summaryLabels.excursion}
+                      </span>
+                      <span className="font-semibold text-white">
+                        {selectedExcursionLabel}
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      <span className="block text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">
+                        {t.booking.summaryLabels.portWindow}
+                      </span>
+                      <span className="font-semibold text-white">
+                        {shipArrivalTime} → {allAboardTime}
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      <span className="block text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">
+                        {t.booking.summaryLabels.vehicle}
+                      </span>
+                      <span className="font-semibold text-[#C8A45D]">
+                        {getVehicleCategory(guestsCount) === "sedan"
+                          ? t.booking.summaryLabels.privateSedan
+                          : t.booking.summaryLabels.privateVan}{" "}
+                        ({guestsCount})
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
               )}
 
               <div className="space-y-3 pt-2">
