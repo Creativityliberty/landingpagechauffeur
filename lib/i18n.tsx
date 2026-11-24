@@ -45,16 +45,36 @@ export function LanguageProvider({
 }) {
   const pathname = usePathname();
   const pathLocale = detectLocaleFromPath(pathname);
-  const [locale, setLocale] = useState<Locale>(pathLocale ?? initialLocale);
+  const [locale, setLocaleState] = useState<Locale>(pathLocale ?? initialLocale);
   const [selectedExcursion, setSelectedExcursion] =
     useState<ExcursionSlug>("etretat-honfleur");
+
+  const setLocale = (nextLocale: Locale) => {
+    setLocaleState(nextLocale);
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.setItem("carine_locale", nextLocale);
+      } catch {
+        // Ignore storage errors
+      }
+    }
+  };
 
   useEffect(() => {
     const nextPathLocale = detectLocaleFromPath(pathname);
     if (nextPathLocale) {
-      setLocale(nextPathLocale);
+      setLocaleState(nextPathLocale);
     } else if (pathname === "/") {
-      setLocale("en");
+      setLocaleState("en");
+    } else if (typeof window !== "undefined") {
+      try {
+        const saved = window.localStorage.getItem("carine_locale") as Locale | null;
+        if (saved && saved in LOCALE_DICTIONARIES) {
+          setLocaleState(saved);
+        }
+      } catch {
+        // Ignore storage errors
+      }
     }
   }, [pathname]);
 

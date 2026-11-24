@@ -8,22 +8,19 @@ const LOCALIZED_META: Record<
   { title: string; description: string; ogLocale: string }
 > = {
   fr: {
-    title:
-      "Excursions Privées depuis le Port du Havre (1–8 Passagers) | CARINE NORMANDY PRIVATE",
+    title: "Excursions Privées depuis le Port du Havre (1–8 Passagers)",
     description:
       "Excursions privées en berline (1–4 pers.) ou van (5–8 pers.) avec chauffeur au départ du terminal croisière du Havre : Étretat, Honfleur, Plages du Débarquement et Mont-Saint-Michel.",
     ogLocale: "fr_FR",
   },
   es: {
-    title:
-      "Excursiones Privadas desde el Puerto de Le Havre (1–8 Pasajeros) | CARINE NORMANDY PRIVATE",
+    title: "Excursiones Privadas desde el Puerto de Le Havre (1–8 Pasajeros)",
     description:
       "Excursiones privadas en sedán (1–4 pers.) o minivan (5–8 pers.) con conductor desde la terminal de cruceros de Le Havre: Étretat, Honfleur, Playas del Día D y Mont-Saint-Michel.",
     ogLocale: "es_ES",
   },
   de: {
-    title:
-      "Private Landausflüge ab Hafen Le Havre (1–8 Gäste) | CARINE NORMANDY PRIVATE",
+    title: "Private Landausflüge ab Hafen Le Havre (1–8 Gäste)",
     description:
       "Private Limousinen- (1–4 Gäste) und Van-Landausflüge (5–8 Gäste) mit Fahrer direkt ab dem Kreuzfahrtterminal Le Havre nach Étretat, Honfleur, D-Day und Mont-Saint-Michel.",
     ogLocale: "de_DE",

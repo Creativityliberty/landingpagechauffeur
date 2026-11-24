@@ -23,7 +23,7 @@ const CARD_SLOTS = [-3, -2, -1, 0, 1, 2, 3] as const;
 
 export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
 
   const items = CONFIG.excursions;
@@ -370,7 +370,7 @@ export function ServicesSection({ isDarkMode }: ServicesSectionProps) {
       {/* Subtle Bottom Helper + Link to All Excursions */}
       <div className={`${CONFIG.theme.spacing.container} mt-6 flex items-center justify-between gap-4`}>
         <p className="text-xs font-medium tracking-wide" style={{ color: theme.muted }}>
-          {t.excursionsSection.cards && `${total} destinations · Le Havre Cruise Port`}
+          {`${total} ${locale === "es" ? "destinos" : locale === "de" ? "Reiseziele" : "destinations"} · ${t.brandPortLabel}`}
         </p>
         <Link
           href="/excursions"

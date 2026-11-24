@@ -101,18 +101,58 @@ export function BookingSection({
   };
 
   const buildWhatsAppUrl = () => {
+    const vehicleLabel =
+      getVehicleCategory(guestsCount) === "sedan"
+        ? t.booking.summaryLabels.privateSedan
+        : t.booking.summaryLabels.privateVan;
+
+    const introMap: Record<string, { hello: string; ship: string; date: string; win: string; guests: string; outro: string }> = {
+      fr: {
+        hello: `Bonjour ${CONFIG.brand.name} ! Je souhaite demander un devis pour une excursion privée depuis le Terminal Croisière du Havre :`,
+        ship: "Navire",
+        date: "Date",
+        win: "Escale",
+        guests: "Passagers",
+        outro: "Merci de m'indiquer vos disponibilités et votre tarif personnalisé.",
+      },
+      es: {
+        hello: `¡Hola ${CONFIG.brand.name}! Quisiera solicitar una excursión privada desde la terminal de cruceros de Le Havre:`,
+        ship: "Barco",
+        date: "Fecha",
+        win: "Escala",
+        guests: "Pasajeros",
+        outro: "Por favor, indíqueme disponibilidad y presupuesto personalizado.",
+      },
+      de: {
+        hello: `Hallo ${CONFIG.brand.name}! Ich möchte einen privaten Landausflug ab dem Kreuzfahrtterminal Le Havre anfragen:`,
+        ship: "Schiff",
+        date: "Datum",
+        win: "Liegezeit",
+        guests: "Gäste",
+        outro: "Bitte teilen Sie mir Verfügbarkeit und Ihren individuellen Fahrzeugpreis mit.",
+      },
+      en: {
+        hello: `Hello ${CONFIG.brand.name}! I would like to request a private shore excursion from Le Havre Cruise Port:`,
+        ship: "Ship",
+        date: "Arrival Date",
+        win: "Port Window",
+        guests: "Guests",
+        outro: "Please let me know availability and a personalized quotation.",
+      },
+    };
+    const copy = introMap[locale] || introMap.en;
+
     const text = encodeURIComponent(
-      `Hello ${CONFIG.brand.name}! I would like to request a private shore excursion from Le Havre Cruise Port:\n\n` +
-        `- Name: ${fullName || "Not specified"}\n` +
-        `- Email: ${email || "Not specified"}\n` +
-        `- Ship: ${cruiseShipName || "Not specified"}\n` +
-        `- Arrival Date: ${arrivalDate || "Not specified"}\n` +
-        `- Ship Arrival: ${shipArrivalTime} | All Aboard: ${allAboardTime}\n` +
-        `- Excursion: ${selectedExcursionLabel}\n` +
-        `- Guests: ${guestsCount} (${getVehicleCategory(guestsCount) === "sedan" ? "Private Sedan" : "Private Van"})\n` +
-        `- Preferred Language: ${preferredLanguage}\n` +
+      `${copy.hello}\n\n` +
+        `- ${t.booking.fields.fullName}: ${fullName || "—"}\n` +
+        `- ${t.booking.fields.email}: ${email || "—"}\n` +
+        `- ${copy.ship}: ${cruiseShipName || "—"}\n` +
+        `- ${copy.date}: ${arrivalDate || "—"}\n` +
+        `- ${copy.win}: ${shipArrivalTime} → ${allAboardTime}\n` +
+        `- ${t.booking.summaryLabels.excursion}: ${selectedExcursionLabel}\n` +
+        `- ${copy.guests}: ${guestsCount} (${vehicleLabel})\n` +
         (additionalRequests ? `- Notes: ${additionalRequests}\n` : "") +
-        `\nPlease let me know availability and a personalized quotation.`,
+        `\n${copy.outro}`,
     );
     return `https://wa.me/${CONFIG.contact.whatsapp}?text=${text}`;
   };
