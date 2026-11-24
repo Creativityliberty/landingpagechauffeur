@@ -337,5 +337,22 @@
       "Où se trouve le point de rendez-vous au Havre ?"
     ],
     "chatPlaceholder": "Posez votre question sur votre escale..."
+  },
+  "portGuide": {
+    "eyebrow": "Guide Terminal Croisière du Havre",
+    "title": "Arrivée au Port Croisière du Havre",
+    "intro": "Votre chauffeur privé vous accueille directement à la sortie du terminal (Pointe de Floride / Terminal Croisière du Havre) avec un panneau nominatif. Évitez l'attente des taxis et des bus de groupe : votre Berline (1–4) ou Van (5–8) part dès votre sortie du navire.",
+    "colDestination": "Destination",
+    "colDeparture": "Départ",
+    "colSchedule": "Horaires",
+    "colVehicle": "Véhicule",
+    "departureVal": "Terminal Croisière du Havre",
+    "scheduleVal": "Adapté à votre escale",
+    "vehicleVal": "Berline (1–4) & Van (5–8) Privés",
+    "bufferTitle": "Marge de Sécurité Retour Navire",
+    "bufferDesc": "Chaque itinéraire est calé sur votre heure limite à bord afin de garantir un retour serein et confortable au port.",
+    "monitorTitle": "Suivi des Arrivées Navires",
+    "monitorDesc": "Nous suivons en direct les horaires du port du Havre : votre chauffeur vous attend au quai même si l'accostage évolue.",
+    "cta": "DEMANDER VOTRE EXCURSION PRIVÉE"
   }
 }

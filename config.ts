@@ -42,7 +42,7 @@ export const CONFIG = {
     whatsapp: "33661619697",
     phoneInternational: "+33 6 61 61 96 97",
     phone: "06 61 61 96 97",
-    email: "contact@chauffeur-prive.fr",
+    email: "reservations@carinevtc.com",
     socials: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",

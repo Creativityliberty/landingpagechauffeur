@@ -337,5 +337,22 @@
       "Where does the driver meet us at Le Havre?"
     ],
     "chatPlaceholder": "Ask about your ship schedule or excursion..."
+  },
+  "portGuide": {
+    "eyebrow": "Le Havre Cruise Terminal Guide",
+    "title": "Arriving at Le Havre Cruise Port",
+    "intro": "Your private driver meets you directly outside your ship's terminal exit (Pointe de Floride / Terminal Croisière du Havre) with a personalized name sign. Avoid taxi queues and group tour bus waiting times—your Sedan (1–4) or Van (5–8) departs as soon as your party steps off the ship.",
+    "colDestination": "Destination",
+    "colDeparture": "Departure",
+    "colSchedule": "Schedule",
+    "colVehicle": "Vehicle",
+    "departureVal": "Le Havre Cruise Terminal",
+    "scheduleVal": "Tailored to ship schedule",
+    "vehicleVal": "Private Sedan (1–4) & Van (5–8)",
+    "bufferTitle": "All-Aboard Safety Buffer",
+    "bufferDesc": "Every itinerary is built backwards from your ship's all-aboard time with a generous safety buffer before final boarding.",
+    "monitorTitle": "Ship Arrival Monitoring",
+    "monitorDesc": "We track live Le Havre port arrival schedules so your driver is already waiting at the terminal exit even if docking times shift.",
+    "cta": "REQUEST YOUR PRIVATE TOUR"
   }
 }

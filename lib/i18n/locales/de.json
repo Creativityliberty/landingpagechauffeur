@@ -337,5 +337,22 @@
       "Wo ist der Treffpunkt im Hafen?"
     ],
     "chatPlaceholder": "Frage zu Schiffszeiten oder Ausflug..."
+  },
+  "portGuide": {
+    "eyebrow": "Kreuzfahrtterminal-Guide Le Havre",
+    "title": "Ankunft im Hafen Le Havre",
+    "intro": "Ihr privater Chauffeur empfängt Sie direkt am Ausgang des Terminals (Pointe de Floride / Terminal Croisière du Havre) mit einem Namensschild. Keine Warteschlangen, keine Gruppenbusse: Ihre Limousine (1–4) oder Ihr Van (5–8) startet sofort nach dem Ausstieg.",
+    "colDestination": "Reiseziel",
+    "colDeparture": "Abfahrt",
+    "colSchedule": "Zeitplan",
+    "colVehicle": "Fahrzeug",
+    "departureVal": "Kreuzfahrtterminal Le Havre",
+    "scheduleVal": "Abgestimmt auf Liegezeit",
+    "vehicleVal": "Limousine (1–4) & Van (5–8)",
+    "bufferTitle": "Sicherheits-Puffer vor Abfahrt",
+    "bufferDesc": "Jede Route wird rückwärts von Ihrer All-Aboard-Zeit geplant, damit Sie entspannt und pünktlich zurückkehren.",
+    "monitorTitle": "Live-Schiffsüberwachung",
+    "monitorDesc": "Wir verfolgen die Ankunftszeiten im Hafen Le Havre live – Ihr Fahrer wartet auch bei Verschiebungen direkt am Ausgang.",
+    "cta": "PRIVAT-AUSFLUG ANFRAGEN"
   }
 }

@@ -337,5 +337,22 @@
       "¿Dónde nos recoge el conductor?"
     ],
     "chatPlaceholder": "Pregunte sobre su escala o excursión..."
+  },
+  "portGuide": {
+    "eyebrow": "Guía Terminal de Cruceros de Le Havre",
+    "title": "Llegada al Puerto de Le Havre",
+    "intro": "Su conductor privado le espera directamente a la salida de la terminal (Pointe de Floride / Terminal Croisière du Havre) con un cartel con su nombre. Evite colas de taxis y autobuses: su Sedán (1–4) o Van (5–8) sale en cuanto desembarque.",
+    "colDestination": "Destino",
+    "colDeparture": "Salida",
+    "colSchedule": "Horario",
+    "colVehicle": "Vehículo",
+    "departureVal": "Terminal de Cruceros de Le Havre",
+    "scheduleVal": "Adaptado a su escala",
+    "vehicleVal": "Sedán (1–4) y Van (5–8) Privados",
+    "bufferTitle": "Margen de Seguridad de Embarque",
+    "bufferDesc": "Cada itinerario se organiza en torno a su hora límite de embarque para garantizar un regreso puntual al muelle.",
+    "monitorTitle": "Seguimiento de Llegadas",
+    "monitorDesc": "Monitorizamos en vivo los horarios portuarios de Le Havre para esperarle aunque cambie la hora de atraque.",
+    "cta": "SOLICITAR SU EXCURSIÓN PRIVADA"
   }
 }
