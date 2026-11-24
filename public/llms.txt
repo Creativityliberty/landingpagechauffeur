@@ -7,18 +7,20 @@
 - **Service**: Private shore excursions by executive Sedan (1–4 guests) or Private Van (5–8 guests) exclusively for your group.
 - **Departure & Return**: Direct pick-up and drop-off at Le Havre Cruise Terminal (Normandy, France).
 - **Pricing Model**: Per-vehicle quotation (never shared with strangers, never per-seat tickets). All bookings are subject to availability and confirmation via personalized quotation.
-- **Communication**: Multilingual private driver (English, French, Spanish, German, and more).
+- **Communication**: Multilingual private driver (English, French, Spanish, German).
 - **Legal Scope**: Private chauffeur-driven transportation service. Licensed interior monument/museum guided tours are not included.
 - **Website**: https://www.carinevtc.com
+- **Multilingual Homepages**: `/` (EN), `/fr` (FR), `/es` (ES), `/de` (DE)
 - **WhatsApp / Phone**: +33 6 61 61 96 97
-- **Email**: contact@chauffeur-prive.fr
+- **Email**: reservations@carinevtc.com
 
 ## Main Private Shore Excursions from Le Havre Cruise Port
-1. **Étretat – The Famous Cliffs** (`/excursions/etretat`): ~35 min from pier, approx. 4 hours indicative duration. White chalk cliffs, natural arches, coastal viewpoints.
-2. **Honfleur – The Charming Harbour** (`/excursions/honfleur`): ~30 min from pier across Pont de Normandie, approx. 4 hours indicative duration. Historic Vieux Bassin, cobblestone streets, wooden Sainte-Catherine Church.
-3. **Mont-Saint-Michel – A Magical Destination** (`/excursions/mont-saint-michel`): ~2h30 each way, full-day excursion adapted to extended ship schedules (11+ hour port stay recommended).
-4. **D-Day Landing Beaches – A Journey Through History** (`/excursions/dday-landing-beaches`): ~1h45 each way, approx. 8 hours indicative duration. Omaha Beach, Normandy American Cemetery (Colleville-sur-Mer), Pointe du Hoc.
-5. **Custom Itinerary** (`/#booking`): Flexible combinations such as Étretat + Honfleur tailored to the ship's arrival and all-aboard times.
+1. **Étretat + Honfleur – Most Popular Shore Combo** (`/excursions/etretat-honfleur`): Combined private shore excursion to Étretat's white chalk cliffs and Honfleur's historic Vieux Bassin, tailored to your ship's schedule.
+2. **Étretat – The Famous Cliffs** (`/excursions/etretat`): White chalk cliffs, natural arches, and dramatic coastal viewpoints.
+3. **Honfleur – The Charming Harbour** (`/excursions/honfleur`): Historic Vieux Bassin, cobblestone streets, and wooden Sainte-Catherine Church across the Pont de Normandie.
+4. **D-Day Landing Beaches – A Journey Through History** (`/excursions/dday-landing-beaches`): Omaha Beach, Normandy American Cemetery (Colleville-sur-Mer), and Pointe du Hoc.
+5. **Mont-Saint-Michel – A Magical Destination** (`/excursions/mont-saint-michel`): Iconic island village, tidal bay, and medieval abbey tailored to ships with suitable port stays.
+6. **Paris · Eiffel Tower – Private Day Trip to Paris** (`/excursions/eiffel-tower`): Direct private round-trip transfer from Le Havre Cruise Port to Trocadéro and the Eiffel Tower.
 
 ## Port Schedule Safety Rule
 Every booking request collects the cruise ship name, arrival date, ship arrival time, and latest all-aboard time so itineraries always include a safe return buffer before departure.
