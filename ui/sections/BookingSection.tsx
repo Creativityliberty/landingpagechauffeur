@@ -40,7 +40,7 @@ export function BookingSection({
   headingAs = "h2",
 }: BookingSectionProps) {
   const theme = isDarkMode ? CONFIG.theme.modes.dark : CONFIG.theme.modes.light;
-  const { t, selectedExcursion } = useLanguage();
+  const { t, locale, selectedExcursion } = useLanguage();
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -56,6 +56,18 @@ export function BookingSection({
   const [preferredLanguage, setPreferredLanguage] =
     useState<PreferredLanguage>("English");
   const [additionalRequests, setAdditionalRequests] = useState("");
+
+  useEffect(() => {
+    const map: Record<string, PreferredLanguage> = {
+      fr: "French",
+      es: "Spanish",
+      de: "German",
+      en: "English",
+    };
+    if (map[locale]) {
+      setPreferredLanguage(map[locale]);
+    }
+  }, [locale]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
